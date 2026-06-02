@@ -32,7 +32,7 @@ type SolutionContentProps = {
 
 function SolutionContent({ action, packageName, subtitle, desc, className }: SolutionContentProps) {
 	return (
-		<CardSection className={`min-w-100 shrink-0 sm:min-w-0 sm:shrink ${className ?? ""}`}>
+		<CardSection className={`min-w-86 shrink-0 sm:min-w-0 sm:shrink ${className ?? ""}`}>
 			<div className="flex flex-col gap-3">
 				<div className="font-bold text-2xl flex flex-col">
 					<span className="text-slate-600 text-lg">{packageName}</span>
