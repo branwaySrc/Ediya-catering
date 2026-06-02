@@ -11,9 +11,24 @@ function HeroLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<div className="bg-content overflow-hidden pb-30 relative">
 			<div className="mx-auto max-w-7xl sm:pt-10 relative flex flex-col">{children}</div>
-			<figure className="pointer-events-none absolute inset-x-0 bottom-0 h-36 overflow-hidden">
-				<div className="animate-car-run motion-reduce:animate-none absolute bottom-0 left-0">
-					<Image src={"/coffee-car.svg"} alt="ediya-car" width={150} height={150} priority className="h-auto" />
+			<figure className="pointer-events-none absolute inset-x-0 bottom-0 h-40 overflow-hidden sm:h-44">
+				<div className="absolute bottom-0 left-0" style={{ animation: "car-run 8s linear infinite" }}>
+					<div
+						className="relative"
+						style={{
+							animation: "car-bob 900ms ease-in-out infinite",
+							transformOrigin: "center bottom",
+						}}
+					>
+						<Image
+							src={"/coffee-car.svg"}
+							alt="ediya-car"
+							width={150}
+							height={150}
+							priority
+							className="h-auto w-[10rem] drop-shadow-[0_16px_24px_rgba(27,46,116,0.18)]"
+						/>
+					</div>
 				</div>
 			</figure>
 		</div>
