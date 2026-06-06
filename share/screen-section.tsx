@@ -15,7 +15,7 @@ export function ScreenSection({ children, className, ...rest }: ScreenSectionPro
 
 export function CardSection({ children, className, ...rest }: ScreenSectionProps) {
 	return (
-		<section className={`${className} theme-border py-7 px-6 m-3 sm:m-0 sm:my-3`} {...rest}>
+		<section className={`${className} theme-border py-7 px-6`} {...rest}>
 			{children}
 		</section>
 	);

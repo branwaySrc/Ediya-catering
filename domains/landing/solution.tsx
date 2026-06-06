@@ -1,6 +1,9 @@
 import { Button } from "@/share/button";
 import { CardSection } from "@/share/screen-section";
 import { LinkProps } from "@/share/button";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 function SolutionLayout({ children }: { children: React.ReactNode }) {
 	return (
@@ -12,10 +15,10 @@ function SolutionLayout({ children }: { children: React.ReactNode }) {
 
 function SolutionHeading({ action }: { action: React.ReactNode }) {
 	return (
-		<div className="p-4 flex justify-between">
-			<h2 className="text-white text-2xl font-bold flex flex-col">
-				<span>케이터링이 처음이신가요?</span>
-				<span>최적화된 패키지를 소개합니다!</span>
+		<div className="p-4 flex justify-between mb-4">
+			<h2 className="text-white text-2xl flex flex-col">
+				<span className="">케이터링이 처음이신가요?</span>
+				<span className="font-bold">최적화된 패키지를 소개합니다!</span>
 			</h2>
 			{action}
 		</div>
@@ -23,34 +26,45 @@ function SolutionHeading({ action }: { action: React.ReactNode }) {
 }
 
 type SolutionContentProps = {
-	action: React.ReactNode;
 	packageName: string;
 	subtitle: string;
 	desc: string;
 	className?: string;
+	image: string;
+	href: string;
 };
 
-function SolutionContent({ action, packageName, subtitle, desc, className }: SolutionContentProps) {
+function SolutionContent({ packageName, subtitle, desc, className, image, href }: SolutionContentProps) {
 	return (
-		<CardSection className={`min-w-86 shrink-0 sm:min-w-0 sm:shrink ${className ?? ""}`}>
-			<div className="flex flex-col gap-3">
-				<div className="font-bold text-2xl flex flex-col">
-					<span className="text-slate-600 text-lg">{packageName}</span>
-					<span className="text-primary">{subtitle}</span>
+		<CardSection className={`relative overflow-hidden max-h-70 border-none min-w-86 shrink-0 ml-4 md:min-w-0 md:shrink ${className ?? ""}`}>
+			<Link href={"/"}>
+				<div className="flex flex-col gap-3">
+					<div className="font-bold text-2xl flex flex-col z-30">
+						<span className="text-slate-800 text-lg">{packageName}</span>
+						<span className="text-slate-800">{subtitle}</span>
+					</div>
+					<aside className="text-slate-700 text-sm z-30">
+						<p>{desc}</p>
+					</aside>
 				</div>
-				<aside className="text-slate-500 text-sm">
-					<p>{desc}</p>
+				<figure className="absolute inset-0 overflow-hidden bottom-0">
+					<Image src={image} alt="package-bg" height={475} width={650} className="max-w-none object-cover w-110 h-auto" />
+				</figure>
+				<aside className="mt-25 z-30">
+					<div className="relative text-slate-100 font-bold text-sm z-30 flex items-center gap-1 transition-all hover:gap-4">
+						<span>자세히 보기</span>
+						<ArrowRight size={14} />
+					</div>
 				</aside>
-			</div>
-			<aside className="mt-25">{action}</aside>
+			</Link>
 		</CardSection>
 	);
 }
 
 type SolutionActionProps = Omit<LinkProps, "children">;
-function SolutionAction({ title, href, ...rest }: SolutionActionProps) {
+function SolutionAction({ title, href, className, ...rest }: SolutionActionProps) {
 	return (
-		<Button.Link href={href} {...rest}>
+		<Button.Link href={href} className={`${className}`} {...rest} icon={ArrowRight} iconPosition="right">
 			{title}
 		</Button.Link>
 	);

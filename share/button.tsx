@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ComponentPropsWithoutRef, ButtonHTMLAttributes, ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 
-type ButtonVariant = "primary" | "ghost" | "outlined";
+type ButtonVariant = "primary" | "ghost" | "outlined" | "base";
 type ButtonSize = "md" | "icon";
 type IconPosition = "left" | "right";
 
@@ -31,6 +31,7 @@ const variantStyles: Record<ButtonVariant, string> = {
 	primary: "bg-[#1B2E74] text-white hover:bg-[#15255F] hover:shadow-md active:translate-y-[1px]",
 	ghost: "border border-[#1B2E74]/15 bg-white text-[#1B2E74] hover:border-[#1B2E74]/30 hover:bg-slate-100 active:translate-y-[1px]",
 	outlined: "border border-white bg-transparent text-white hover:borer-white/50 hover:bg-white/20 active:translate-y-[1px]",
+	base: "bg-transparent text-white hover:bg-white/20 active:translate-y-[1px]",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
