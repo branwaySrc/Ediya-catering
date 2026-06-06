@@ -1,6 +1,6 @@
 import { Button } from "@/share/button";
 import { CardSection } from "@/share/screen-section";
-import { ArrowBigLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const HEADING_CONTENT = {
@@ -58,8 +58,8 @@ function HeroWelcome() {
 }
 
 function HeroDownload() {
-	const MENU = "이디야 케이터링 메뉴 카달로그";
-	const COMPANY = "이디야 케이터링 지점 소개";
+	const MENU = ["이디야 케이터링", "메뉴 카달로그"];
+	const COMPANY = ["이디야 케이터링", "지점 소개"];
 
 	return (
 		<aside className="flex flex-col h-full gap-2 px-2 sm:px-0">
@@ -74,7 +74,10 @@ function HeroDownload() {
 					/>
 				</figure>
 				<div className="relative flex justify-between items-center sm:flex-col sm:items-baseline sm:justify-between sm:h-full">
-					<span className="font-bold text-white sm:text-lg">{MENU}</span>
+					<article className="flex flex-col md:flex-row md:gap-1 font-bold sm:text-lg text-sm">
+						<span className="text-slate-400">{MENU[0]}</span>
+						<span className="text-white">{MENU[1]}</span>
+					</article>
 					<figure className="hidden absolute -bottom-8 left-0 sm:flex rotate-6">
 						<Image src={"/catalogue.svg"} alt="catalogue-book" height={80} width={220} />
 					</figure>
@@ -85,7 +88,10 @@ function HeroDownload() {
 			</CardSection>
 			<CardSection className="h-20 flex flex-col justify-center bg-slate-800">
 				<div className="flex justify-between items-center">
-					<span className="font-bold text-white sm:text-lg">{COMPANY}</span>
+					<article className="flex flex-col md:flex-row md:gap-1 font-bold sm:text-lg text-sm">
+						<span className="text-slate-400">{COMPANY[0]}</span>
+						<span className="text-white ">{COMPANY[1]}</span>
+					</article>
 					<Button.Link variant="outlined" href={"/"} icon={ArrowRight} iconPosition="right">
 						소개 바로가기
 					</Button.Link>
@@ -107,7 +113,7 @@ function HeroCard({ action }: { action: React.ReactNode }) {
 					<p>{HEADING_CONTENT.DESC}</p>
 				</aside>
 			</div>
-			<figure className="pointer-events-none absolute bottom-0 right-0 z-0">
+			<figure className="pointer-events-none absolute bottom-0 -right-2 z-0">
 				<div className="absolute inset-x-0 bottom-0 z-10 h-30 bg-linear-to-t from-white via-white/80 to-transparent" />
 				<Image src={"/model.png"} alt="model" width={250} height={250} />
 			</figure>

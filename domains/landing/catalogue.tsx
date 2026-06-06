@@ -1,5 +1,6 @@
 import { Button } from "@/share/button";
-import { CardSection, ScreenSection } from "@/share/screen-section";
+import { CardSection } from "@/share/screen-section";
+import { ScreenSection } from "@/share/screen-section";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,10 +15,10 @@ function CatalogueLayout({ children }: { children: React.ReactNode }) {
 
 function CatalogueHeader() {
 	return (
-		<div className="pb-10 flex flex-col px-4 text-2xl gap-0">
+		<ScreenSection className="pb-4 md:pb-8 flex flex-col text-2xl">
 			<span className="font-bold text-slate-500">이디야 커피 케이터링</span>
 			<span className="font-bold text-slate-800">세부 카테고리</span>
-		</div>
+		</ScreenSection>
 	);
 }
 
@@ -42,7 +43,6 @@ function CatalgueHero() {
 
 type SolutionContentProps = {
 	packageName: string;
-
 	className?: string;
 	image: string;
 	href: string;
@@ -59,12 +59,12 @@ function CatalogueCategory({ packageName, className, image, href }: SolutionCont
 						<span className="text-slate-800 text-xl">{packageName}</span>
 					</div>
 				</div>
-				<figure className="absolute inset-0 overflow-hidden lg:left-4 left-2 right-0">
-					<Image src={image} alt="catalogue-bg" height={250} width={250} className="max-w-none object-cover w-auto h-auto" />
+				<figure className="absolute inset-0 flex items-center justify-center overflow-hidden bottom-2">
+					<Image src={image} alt="catalogue-bg" height={250} width={250} className="size-[15.625rem] max-w-none object-contain" />
 				</figure>
 				<aside className="z-30">
 					<div className="relative text-slate-800 font-bold text-sm z-30 flex items-center gap-1 transition-all hover:gap-4">
-						<span>자세히 보기</span>
+						<span>가능 메뉴 보기</span>
 						<ArrowRight size={14} />
 					</div>
 				</aside>
