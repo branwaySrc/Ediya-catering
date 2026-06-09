@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, Menu, House, Gift, Donut, Coffee } from "lucide-react";
 import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
+import { type LucideIcon } from "lucide-react";
 
 export default function Navigation() {
 	return (
@@ -14,16 +15,16 @@ export default function Navigation() {
 				<div>
 					<ul className="hidden lg:flex gap-4 items-center justify-center">
 						<li>
-							<MenuTab title="지점소개" href="/" />
+							<MenuTab icon={House} title="지점소개" href="/" />
 						</li>
 						<li>
-							<MenuTab title="이디야 메뉴" href="/" />
+							<MenuTab icon={Coffee} title="케이터링" href="/" />
 						</li>
 						<li>
-							<MenuTab title="케이터링 패키지" href="/" />
+							<MenuTab icon={Donut} title="프리미엄 스낵바" href="/" />
 						</li>
 						<li>
-							<MenuTab title="오피스 스낵바" href="/" />
+							<MenuTab icon={Gift} title="시즌 기프트" href="/" />
 						</li>
 					</ul>
 				</div>
@@ -40,9 +41,9 @@ export default function Navigation() {
 	);
 }
 
-function MenuTab({ title, href }: { title: string; href: string }) {
+function MenuTab({ title, href, icon }: { title: string; href: string; icon: LucideIcon }) {
 	return (
-		<Button.Link href={href} variant="ghost" className="text-slate-800 hover:text-primary">
+		<Button.Link href={href} variant="ghost" className="text-slate-800 hover:text-primary" icon={icon}>
 			{title}
 		</Button.Link>
 	);

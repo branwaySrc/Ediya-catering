@@ -8,6 +8,8 @@ const HEADING_CONTENT = {
 	DESC: "맛과 품격을 동시에 높이는 최고의 선택!",
 };
 
+const HERO_WELCOME_WORDS = ["커피 케이터링", "프라이빗 스낵바", "기프트 패키지"];
+
 function HeroLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<div className="bg-content overflow-hidden pb-30 relative">
@@ -41,14 +43,24 @@ function HeroLayout({ children }: { children: React.ReactNode }) {
 	);
 }
 
-function HeroWelcome() {
+function HeroWelcome({ words = HERO_WELCOME_WORDS }: { words?: string[] }) {
+	const rollingWords = words.length > 0 ? [...words, words[0]] : [...HERO_WELCOME_WORDS, HERO_WELCOME_WORDS[0]];
+
 	return (
-		<div className="hidden sm:flex sm:flex-col md:flex-row items-start justify-between pl-6 mb-10 gap-4">
-			<div className="flex flex-col font-bold text-5xl gap-2">
-				<span className="block text-primary">커피 케이터링</span>
-				<span className="block text-slate-600">이디야 커피로 쉽고 완벽하게!</span>
+		<div className="sm:flex sm:flex-col md:flex-row items-start justify-between sm:pl-6 gap-4 py-15 sm:pb-10 sm:pt-0">
+			<div className="flex flex-col font-bold text-3xl sm:text-5xl gap-2 sm:gap-2 text-center sm:text-start">
+				<span className="block h-[1.15em] overflow-hidden">
+					<span className="flex animate-hero-welcome-slide flex-col text-primary">
+						{rollingWords.map((word, index) => (
+							<span key={`${word}-${index}`} className="block leading-[1.15]">
+								{word}
+							</span>
+						))}
+					</span>
+				</span>
+				<span className="block text-slate-600 text-2xl sm:text-3xl">이디야와 함께 쉽고 완벽하게!</span>
 			</div>
-			<div className="flex md:flex-col items-end text-xl font-bold sm:gap-4 sm:text-lg md:gap-0 md:border-t-2 border-slate-400 w-full md:w-[50%] md:mt-5 pt-4 mr-4">
+			<div className="hidden sm:flex md:flex-col items-end text-xl font-bold sm:gap-4 sm:text-lg md:gap-0 md:border-t-2 border-slate-400 w-full md:w-[50%] md:mt-5 pt-4 mr-4">
 				<span className="text-primary">신뢰할 수 있는 커피</span>
 				<span className="text-slate-500">품격 있는 행사 브랜딩</span>
 				<span className="text-slate-400">합리적인 맞춤 견적</span>
@@ -68,6 +80,7 @@ function HeroDownload() {
 					<Image
 						src={"/catalogue-background.png"}
 						alt="catalogue-bg"
+						loading="lazy"
 						height={475}
 						width={750}
 						className="max-w-none object-cover w-175 h-62 opacity-90"
@@ -137,8 +150,8 @@ function HeroAction() {
 
 function HeroVideo() {
 	return (
-		<div className="max-w-7xl h-60 sm:h-150 flex items-center justify-center overflow-hidden sm:rounded-xl">
-			<video autoPlay muted loop className="object-cover h-60 sm:h-150 w-screen">
+		<div className="max-w-7xl h-80 sm:h-150 flex items-center justify-center overflow-hidden sm:rounded-xl">
+			<video autoPlay muted loop className="object-cover h-80 sm:h-150 w-screen">
 				<source src="/videos/hero.mp4" type="video/mp4" />
 			</video>
 		</div>

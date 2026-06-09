@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-function SolutionLayout({ children }: { children: React.ReactNode }) {
+function PackageLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<div className="bg-slate-800 py-10">
 			<div className="mx-auto max-w-7xl sm:pt-10 relative flex flex-col">{children}</div>
@@ -14,7 +14,7 @@ function SolutionLayout({ children }: { children: React.ReactNode }) {
 	);
 }
 
-function SolutionHeading({ action }: { action: React.ReactNode }) {
+function PackageHeading({ action }: { action: React.ReactNode }) {
 	return (
 		<ScreenSection className="p-4 flex w-full justify-between mb-4">
 			<h2 className="text-white text-2xl flex flex-col">
@@ -26,7 +26,7 @@ function SolutionHeading({ action }: { action: React.ReactNode }) {
 	);
 }
 
-type SolutionContentProps = {
+type PackageContentProps = {
 	packageName: string;
 	subtitle: string;
 	desc: string;
@@ -35,7 +35,7 @@ type SolutionContentProps = {
 	href: string;
 };
 
-function SolutionContent({ packageName, subtitle, desc, className, image, href }: SolutionContentProps) {
+function PackageContent({ packageName, subtitle, desc, className, image, href }: PackageContentProps) {
 	return (
 		<CardSection className={`relative overflow-hidden h-86 border-none min-w-86 shrink-0 ml-4 md:min-w-0 md:shrink ${className ?? ""}`}>
 			<Link href={href || "/"}>
@@ -62,8 +62,8 @@ function SolutionContent({ packageName, subtitle, desc, className, image, href }
 	);
 }
 
-type SolutionActionProps = Omit<LinkProps, "children">;
-function SolutionAction({ title, href, className, ...rest }: SolutionActionProps) {
+type PackageActionProps = Omit<LinkProps, "children">;
+function PackageAction({ title, href, className, ...rest }: PackageActionProps) {
 	return (
 		<Button.Link href={href} className={`${className}`} {...rest} icon={ArrowRight} iconPosition="right">
 			{title}
@@ -71,9 +71,9 @@ function SolutionAction({ title, href, className, ...rest }: SolutionActionProps
 	);
 }
 
-export const Solution = {
-	Layout: SolutionLayout,
-	Heading: SolutionHeading,
-	Content: SolutionContent,
-	Action: SolutionAction,
+export const Package = {
+	Layout: PackageLayout,
+	Heading: PackageHeading,
+	Content: PackageContent,
+	Action: PackageAction,
 };

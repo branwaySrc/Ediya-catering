@@ -147,5 +147,6 @@ body {
     border-slate-200
     shadow-2xl
     shadow-slate-200/10
-    rounded-2xl;
+    sm:rounded-lg
+		rounded-sm;
 }

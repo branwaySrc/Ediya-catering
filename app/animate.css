@@ -1,0 +1,29 @@
+@keyframes hero-welcome-slide {
+	0%,
+	22% {
+		transform: translate3d(0, 0, 0);
+	}
+
+	33%,
+	55% {
+		transform: translate3d(0, -1.15em, 0);
+	}
+
+	66%,
+	88% {
+		transform: translate3d(0, -2.3em, 0);
+	}
+
+	99.99% {
+		transform: translate3d(0, -3.45em, 0);
+	}
+
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.animate-hero-welcome-slide {
+	animation: hero-welcome-slide 8s ease-in-out infinite;
+	will-change: transform;
+}
