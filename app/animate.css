@@ -27,3 +27,18 @@
 	animation: hero-welcome-slide 8s ease-in-out infinite;
 	will-change: transform;
 }
+
+@keyframes giftbox-slider {
+	0% {
+		transform: translate3d(-50%, 0, 0);
+	}
+
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.animate-giftbox-slider {
+	animation: giftbox-slider 32s linear infinite;
+	will-change: transform;
+}

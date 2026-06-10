@@ -66,9 +66,10 @@ export default function Home() {
 				<SnackBar.Layout>
 					<SnackBar.Header />
 					<SnackBar.Hero />
-					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-2 md:overflow-visible md:gap-4 md:pb-0">
-						<SnackBar.Category packageName="커피/티" image="/catering-drinks.png" href="/" />
-						<SnackBar.Category packageName="스낵" image="/catering-snacks.png" href="/" />
+					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible md:gap-4 md:pb-0">
+						<SnackBar.Category packageName="음료 스테이션" image="/snackbar-drink-station.png" href="/" />
+						<SnackBar.Category packageName="디저트 스테이션" image="/snackbar-snack-station.png" href="/" />
+						<SnackBar.Category packageName="라운지 스테이션" image="/snackbar-lounge-station.png" href="/" />
 						<div className="ml-5" />
 					</div>
 				</SnackBar.Layout>
@@ -76,11 +77,7 @@ export default function Home() {
 				<GiftBox.Layout>
 					<GiftBox.Header />
 					<GiftBox.Hero />
-					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-2 md:overflow-visible md:gap-4 md:pb-0">
-						<GiftBox.Category packageName="커피/티" image="/catering-drinks.png" href="/" />
-						<GiftBox.Category packageName="스낵" image="/catering-snacks.png" href="/" />
-						<div className="ml-5" />
-					</div>
+					<GiftBox.Slider />
 				</GiftBox.Layout>
 			</section>
 		</div>

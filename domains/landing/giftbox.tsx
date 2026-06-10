@@ -2,9 +2,8 @@ import { Button } from "@/share/button";
 import { CardSection } from "@/share/screen-section";
 import { ScreenSection } from "@/share/screen-section";
 import { TitleBadge } from "@/share/title-badge";
-import { ArrowRight, Gift,File } from "lucide-react";
+import { ArrowRight, Gift } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 function GiftBoxLayout({ children }: { children: React.ReactNode }) {
 	return (
@@ -20,7 +19,7 @@ function GiftBoxHeader() {
 		<ScreenSection className="pb-4 md:pb-8 flex flex-col text-2xl">
 			<TitleBadge>
 				<TitleBadge.Icon backgroundColor={["#04D48F", `${baseColor}`]} icon={Gift} className="text-white" />
-				<TitleBadge.Title>EDIYA MD기프트</TitleBadge.Title>
+				<TitleBadge.Title>EDIYA 시즌 기프트</TitleBadge.Title>
 				<TitleBadge.Badge className={`border-[#009249] text-[#009249]`}>SEASONAL</TitleBadge.Badge>
 			</TitleBadge>
 			<span className="font-bold text-slate-800">
@@ -33,7 +32,7 @@ function GiftBoxHeader() {
 
 function GiftBoxHero() {
 	return (
-		<div className="relative h-120 sm:h-180 overflow-hidden mb-4">
+		<div className="relative h-120 sm:h-150 overflow-hidden mb-4">
 			<aside className="z-10 absolute bottom-6 sm:place-self-end left-6 right-6 grid grid-cols-2 gap-3 sm:gap-1.5 sm:grid-cols-1">
 				<Button.Link href={"/"} className="text-white bg-green-700 hover:bg-emerald-900" variant="none" icon={ArrowRight} iconPosition="right">
 					지금 바로 문의하기
@@ -42,54 +41,53 @@ function GiftBoxHero() {
 					href={"/"}
 					className="text-slate-600 bg-white hover:bg-slate-800 hover:text-slate-100"
 					variant="none"
-					icon={File}
+					icon={ArrowRight}
 					iconPosition="right"
 				>
-					소개서 PDF 다운로드
+					자세히보기
 				</Button.Link>
 			</aside>
-			<figure className=" h-120 sm:h-180 mb-4 overflow-hidden shrink-0 inset-0 bg-[#EDEADD]">
-				<Image
-					src={"/catalogue-herobgv03.png"}
-					alt="catalogue-hero-img"
-					width={2300}
-					height={500}
-					className="object-contain md:object-cover w-150 sm:w-full h-120 sm:h-180"
-				/>
-			</figure>
+			<div className="max-w-7xl h-120 sm:h-150 flex items-center justify-center overflow-hidden">
+				<video autoPlay muted loop className="object-cover h-120 sm:h-150 w-screen">
+					<source src="/videos/gift.mp4" type="video/mp4" />
+				</video>
+			</div>
+			<div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-full bg-gradient-to-t from-black/30 via-black/10 to-[#0000]" />
 		</div>
 	);
 }
 
 type GiftBoxContentProps = {
-	packageName: string;
 	className?: string;
-	image: string;
-	href: string;
+	images?: string[];
 };
 
-function GiftBoxCategory({ packageName, className, image, href }: GiftBoxContentProps) {
+const GIFTBOX_IMAGES = [
+	"/gift/gift-1.png",
+	"/gift/gift-2.png",
+	"/gift/gift-3.png",
+	"/gift/gift-4.png",
+	"/gift/gift-5.png",
+	"/gift/gift-6.png",
+	"/gift/gift-7.png",
+	"/gift/gift-8.png",
+];
+
+function GiftBoxSlider({ className, images = GIFTBOX_IMAGES }: GiftBoxContentProps) {
+	const sliderImages = [...images, ...images];
+
 	return (
-		<CardSection
-			className={`relative rounded-none overflow-hidden bg-slate-100 h-70 border-none w-full max-w-100 lg:max-w-none shrink-0 ml-4 md:ml-0 md:min-w-0 md:shrink ${className ?? ""}`}
-		>
-			<Link href={href || "/"} className="flex flex-col items-center justify-between h-full">
-				<div className="flex flex-col gap-3">
-					<div className="font-bold text-2xl flex flex-col z-30">
-						<span className="text-slate-800 text-xl">{packageName}</span>
-					</div>
-				</div>
-				<figure className="absolute inset-0 flex items-center justify-center overflow-hidden bottom-2">
-					<Image src={image} alt="catalogue-bg" height={250} width={250} className="size-[15.625rem] max-w-none object-contain" />
-				</figure>
-				<aside className="z-30">
-					<div className="relative text-slate-800 font-bold text-sm z-30 flex items-center gap-1 transition-all hover:gap-4">
-						<span>가능 메뉴 보기</span>
-						<ArrowRight size={14} />
-					</div>
-				</aside>
-			</Link>
-		</CardSection>
+		<div className={`overflow-hidden ${className ?? ""}`}>
+			<div className="flex w-max gap-4 animate-giftbox-slider">
+				{sliderImages.map((image, index) => (
+					<CardSection key={`${image}-${index}`} className="relative h-60 w-60 shrink-0 overflow-hidden border-none md:h-65 md:w-65">
+						<figure className="absolute inset-0 flex items-center justify-center overflow-hidden bottom-2">
+							<Image src={image} alt="giftbox-slide" height={250} width={250} className="size-60 sm:size-65 max-w-none object-contain" />
+						</figure>
+					</CardSection>
+				))}
+			</div>
+		</div>
 	);
 }
 
@@ -97,5 +95,5 @@ export const GiftBox = {
 	Layout: GiftBoxLayout,
 	Header: GiftBoxHeader,
 	Hero: GiftBoxHero,
-	Category: GiftBoxCategory,
+	Slider: GiftBoxSlider,
 };

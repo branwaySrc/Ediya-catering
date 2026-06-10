@@ -1,7 +1,7 @@
 import { Button } from "@/share/button";
 import { CardSection } from "@/share/screen-section";
 import { ScreenSection } from "@/share/screen-section";
-import { ArrowRight, Coffee, File } from "lucide-react";
+import { ArrowRight, Coffee } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { TitleBadge } from "@/share/title-badge";
@@ -24,7 +24,7 @@ function CateringHeader() {
 				<TitleBadge.Badge className={`border-[#1C5DBE] text-[#1C5DBE]`}>CUSTOM</TitleBadge.Badge>
 			</TitleBadge>
 			<span className="font-bold text-slate-800">
-				다양한 제품을 통해 <br />
+				다양한 제품을 통해<br />
 				시작부터 마지막까지, 기억에 남는
 				<br />
 				품격 있는 행사를 만듭니다.
@@ -44,10 +44,10 @@ function CateringHero() {
 					href={"/"}
 					className="text-slate-600 bg-white hover:bg-slate-800 hover:text-slate-100"
 					variant="none"
-					icon={File}
+					icon={ArrowRight}
 					iconPosition="right"
 				>
-					소개서 PDF 다운로드
+					자세히보기
 				</Button.Link>
 			</aside>
 			<figure className=" h-120 sm:h-180 mb-4 overflow-hidden shrink-0 inset-0 bg-[#EDEADD]">

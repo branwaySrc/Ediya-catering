@@ -55,7 +55,7 @@ function Title({ children, className, ...rest }: TitleBadgeTitleProps) {
 function Badge({ backgroundColor = "#ffffff", children, className, style, ...rest }: TitleBadgeBadgeProps) {
 	return (
 		<span
-			className={cn("inline-flex items-center rounded-full border font-bold px-2 py-0.5 text-[10px] ", className)}
+			className={cn("inline-flex items-center rounded-full border font-bold px-2 py-0.5 text-[10px] tracking-wider", className)}
 			style={{ backgroundColor, ...style }}
 			{...rest}
 		>
