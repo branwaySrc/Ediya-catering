@@ -117,7 +117,7 @@ function HeroDownload() {
 function HeroCard({ action }: { action: React.ReactNode }) {
 	return (
 		<CardSection className="relative overflow-hidden my-4 sm:mt-4">
-			<div className="flex flex-col gap-3 z-10">
+			<div className="flex flex-col gap-3 z-20">
 				<div className="font-bold text-2xl flex flex-col">
 					<span className="text-slate-600">{HEADING_CONTENT.HEADING[0]}</span>
 					<span className="text-primary">{HEADING_CONTENT.HEADING[1]}</span>
@@ -126,9 +126,9 @@ function HeroCard({ action }: { action: React.ReactNode }) {
 					<p>{HEADING_CONTENT.DESC}</p>
 				</aside>
 			</div>
-			<figure className="pointer-events-none absolute bottom-0 -right-2 z-0">
+			<figure className="pointer-events-none absolute bottom-0 -right-2 z-0 md:right-8">
 				<div className="absolute inset-x-0 bottom-0 z-10 h-30 bg-linear-to-t from-white via-white/80 to-transparent" />
-				<Image src={"/model.png"} alt="model" width={250} height={250} />
+				<Image src={"/coffee-americano.png"} alt="ediya-americano" width={190} height={190} />
 			</figure>
 			<aside className="relative z-10 mt-25">{action}</aside>
 		</CardSection>
