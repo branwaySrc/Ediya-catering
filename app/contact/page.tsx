@@ -1,0 +1,94 @@
+import type { Metadata } from "next";
+import { ArrowRight, Clock3, Mail, MessageCircle, Phone } from "lucide-react";
+import { Button } from "@/share/button";
+import { ScreenSection } from "@/share/screen-section";
+
+export const metadata: Metadata = {
+	title: "문의하기 | 이디야커피 안산 비즈니스 솔루션",
+	description: "케이터링, 오피스 스낵바, 기업 선물과 협업에 필요한 상담을 신청해 주세요.",
+};
+
+const inquiryLabels: Record<string, string> = {
+	kakao: "카카오톡 문의",
+	consulting: "맞춤 상담",
+	partnership: "협업 제안",
+	"self-estimate": "셀프 견적",
+	snackbar: "오피스 스낵바 상담",
+};
+
+type ContactPageProps = {
+	searchParams: Promise<{ type?: string | string[] }>;
+};
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+	const params = await searchParams;
+	const inquiryType = Array.isArray(params.type) ? params.type[0] : params.type;
+	const inquiryLabel = inquiryType ? inquiryLabels[inquiryType] ?? "서비스 문의" : "서비스 문의";
+	const emailSubject = encodeURIComponent(`[${inquiryLabel}] 상담 요청`);
+
+	return (
+		<div className="min-h-[calc(100vh-5rem)] bg-[#F5F7FB] text-slate-900">
+			<section className="bg-[#172966] py-16 text-white sm:py-20">
+				<ScreenSection className="text-center">
+					<p className="mx-auto inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-black tracking-[0.14em] text-blue-100">
+						{inquiryLabel}
+					</p>
+					<h1 className="mt-5 text-3xl font-black tracking-[-0.03em] sm:text-4xl">어떤 도움이 필요하신가요?</h1>
+					<p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-blue-100/80 sm:text-base">
+						일정과 장소, 예상 인원과 예산을 알려주시면 확인 후 알맞은 방법을 안내해 드립니다.
+					</p>
+				</ScreenSection>
+			</section>
+
+			<ScreenSection className="py-12 sm:py-16">
+				<div className="mx-auto grid max-w-4xl gap-5 md:grid-cols-2">
+					<article className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-8">
+						<span className="inline-flex size-12 items-center justify-center rounded-2xl bg-blue-50 text-[#1C5DBE]">
+							<Phone className="size-6" aria-hidden="true" />
+						</span>
+						<h2 className="mt-6 text-xl font-black">전화 상담</h2>
+						<p className="mt-3 text-sm leading-7 text-slate-600">담당자와 바로 통화하며 필요한 서비스와 일정을 상담할 수 있습니다.</p>
+						<p className="mt-5 font-black text-primary">010-4514-7173</p>
+						<Button.Link href="tel:01045147173" variant="primary" icon={Phone} className="mt-6 w-full">
+							전화 연결하기
+						</Button.Link>
+					</article>
+
+					<article className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-8">
+						<span className="inline-flex size-12 items-center justify-center rounded-2xl bg-blue-50 text-[#1C5DBE]">
+							<Mail className="size-6" aria-hidden="true" />
+						</span>
+						<h2 className="mt-6 text-xl font-black">이메일 문의</h2>
+						<p className="mt-3 text-sm leading-7 text-slate-600">행사 정보나 요청 사항을 정리해 보내주시면 확인 후 연락드립니다.</p>
+						<p className="mt-5 break-all text-sm font-black text-primary">contact@ediya-catering.kr</p>
+						<Button.Link
+							href={`mailto:contact@ediya-catering.kr?subject=${emailSubject}`}
+							variant="ghost"
+							icon={ArrowRight}
+							iconPosition="right"
+							className="mt-6 w-full"
+						>
+							이메일 작성하기
+						</Button.Link>
+					</article>
+				</div>
+
+				<div className="mx-auto mt-5 flex max-w-4xl flex-col gap-4 rounded-2xl border border-[#F5D500] bg-[#FFF9C7] p-5 sm:flex-row sm:items-center sm:justify-between">
+					<div className="flex gap-3">
+						<MessageCircle className="mt-0.5 size-5 shrink-0 text-[#191919]" aria-hidden="true" />
+						<div>
+							<h2 className="font-black text-[#191919]">카카오톡 문의</h2>
+							<p className="mt-1 text-sm text-[#191919]/65">카카오톡 채널 연결을 준비하고 있습니다.</p>
+						</div>
+					</div>
+					<span className="rounded-full bg-white/70 px-3 py-1.5 text-xs font-black text-[#191919]/60">준비 중</span>
+				</div>
+
+				<div className="mx-auto mt-5 flex max-w-4xl gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-600">
+					<Clock3 className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
+					<p className="leading-6">상담 가능 시간과 현장 일정에 따라 답변이 다소 늦어질 수 있습니다. 급한 일정은 전화 문의를 이용해 주세요.</p>
+				</div>
+			</ScreenSection>
+		</div>
+	);
+}
