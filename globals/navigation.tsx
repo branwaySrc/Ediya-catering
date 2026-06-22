@@ -15,16 +15,16 @@ export default function Navigation() {
 				<div>
 					<ul className="hidden lg:flex gap-4 items-center justify-center">
 						<li>
-							<MenuTab icon={House} title="지점소개" href="/" />
+							<MenuTab icon={House} title="지점소개" href="/about" />
 						</li>
 						<li>
-							<MenuTab icon={Coffee} title="케이터링" href="/" />
+							<MenuTab icon={Coffee} title="케이터링" href="/catering" />
 						</li>
 						<li>
-							<MenuTab icon={Donut} title="프리미엄 스낵바" href="/" />
+							<MenuTab icon={Donut} title="프리미엄 스낵바" href="/snackbar" />
 						</li>
 						<li>
-							<MenuTab icon={Gift} title="시즌 기프트" href="/" />
+							<MenuTab icon={Gift} title="시즌 기프트" href="/gift" />
 						</li>
 					</ul>
 				</div>

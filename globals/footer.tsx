@@ -1,6 +1,8 @@
 import { ScreenSection } from "@/share/screen-section";
 
 export default function Footer() {
+	const currentYear = new Date().getFullYear();
+
 	return (
 		<footer className="border-t border-primary/10 bg-footer text-slate-500">
 			<ScreenSection className="px-4 pt-12 pb-4 lg:py-16">
@@ -24,7 +26,7 @@ export default function Footer() {
 							<p className="pt-2 text-sm font-bold leading-6">문의</p>
 							<div className="text-xs flex flex-col gap-0.5 tracking-wider">
 								<p>contact@ediya-catering.kr</p>
-								<p className="font-inter font-bold">010-4514-7173 / 070)4171-7412</p>
+								<p className="font-inter font-bold">010-4514-7173 / 070-4171-7412</p>
 							</div>
 						</section>
 					</section>
@@ -56,7 +58,7 @@ export default function Footer() {
 					</section>
 				</div>
 
-				<div className="mt-12 text-xs tracking-wide font-bold">©2026 EDIYA COFFEE CATERING 안산 월피동점</div>
+				<div className="mt-12 text-xs tracking-wide font-bold">©{currentYear} EDIYA COFFEE CATERING 안산 월피동점</div>
 			</ScreenSection>
 		</footer>
 	);

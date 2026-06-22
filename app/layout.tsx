@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navigation from "@/globals/navigation";
 import Footer from "@/globals/footer";
+import { Shortcut } from "@/globals/shortcut";
 import "./globals.css";
 import "./animate.css";
 
@@ -18,6 +19,7 @@ export default function RootLayout({
 		<html lang="ko" className="h-full bg-white antialiased">
 			<body className="min-h-full text-[#1B2E74]">
 				<Navigation />
+				<Shortcut />
 				<main className="overflow-x-hidden">{children}</main>
 				<Footer />
 			</body>
