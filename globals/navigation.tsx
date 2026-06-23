@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Menu, House, Gift, Donut, Coffee } from "lucide-react";
+import { ArrowRight, House, Gift, Donut, Coffee } from "lucide-react";
 import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
 import { type LucideIcon } from "lucide-react";
+import { Menubar } from "@/globals/menubar";
 
 export default function Navigation() {
 	return (
@@ -34,7 +35,7 @@ export default function Navigation() {
 							견적 문의하기
 						</Button.Link>
 					</div>
-					<Button.Action size="icon" variant="ghost" ariaLabel="site-menu" className="lg:hidden shrink-0" icon={Menu} />
+					<Menubar />
 				</div>
 			</ScreenSection>
 		</nav>
