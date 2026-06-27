@@ -7,7 +7,6 @@ import { CateringPackageCards } from "@/domains/features/catering/package-cards"
 import { CateringPackageOverview } from "@/domains/features/catering/package-overview";
 import { CateringPriceCalculator } from "@/domains/features/catering/price-calculator";
 import { CateringProcess } from "@/domains/features/catering/process";
-import { CateringSecondaryNavigation } from "@/domains/features/catering/secondary-navigation";
 import { CustomCateringSection } from "@/domains/features/catering/custom-catering";
 
 export const metadata: Metadata = {
@@ -19,7 +18,6 @@ export default function CateringPage() {
 	return (
 		<div className="min-h-screen bg-[#F8F9FC]">
 			<CateringHero />
-			<CateringSecondaryNavigation />
 			<CateringPackageOverview />
 			<CateringPriceCalculator />
 			<CateringPackageCards />
