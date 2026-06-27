@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { Check } from "lucide-react";
+import { Check, LayoutPanelTop } from "lucide-react";
 import { ScreenSection } from "@/share/screen-section";
+import { TitleBadge } from "@/share/title-badge";
 import { stations } from "./data";
 
 export function Stations() {
@@ -8,7 +9,11 @@ export function Stations() {
 		<section id="stations" className="scroll-mt-24 bg-white py-20 sm:py-28">
 			<ScreenSection>
 				<header className="mx-auto max-w-3xl text-center">
-					<p className="text-sm font-black tracking-[0.16em] text-[#E96106]">THREE STATIONS</p>
+					<TitleBadge className="justify-center">
+						<TitleBadge.Icon backgroundColor={["#FFA600", "#E96106"]} icon={LayoutPanelTop} className="text-white shadow-none" />
+						<TitleBadge.Title>스테이션 구성</TitleBadge.Title>
+						<TitleBadge.Badge className="border-[#E96106] text-[#E96106]">3 OPTIONS</TitleBadge.Badge>
+					</TitleBadge>
 					<h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-900 sm:text-4xl">필요한 방식으로 골라 구성하세요</h2>
 					<p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">설비의 종류와 크기, 상품 구성은 현장 환경을 확인한 뒤 상담을 통해 확정합니다.</p>
 				</header>

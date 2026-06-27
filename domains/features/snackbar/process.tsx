@@ -1,5 +1,6 @@
 import { ClipboardCheck, FileSignature, MessagesSquare, ScanSearch } from "lucide-react";
 import { ScreenSection } from "@/share/screen-section";
+import { TitleBadge } from "@/share/title-badge";
 
 const steps = [
 	{ icon: MessagesSquare, title: "상담", description: "필요한 스테이션과 이용 인원, 예산을 알려주세요." },
@@ -13,7 +14,11 @@ export function Process() {
 		<section className="bg-[#F8F9FC] py-20 sm:py-28">
 			<ScreenSection>
 				<header className="text-center">
-					<p className="text-sm font-black tracking-[0.16em] text-[#E96106]">HOW IT WORKS</p>
+					<TitleBadge className="justify-center">
+						<TitleBadge.Icon backgroundColor={["#FFA600", "#E96106"]} icon={MessagesSquare} className="text-white shadow-none" />
+						<TitleBadge.Title>도입 진행 순서</TitleBadge.Title>
+						<TitleBadge.Badge className="border-[#E96106] text-[#E96106]">PROCESS</TitleBadge.Badge>
+					</TitleBadge>
 					<h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-900 sm:text-4xl">상담부터 설치까지 이렇게 진행합니다</h2>
 				</header>
 				<ol className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">

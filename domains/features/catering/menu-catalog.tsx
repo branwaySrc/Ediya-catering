@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight, Check, PackageSearch } from "lucide-react";
 import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
+import { TitleBadge } from "@/share/title-badge";
 import { cateringMenuCategories, type CateringMenuCategoryId } from "./data";
 
 export function MenuCatalog() {
@@ -15,7 +16,12 @@ export function MenuCatalog() {
 		<section className="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="menu-catalog-heading">
 			<ScreenSection>
 				<header className="mx-auto max-w-3xl text-center">
-					<p className="text-sm font-black uppercase tracking-[0.18em] text-primary/55">Catering Menu</p>
+					<TitleBadge className="justify-center">
+						<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={PackageSearch} className="text-white shadow-none" />
+						<TitleBadge.Title>케이터링 메뉴</TitleBadge.Title>
+						<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">MENU</TitleBadge.Badge>
+					</TitleBadge>
+					<p className="hidden text-sm font-black uppercase tracking-[0.18em] text-primary/55">Catering Menu</p>
 					<h1 id="menu-catalog-heading" className="mt-3 text-3xl font-black tracking-tight text-primary sm:text-4xl">
 						행사에 필요한 메뉴를 살펴보세요
 					</h1>

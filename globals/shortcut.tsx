@@ -19,7 +19,7 @@ const shortcuts: ShortcutItem[] = [
 		title: "맞춤상담",
 		href: "/contact?type=consulting",
 		icon: ClipboardPenLine,
-		className: "border-primary bg-primary text-white hover:bg-[#15255F]",
+		className: "border-white/20 bg-primary text-white hover:bg-[#15255F]",
 	},
 	{
 		title: "협업제안",
@@ -31,10 +31,7 @@ const shortcuts: ShortcutItem[] = [
 
 export function Shortcut() {
 	return (
-		<nav
-			aria-label="빠른 문의"
-			className="fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 md:right-0 md:top-28 md:bottom-auto"
-		>
+		<nav aria-label="빠른 문의" className="fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-99 md:right-0 md:bottom-20 ">
 			<ul className="flex flex-col gap-2 md:gap-1.5">
 				{shortcuts.map(({ title, href, icon, className }) => (
 					<li key={title}>

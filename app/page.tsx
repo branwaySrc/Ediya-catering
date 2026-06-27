@@ -55,10 +55,30 @@ export default function Home() {
 					<Catering.Header />
 					<Catering.Hero />
 					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-4 md:overflow-visible md:gap-4 md:pb-0">
-						<Catering.Category packageName="커피/티" image="/catering-drinks.png" href="/" />
-						<Catering.Category packageName="스낵" image="/catering-snacks.png" href="/" />
-						<Catering.Category packageName="베이커리" image="/catering-bakery.png" href="/" />
-						<Catering.Category packageName="기프트" image="/catering-gift.png" href="/" />
+						<Catering.Category
+							packageName="커피/티"
+							image="/catering-drinks.png"
+							href="/catering/menu"
+							summary={["1인 4,500원부터,", "20명 이상 행사에 맞는 기본 음료 구성입니다."]}
+						/>
+						<Catering.Category
+							packageName="스낵"
+							image="/catering-snacks.png"
+							href="/catering/menu"
+							summary={["1인 5,000원대부터,", "20~50명 미팅과 휴게 구성에 적합합니다."]}
+						/>
+						<Catering.Category
+							packageName="베이커리"
+							image="/catering-bakery.png"
+							href="/catering/menu"
+							summary={["1인 6,000원대부터,", "오전 행사와 브런치형 일정에 잘 맞습니다."]}
+						/>
+						<Catering.Category
+							packageName="기프트"
+							image="/catering-gift.png"
+							href="/gift"
+							summary={["20명 이상 선물용 추천,", "맞춤 예산 및 개별 포장과 배송을 지원합니다."]}
+						/>
 						<div className="ml-5" />
 					</div>
 				</Catering.Layout>
@@ -67,9 +87,24 @@ export default function Home() {
 					<SnackBar.Header />
 					<SnackBar.Hero />
 					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible md:gap-4 md:pb-0">
-						<SnackBar.Category packageName="음료 스테이션" image="/snackbar-drink-station.png" href="/" />
-						<SnackBar.Category packageName="디저트 스테이션" image="/snackbar-snack-station.png" href="/" />
-						<SnackBar.Category packageName="라운지 스테이션" image="/snackbar-lounge-station.png" href="/" />
+						<SnackBar.Category
+							packageName="음료 스테이션"
+							image="/snackbar-drink-station.png"
+							href="/snackbar"
+							summary={["월 10만원대부터,", "10명 이하 팀에 맞는 음료 중심 솔루션입니다."]}
+						/>
+						<SnackBar.Category
+							packageName="디저트 스테이션"
+							image="/snackbar-snack-station.png"
+							href="/snackbar"
+							summary={["월 30만원대 기준,", "10~30명 사무실의 간식 구성에 권장됩니다."]}
+						/>
+						<SnackBar.Category
+							packageName="라운지 스테이션"
+							image="/snackbar-lounge-station.png"
+							href="/snackbar"
+							summary={["월 50만원대부터,", "30명 이상 팀의 라운지 운영에 적합합니다."]}
+						/>
 						<div className="ml-5" />
 					</div>
 				</SnackBar.Layout>

@@ -1,6 +1,7 @@
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, WalletCards } from "lucide-react";
 import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
+import { TitleBadge } from "@/share/title-badge";
 import { pricePlans } from "./data";
 
 export function Pricing() {
@@ -8,7 +9,11 @@ export function Pricing() {
 		<section className="bg-white py-20 sm:py-28" aria-labelledby="pricing-heading">
 			<ScreenSection>
 				<header className="mx-auto max-w-3xl text-center">
-					<p className="text-sm font-black tracking-[0.16em] text-[#E96106]">BUDGET GUIDE</p>
+					<TitleBadge className="justify-center">
+						<TitleBadge.Icon backgroundColor={["#FFA600", "#E96106"]} icon={WalletCards} className="text-white shadow-none" />
+						<TitleBadge.Title>월 예산 가이드</TitleBadge.Title>
+						<TitleBadge.Badge className="border-[#E96106] text-[#E96106]">BUDGET</TitleBadge.Badge>
+					</TitleBadge>
 					<h2 id="pricing-heading" className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-900 sm:text-4xl">우리 팀에 맞는 월 예산 가이드</h2>
 					<p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">인원별 추천 시작 금액이며 실제 품목, 수량, 설비와 배송 조건에 따라 최종 견적이 달라집니다.</p>
 				</header>

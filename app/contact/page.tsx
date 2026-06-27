@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ArrowRight, Clock3, Mail, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
+import { TitleBadge } from "@/share/title-badge";
 
 export const metadata: Metadata = {
 	title: "문의하기 | 이디야커피 안산 비즈니스 솔루션",
@@ -14,25 +15,58 @@ const inquiryLabels: Record<string, string> = {
 	partnership: "협업 제안",
 	"self-estimate": "셀프 견적",
 	snackbar: "오피스 스낵바 상담",
+	custom: "커스텀 상담",
+	"general-order": "일반주문",
+	menu: "세부 메뉴 상담",
+};
+
+const serviceLabels: Record<string, string> = {
+	catering: "케이터링 상담",
+	snackbar: "오피스 스낵바 상담",
+	gift: "기프트 상담",
+};
+
+const packageLabels: Record<string, string> = {
+	"basic-coffee": "Basic Coffee",
+	"beverage-mix": "Beverage Mix",
+	"premium-refresh": "Premium Refresh",
+};
+
+const categoryLabels: Record<string, string> = {
+	coffee: "커피",
+	tea: "티/논커피",
+	snack: "스낵",
+	bakery: "베이커리",
+	gift: "기프트/MD",
 };
 
 type ContactPageProps = {
-	searchParams: Promise<{ type?: string | string[] }>;
+	searchParams: Promise<{ category?: string | string[]; service?: string | string[]; package?: string | string[]; type?: string | string[] }>;
 };
 
 export default async function ContactPage({ searchParams }: ContactPageProps) {
 	const params = await searchParams;
+	const service = Array.isArray(params.service) ? params.service[0] : params.service;
+	const packageId = Array.isArray(params.package) ? params.package[0] : params.package;
+	const categoryId = Array.isArray(params.category) ? params.category[0] : params.category;
 	const inquiryType = Array.isArray(params.type) ? params.type[0] : params.type;
-	const inquiryLabel = inquiryType ? inquiryLabels[inquiryType] ?? "서비스 문의" : "서비스 문의";
+	const serviceLabel = service ? (serviceLabels[service] ?? "서비스 문의") : undefined;
+	const typeLabel = inquiryType ? inquiryLabels[inquiryType] : undefined;
+	const baseInquiryLabel = serviceLabel && typeLabel ? `${serviceLabel} - ${typeLabel}` : (serviceLabel ?? typeLabel ?? "서비스 문의");
+	const packageLabel = packageId ? packageLabels[packageId] : undefined;
+	const categoryLabel = categoryId ? categoryLabels[categoryId] : undefined;
+	const inquiryLabel = [baseInquiryLabel, packageLabel, categoryLabel].filter(Boolean).join(" - ");
 	const emailSubject = encodeURIComponent(`[${inquiryLabel}] 상담 요청`);
 
 	return (
 		<div className="min-h-[calc(100vh-5rem)] bg-[#F5F7FB] text-slate-900">
 			<section className="bg-[#172966] py-16 text-white sm:py-20">
 				<ScreenSection className="text-center">
-					<p className="mx-auto inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-black tracking-[0.14em] text-blue-100">
-						{inquiryLabel}
-					</p>
+					<TitleBadge className="justify-center pb-2">
+						<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={Phone} className="text-white shadow-none" />
+						<TitleBadge.Title className="text-white">{inquiryLabel}</TitleBadge.Title>
+						<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">CONTACT</TitleBadge.Badge>
+					</TitleBadge>
 					<h1 className="mt-5 text-3xl font-black tracking-[-0.03em] sm:text-4xl">어떤 도움이 필요하신가요?</h1>
 					<p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-blue-100/80 sm:text-base">
 						일정과 장소, 예상 인원과 예산을 알려주시면 확인 후 알맞은 방법을 안내해 드립니다.

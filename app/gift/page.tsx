@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 
 import { ScreenSection } from "@/share/screen-section";
+import { TitleBadge } from "@/share/title-badge";
 
 export const metadata: Metadata = {
 	title: "시즌 MD 선물 솔루션 | 이디야커피 안산지점",
@@ -104,10 +105,11 @@ export default function GiftPage() {
 
 				<ScreenSection className="flex min-h-[44rem] items-center py-20 sm:py-28">
 					<div className="max-w-3xl">
-						<p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-black tracking-[0.16em] text-emerald-50 backdrop-blur-md">
-							<Gift aria-hidden="true" className="size-3.5" />
-							EDIYA SEASONAL GIFT
-						</p>
+						<TitleBadge className="pb-2">
+							<TitleBadge.Icon backgroundColor={["#04D48F", "#009249"]} icon={Gift} className="text-white shadow-none" />
+							<TitleBadge.Title className="text-white">이디야 시즌 기프트</TitleBadge.Title>
+							<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">SEASONAL</TitleBadge.Badge>
+						</TitleBadge>
 						<h1 className="mt-7 text-4xl font-black leading-[1.16] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
 							이디야 MD 선물,
 							<br />
@@ -139,7 +141,11 @@ export default function GiftPage() {
 			<section className="border-b border-slate-200 bg-[#F7F8F5] py-16 sm:py-20">
 				<ScreenSection className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
 					<div>
-						<p className="text-sm font-black tracking-[0.16em] text-[#087443]">GIFT FOR EVERY MOMENT</p>
+						<TitleBadge>
+							<TitleBadge.Icon backgroundColor={["#04D48F", "#009249"]} icon={Sparkles} className="text-white shadow-none" />
+							<TitleBadge.Title>상황별 선물 제안</TitleBadge.Title>
+							<TitleBadge.Badge className="border-[#009249] text-[#009249]">MOMENT</TitleBadge.Badge>
+						</TitleBadge>
 						<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.035em] sm:text-4xl">
 							선물이 필요한 순간마다
 							<br />알맞은 방법을 제안합니다.
@@ -155,7 +161,11 @@ export default function GiftPage() {
 			<section id="gift-solution" className="scroll-mt-24 py-20 sm:py-28">
 				<ScreenSection>
 					<div className="max-w-2xl">
-						<p className="text-sm font-black tracking-[0.16em] text-[#087443]">GIFT OCCASIONS</p>
+						<TitleBadge>
+							<TitleBadge.Icon backgroundColor={["#04D48F", "#009249"]} icon={PartyPopper} className="text-white shadow-none" />
+							<TitleBadge.Title>기프트 활용 장면</TitleBadge.Title>
+							<TitleBadge.Badge className="border-[#009249] text-[#009249]">OCCASION</TitleBadge.Badge>
+						</TitleBadge>
 						<h2 className="mt-4 text-3xl font-black tracking-[-0.035em] sm:text-4xl">어떤 선물을 준비하고 계신가요?</h2>
 					</div>
 
@@ -180,7 +190,11 @@ export default function GiftPage() {
 				<ScreenSection>
 					<div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 						<div className="max-w-2xl">
-							<p className="text-sm font-black tracking-[0.16em] text-[#9A553E]">SEASONAL COLLECTION</p>
+							<TitleBadge>
+								<TitleBadge.Icon backgroundColor={["#D69373", "#9A553E"]} icon={Gift} className="text-white shadow-none" />
+								<TitleBadge.Title>시즌 컬렉션</TitleBadge.Title>
+								<TitleBadge.Badge className="border-[#9A553E] text-[#9A553E]">COLLECTION</TitleBadge.Badge>
+							</TitleBadge>
 							<h2 className="mt-4 text-3xl font-black tracking-[-0.035em] sm:text-4xl">시즌마다 새롭게 만나는 이디야 MD</h2>
 						</div>
 						<p className="text-sm font-bold text-[#7C5A4E]">아래 이미지는 상품 구성 예시입니다.</p>
@@ -205,7 +219,11 @@ export default function GiftPage() {
 				<ScreenSection>
 					<div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
 						<div>
-							<p className="text-sm font-black tracking-[0.16em] text-[#087443]">ALL-IN-ONE SERVICE</p>
+							<TitleBadge>
+								<TitleBadge.Icon backgroundColor={["#04D48F", "#009249"]} icon={PackageCheck} className="text-white shadow-none" />
+								<TitleBadge.Title>올인원 준비 서비스</TitleBadge.Title>
+								<TitleBadge.Badge className="border-[#009249] text-[#009249]">SERVICE</TitleBadge.Badge>
+							</TitleBadge>
 							<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.035em] sm:text-4xl">
 								상품만 고르세요.
 								<br />나머지는 준비해 드립니다.
@@ -252,7 +270,11 @@ export default function GiftPage() {
 			<section className="bg-[#F7F8F5] py-20 sm:py-28">
 				<ScreenSection>
 					<div className="text-center">
-						<p className="text-sm font-black tracking-[0.16em] text-[#087443]">HOW IT WORKS</p>
+						<TitleBadge className="justify-center">
+							<TitleBadge.Icon backgroundColor={["#04D48F", "#009249"]} icon={ArrowRight} className="text-white shadow-none" />
+							<TitleBadge.Title>진행 단계</TitleBadge.Title>
+							<TitleBadge.Badge className="border-[#009249] text-[#009249]">PROCESS</TitleBadge.Badge>
+						</TitleBadge>
 						<h2 className="mt-4 text-3xl font-black tracking-[-0.035em] sm:text-4xl">상담부터 출고까지 네 단계로</h2>
 					</div>
 
@@ -278,7 +300,11 @@ export default function GiftPage() {
 						<div className="absolute -bottom-24 left-1/3 size-56 rounded-full bg-emerald-300/5 blur-2xl" />
 						<div className="relative grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-end">
 							<div className="max-w-2xl">
-								<p className="text-sm font-black tracking-[0.16em] text-[#91E2BD]">LATEST MD NEWS</p>
+								<TitleBadge className="pb-0">
+									<TitleBadge.Icon backgroundColor={["#04D48F", "#009249"]} icon={Mail} className="text-white shadow-none" />
+									<TitleBadge.Title className="text-white">최신 MD 소식</TitleBadge.Title>
+									<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">NEWS</TitleBadge.Badge>
+								</TitleBadge>
 								<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.035em] sm:text-4xl">
 									새로운 이디야 MD,
 									<br />가장 먼저 받아보세요.

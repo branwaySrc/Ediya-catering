@@ -1,5 +1,6 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, CircleHelp } from "lucide-react";
 import { ScreenSection } from "@/share/screen-section";
+import { TitleBadge } from "@/share/title-badge";
 import { faqs } from "./data";
 
 export function Faq() {
@@ -8,7 +9,11 @@ export function Faq() {
 			<ScreenSection>
 				<div className="grid gap-10 lg:grid-cols-[0.55fr_1fr] lg:gap-20">
 					<header>
-						<p className="text-sm font-black tracking-[0.16em] text-[#1C5DBE]">FAQ</p>
+						<TitleBadge>
+							<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={CircleHelp} className="text-white shadow-none" />
+							<TitleBadge.Title>자주 묻는 질문</TitleBadge.Title>
+							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">FAQ</TitleBadge.Badge>
+						</TitleBadge>
 						<h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-900 sm:text-4xl">도입 전에<br />많이 묻는 질문</h2>
 						<p className="mt-5 text-sm leading-7 text-slate-600">정확한 조건은 공간과 구성에 따라 달라질 수 있으며 상담 후 견적서로 안내합니다.</p>
 					</header>

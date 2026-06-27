@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navigation from "@/globals/navigation";
 import Footer from "@/globals/footer";
 import { Shortcut } from "@/globals/shortcut";
+import { BottomCTA } from "@/globals/bottom-cta";
 import "./globals.css";
 import "./animate.css";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
 				<Navigation />
 				<Shortcut />
 				<main className="overflow-x-hidden">{children}</main>
+				<BottomCTA />
 				<Footer />
 			</body>
 		</html>

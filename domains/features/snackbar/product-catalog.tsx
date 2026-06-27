@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { PackageOpen } from "lucide-react";
+import { PackageOpen, Refrigerator } from "lucide-react";
 import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
+import { TitleBadge } from "@/share/title-badge";
 import { productCategories, products, type ProductCategoryId } from "./data";
 
 export function ProductCatalog() {
@@ -15,7 +16,11 @@ export function ProductCatalog() {
 		<section className="bg-[#F8F9FC] py-20 sm:py-28" aria-labelledby="product-catalog-heading">
 			<ScreenSection>
 				<header className="mx-auto max-w-3xl text-center">
-					<p className="text-sm font-black tracking-[0.16em] text-[#1C5DBE]">PRODUCT LINEUP</p>
+					<TitleBadge className="justify-center">
+						<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={Refrigerator} className="text-white shadow-none" />
+						<TitleBadge.Title>제품 라인업</TitleBadge.Title>
+						<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">LINEUP</TitleBadge.Badge>
+					</TitleBadge>
 					<h2 id="product-catalog-heading" className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-900 sm:text-4xl">어떤 제품을 채울지 살펴보세요</h2>
 					<p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">실제 납품 제품은 시즌과 재고, 예산에 따라 달라질 수 있으며 아래 제품군을 기준으로 상담합니다.</p>
 				</header>

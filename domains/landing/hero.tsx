@@ -87,25 +87,25 @@ function HeroDownload() {
 					/>
 				</figure>
 				<div className="relative flex justify-between items-center sm:flex-col sm:items-baseline sm:justify-between sm:h-full">
-					<article className="flex flex-col md:flex-row md:gap-1 font-bold sm:text-lg text-sm">
-						<span className="text-slate-400">{MENU[0]}</span>
-						<span className="text-white">{MENU[1]}</span>
+					<article className="flex flex-col gap-0.5 font-bold sm:text-lg text-sm">
+						<span className="text-slate-400 leading-tight">{MENU[0]}</span>
+						<span className="text-white leading-tight">{MENU[1]}</span>
 					</article>
-					<figure className="hidden absolute -bottom-8 left-0 sm:flex rotate-6">
+					<figure className="hidden absolute -bottom-14 left-0 sm:flex rotate-6">
 						<Image src={"/catalogue.svg"} alt="catalogue-book" height={80} width={220} />
 					</figure>
-					<Button.Link variant="outlined" href={"/"} className="sm:self-end z-10" icon={ArrowRight} iconPosition="right">
+					<Button.Link variant="outlined" href={"/"} className="w-[160px] sm:self-end z-10" icon={ArrowRight} iconPosition="right">
 						PDF 다운로드
 					</Button.Link>
 				</div>
 			</CardSection>
 			<CardSection className="h-20 flex flex-col justify-center bg-slate-800">
 				<div className="flex justify-between items-center">
-					<article className="flex flex-col md:flex-row md:gap-1 font-bold sm:text-lg text-sm">
-						<span className="text-slate-400">{COMPANY[0]}</span>
-						<span className="text-white ">{COMPANY[1]}</span>
+					<article className="flex flex-col gap-0.5 font-bold sm:text-lg text-sm">
+						<span className="text-slate-400 leading-tight">{COMPANY[0]}</span>
+						<span className="text-white leading-tight">{COMPANY[1]}</span>
 					</article>
-					<Button.Link variant="outlined" href={"/"} icon={ArrowRight} iconPosition="right">
+					<Button.Link variant="outlined" href={"/about"} className="w-[160px]" icon={ArrowRight} iconPosition="right">
 						소개 바로가기
 					</Button.Link>
 				</div>
@@ -139,7 +139,7 @@ function HeroAction() {
 	return (
 		<div className="flex gap-2">
 			<Button.Link variant="primary" href={"/"} className="w-full">
-				견적 문의하기
+				상세 페이지 바로가기
 			</Button.Link>
 			<Button.Link variant="ghost" href={"/"}>
 				패키지 보기

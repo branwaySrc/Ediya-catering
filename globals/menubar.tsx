@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Coffee, Donut, Gift, House, Menu, X, type LucideIcon } from "lucide-react";
+import { ArrowRight, Coffee, Donut, Gift, House, Menu, Store, X, type LucideIcon } from "lucide-react";
 import { useEffect, useId, useState } from "react";
+
 import { Button } from "@/share/button";
 
 const menuItems = [
@@ -10,6 +11,7 @@ const menuItems = [
 	{ title: "케이터링", href: "/catering", icon: Coffee, delayClass: "delay-[125ms]" },
 	{ title: "프리미엄 스낵바", href: "/snackbar", icon: Donut, delayClass: "delay-[170ms]" },
 	{ title: "시즌 기프트", href: "/gift", icon: Gift, delayClass: "delay-[215ms]" },
+	{ title: "공간대여", href: "/rental", icon: Store, delayClass: "delay-[260ms]" },
 ] satisfies Array<{ title: string; href: string; icon: LucideIcon; delayClass: string }>;
 
 export function Menubar() {
@@ -62,7 +64,7 @@ export function Menubar() {
 			<Button.Action
 				size="icon"
 				variant="ghost"
-				ariaLabel="사이트 메뉴 열기"
+				ariaLabel="사이드 메뉴 열기"
 				aria-controls={menuId}
 				aria-expanded={isOpen}
 				className="shrink-0"
@@ -84,12 +86,12 @@ export function Menubar() {
 						}`}
 						role="dialog"
 						aria-modal="true"
-						aria-label="모바일 사이트 메뉴"
+						aria-label="모바일 사이드 메뉴"
 						onClick={(event) => event.stopPropagation()}
 					>
 						<div className="flex h-20 items-center justify-between border-b border-[#1B2E74]/10 px-4 sm:px-6">
 							<Image src="/logo.svg" alt="Ediya logo" width={160} height={62} priority className="w-35 sm:w-40" />
-							<Button.Action size="icon" variant="ghost" ariaLabel="사이트 메뉴 닫기" icon={X} onClick={closeMenu} />
+							<Button.Action size="icon" variant="ghost" ariaLabel="사이드 메뉴 닫기" icon={X} onClick={closeMenu} />
 						</div>
 
 						<div className="flex flex-1 flex-col px-4 py-7 sm:px-6">

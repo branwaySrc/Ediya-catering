@@ -1,7 +1,14 @@
 "use client";
 
 import { create } from "zustand";
-import { cateringPackages, getCateringPackage, type CateringPackageId } from "./data";
+import {
+	cateringPackages,
+	defaultCateringHeadcount,
+	estimatePackages,
+	getCateringPackage,
+	type CateringPackageId,
+	type EstimatePackageId,
+} from "./data";
 
 type CateringStore = {
 	selectedPackageId: CateringPackageId;
@@ -20,4 +27,18 @@ export const useCateringStore = create<CateringStore>((set) => ({
 		set({ selectedPackageId: packageId, selectedChoiceId: selectedPackage.choices[0].id });
 	},
 	selectChoice: (selectedChoiceId) => set({ selectedChoiceId }),
+}));
+
+type CateringEstimateStore = {
+	selectedEstimatePackageId: EstimatePackageId;
+	headcount: number;
+	selectEstimatePackage: (packageId: EstimatePackageId) => void;
+	setHeadcount: (headcount: number) => void;
+};
+
+export const useCateringEstimateStore = create<CateringEstimateStore>((set) => ({
+	selectedEstimatePackageId: estimatePackages[0].id,
+	headcount: defaultCateringHeadcount,
+	selectEstimatePackage: (selectedEstimatePackageId) => set({ selectedEstimatePackageId }),
+	setHeadcount: (headcount) => set({ headcount: Math.max(1, Math.trunc(headcount) || 1) }),
 }));

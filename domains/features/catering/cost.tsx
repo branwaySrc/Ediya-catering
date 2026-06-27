@@ -19,7 +19,7 @@ export function Cost() {
 			className="pointer-events-none fixed bottom-4 left-4 right-20 z-40 md:left-1/2 md:right-auto md:w-[min(48rem,calc(100%-3rem))] md:-translate-x-1/2"
 			aria-label="선택 견적"
 		>
-			<div className="pointer-events-auto rounded-2xl border border-primary/10 bg-white/95 p-4 shadow-2xl shadow-slate-900/20 backdrop-blur-xl sm:p-5 lg:flex lg:items-center lg:gap-6">
+			<div className="pointer-events-auto rounded-2xl border-3 border-primary bg-white/95 p-4 shadow-2xl shadow-slate-900/20 backdrop-blur-xl sm:p-5 lg:flex lg:items-center lg:gap-6">
 				<div className="flex min-w-0 items-center justify-between gap-4 lg:flex-1">
 					<div className="min-w-0">
 						<p className="truncate font-black text-primary">{selectedPackage.name}</p>

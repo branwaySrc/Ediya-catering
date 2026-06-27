@@ -1,5 +1,6 @@
-import { Ruler, ThermometerSnowflake, Users } from "lucide-react";
+import { LayoutGrid, Ruler, ThermometerSnowflake, Users } from "lucide-react";
 import { ScreenSection } from "@/share/screen-section";
+import { TitleBadge } from "@/share/title-badge";
 
 const guides = [
 	{ icon: Users, title: "이용 인원", description: "상시 이용 인원과 사용 빈도를 확인해 필요한 설비 용량을 정합니다." },
@@ -13,7 +14,11 @@ export function ChoiceGuide() {
 			<ScreenSection>
 				<div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:gap-16">
 					<header>
-						<p className="text-sm font-black tracking-[0.16em] text-[#1C5DBE]">SELECTION GUIDE</p>
+						<TitleBadge>
+							<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={LayoutGrid} className="text-white shadow-none" />
+							<TitleBadge.Title>스낵바 선택 가이드</TitleBadge.Title>
+							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">GUIDE</TitleBadge.Badge>
+						</TitleBadge>
 						<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.03em] text-slate-900 sm:text-4xl">정답은 공간마다<br />다르니까요</h2>
 						<p className="mt-5 text-sm leading-7 text-slate-600 sm:text-base">정해진 패키지를 그대로 적용하기보다 실제 이용 환경을 확인하고 필요한 만큼 구성합니다.</p>
 					</header>

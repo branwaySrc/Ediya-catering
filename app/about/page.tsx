@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 
 import { ScreenSection } from "@/share/screen-section";
+import { TitleBadge } from "@/share/title-badge";
 
 export const metadata: Metadata = {
 	title: "지점 소개 | 이디야커피 안산 비즈니스 솔루션",
@@ -31,15 +32,15 @@ const branches = [
 		name: "이디야커피 안산 월피동점",
 		address: "경기도 안산시 상록구 월피동 492-16번지 103호",
 		label: "운영 지점",
-		image: "/catering-herobgv03.png",
-		imageAlt: "월피동점에서 제공하는 이디야 케이터링 서비스",
+		image: "/ediya-rental-wolfee.jpg",
+		imageAlt: "월피동점 매장 전경",
 	},
 	{
 		name: "이디야커피 안산 동안산병원점",
 		address: "경기도 안산시 상록구 월피동 474-11",
 		label: "공동 운영점",
-		image: "/snackbar-lounge-station.png",
-		imageAlt: "동안산병원점에서 제공하는 이디야 스낵바 서비스",
+		image: "/ediya-rental-dongansan.jpg",
+		imageAlt: "동안산병원점 매장 전경",
 	},
 ];
 
@@ -50,7 +51,8 @@ const services = [
 		subtitle: "행사에 카페를 더합니다",
 		description: "기업 행사와 세미나, 기관 모임의 규모와 분위기에 맞춰 음료와 다과 구성을 제안합니다.",
 		image: "/catering-herobgv03.png",
-		href: "#contact",
+		contactHref: "/contact?service=catering",
+		detailHref: "/catering",
 		icon: Coffee,
 		accent: "bg-[#1C5DBE]",
 		imageClassName: "object-cover object-center",
@@ -61,7 +63,8 @@ const services = [
 		subtitle: "일하는 공간에 여유를 더합니다",
 		description: "사무실 환경과 이용 인원에 맞춘 음료·스낵 구성을 정기적으로 채우고 관리합니다.",
 		image: "/snackbar-lounge-station.png",
-		href: "#contact",
+		contactHref: "/contact?service=snackbar",
+		detailHref: "/snackbar",
 		icon: Utensils,
 		accent: "bg-[#E96106]",
 		imageClassName: "object-contain p-7",
@@ -72,10 +75,23 @@ const services = [
 		subtitle: "감사의 마음을 알맞게 전합니다",
 		description: "연말과 명절, 기념일의 목적과 예산에 맞춰 이디야 커피 선물 구성을 제안합니다.",
 		image: "/gift/gift.png",
-		href: "#contact",
+		contactHref: "/contact?service=gift",
+		detailHref: "/gift",
 		icon: Gift,
 		accent: "bg-[#009249]",
 		imageClassName: "object-contain p-7",
+	},
+	{
+		number: "04",
+		title: "공간대여",
+		subtitle: "야간 매장 공간을 유연하게 빌립니다",
+		description: "월피동점과 동안산병원점의 공간을 야간 시간대에 대여할 수 있도록 안내하고, 필요 시 메뉴 준비까지 함께 상담합니다.",
+		image: "/ediya-rental-wolfee.jpg",
+		contactHref: "/contact?service=rental",
+		detailHref: "/rental",
+		icon: Store,
+		accent: "bg-[#8B5CF6]",
+		imageClassName: "object-cover object-center",
 	},
 ];
 
@@ -119,10 +135,11 @@ export default function AboutPage() {
 
 				<ScreenSection className="grid min-h-[42rem] items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
 					<div className="max-w-2xl">
-						<p className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold tracking-[0.14em] text-blue-100">
-							<MapPin className="size-3.5" aria-hidden="true" />
-							EDIYA COFFEE · ANSAN
-						</p>
+						<TitleBadge className="pb-2">
+							<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={MapPin} className="text-white shadow-none" />
+							<TitleBadge.Title className="text-white">이디야 커피 안산</TitleBadge.Title>
+							<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">BRANCH</TitleBadge.Badge>
+						</TitleBadge>
 						<h1 className="text-4xl font-black leading-[1.2] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
 							안산의 두 이디야 매장이
 							<br />
@@ -132,7 +149,7 @@ export default function AboutPage() {
 							이디야커피 안산 월피동점과 동안산병원점이 함께 운영하는 안산 지역 비즈니스 커피 솔루션입니다. 행사의 한 잔부터 사무실의 매일, 감사의
 							선물까지 목적과 예산에 맞춰 제안합니다.
 						</p>
-						<div className="mt-9 flex flex-col gap-3 sm:flex-row">
+						<div className="mt-9 flex flex-col gap-3 sm:flex-row ">
 							<Link
 								href="#solutions"
 								className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 text-sm font-bold text-[#172966] transition hover:bg-blue-50"
@@ -172,14 +189,18 @@ export default function AboutPage() {
 			<section className="border-b border-slate-200 bg-slate-50">
 				<ScreenSection className="py-16 lg:py-24">
 					<div className="mx-auto max-w-3xl text-center">
-						<p className="text-sm font-black tracking-[0.15em] text-[#1C5DBE]">WHO WE ARE</p>
+						<TitleBadge className="justify-center">
+							<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={Store} className="text-white shadow-none" />
+							<TitleBadge.Title>이디야 커피 매장 소개</TitleBadge.Title>
+							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">ABOUT</TitleBadge.Badge>
+						</TitleBadge>
 						<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.03em] text-slate-900 sm:text-4xl">
-							지역을 잘 아는 두 매장이
+							깊은 노하우를 가진 두 매장이
 							<br />한 팀으로 움직입니다.
 						</h2>
-						<p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-							이 서비스는 이디야커피 월피동점과 동안산병원점이 공동 운영하는 안산 지역 서비스입니다. 실제 매장을 운영하는 담당자와 직접 소통하며 더
-							빠르고 구체적인 준비가 가능합니다.
+						<p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-600 text-base">
+							이 서비스는 이디야커피 월피동점과 동안산병원점이 공동 운영하는 안산 지역 서비스입니다.
+							<br /> 실제 매장을 운영하는 담당자와 직접 소통하며 더 빠르고 구체적인 준비가 가능합니다.
 						</p>
 					</div>
 
@@ -225,14 +246,18 @@ export default function AboutPage() {
 			<section id="solutions" className="scroll-mt-24 py-20 sm:py-28">
 				<ScreenSection>
 					<div className="max-w-2xl">
-						<p className="text-sm font-black tracking-[0.15em] text-[#1C5DBE]">OUR SOLUTIONS</p>
+						<TitleBadge>
+							<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={Coffee} className="text-white shadow-none" />
+							<TitleBadge.Title>운영 솔루션</TitleBadge.Title>
+							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">SOLUTIONS</TitleBadge.Badge>
+						</TitleBadge>
 						<h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-900 sm:text-4xl">필요한 순간마다, 알맞은 커피 경험</h2>
 						<p className="mt-5 text-base leading-7 text-slate-600">
 							한 번의 행사부터 매일 이용하는 사무실, 마음을 전하는 시즌 선물까지 세 가지 방식으로 함께합니다.
 						</p>
 					</div>
 
-					<div className="mt-12 grid gap-6 lg:grid-cols-3">
+					<div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
 						{services.map(service => {
 							const Icon = service.icon;
 
@@ -249,24 +274,36 @@ export default function AboutPage() {
 											sizes="(max-width: 1024px) 100vw, 33vw"
 											className={`${service.imageClassName} transition duration-500 group-hover:scale-105`}
 										/>
-										<span
-											className={`absolute left-5 top-5 inline-flex size-11 items-center justify-center rounded-xl text-white shadow-lg ${service.accent}`}
-										>
-											<Icon className="size-5" aria-hidden="true" />
-										</span>
+										<div className="absolute left-5 top-5">
+											<TitleBadge className="gap-2 pb-0">
+												<TitleBadge.Icon backgroundColor={["#ffffff", "#f8fafc"]} className="text-slate-900 shadow-none">
+													<Icon aria-hidden="true" className="size-5" />
+												</TitleBadge.Icon>
+												<TitleBadge.Badge
+													className={`${service.accent} border-transparent px-3 py-1 text-white`}
+												>{`SOLUTION ${service.number}`}</TitleBadge.Badge>
+											</TitleBadge>
+										</div>
 									</div>
 									<div className="p-6 sm:p-7">
-										<p className="text-xs font-black tracking-[0.16em] text-slate-400">SOLUTION {service.number}</p>
 										<h3 className="mt-3 text-2xl font-black text-slate-900">{service.title}</h3>
 										<p className="mt-1 text-sm font-bold text-[#1C5DBE]">{service.subtitle}</p>
 										<p className="mt-4 min-h-20 text-sm leading-7 text-slate-600">{service.description}</p>
-										<Link
-											href={service.href}
-											className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-900 transition group-hover:gap-3 group-hover:text-[#1C5DBE]"
-										>
-											서비스 상담하기
-											<ArrowRight className="size-4" aria-hidden="true" />
-										</Link>
+										<div className="mt-5 flex flex-col gap-3 sm:flex-row">
+											<Link
+												href={service.contactHref}
+												className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-[#1B2E74] px-5 text-sm font-bold text-white transition hover:bg-[#15255F]"
+											>
+												서비스 상담하기
+												<ArrowRight className="size-4" aria-hidden="true" />
+											</Link>
+											<Link
+												href={service.detailHref}
+												className="inline-flex h-11 items-center justify-center rounded-lg border border-[#1B2E74]/15 px-5 text-sm font-bold text-[#1B2E74] transition hover:bg-slate-50"
+											>
+												자세히보기
+											</Link>
+										</div>
 									</div>
 								</article>
 							);
@@ -279,7 +316,11 @@ export default function AboutPage() {
 				<ScreenSection>
 					<div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
 						<div>
-							<p className="text-sm font-black tracking-[0.15em] text-[#1C5DBE]">WHY US</p>
+							<TitleBadge>
+								<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={Sparkles} className="text-white shadow-none" />
+								<TitleBadge.Title>선택 이유</TitleBadge.Title>
+								<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">WHY US</TitleBadge.Badge>
+							</TitleBadge>
 							<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.03em] text-slate-900 sm:text-4xl">
 								준비는 간편하게,
 								<br />
@@ -312,7 +353,11 @@ export default function AboutPage() {
 			<section className="py-20 sm:py-28">
 				<ScreenSection>
 					<div className="text-center">
-						<p className="text-sm font-black tracking-[0.15em] text-[#1C5DBE]">HOW IT WORKS</p>
+						<TitleBadge className="justify-center">
+							<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={RefreshCw} className="text-white shadow-none" />
+							<TitleBadge.Title>운영 방식</TitleBadge.Title>
+							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">PROCESS</TitleBadge.Badge>
+						</TitleBadge>
 						<h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-900 sm:text-4xl">상담부터 운영까지 함께합니다</h2>
 					</div>
 
@@ -343,7 +388,11 @@ export default function AboutPage() {
 						<div className="absolute -right-24 -top-28 size-80 rounded-full border-[3rem] border-white/5" />
 						<div className="relative grid gap-9 lg:grid-cols-[1fr_auto] lg:items-end">
 							<div>
-								<p className="text-sm font-bold tracking-[0.15em] text-blue-200">LET&apos;S TALK</p>
+								<TitleBadge className="pb-0">
+									<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={Phone} className="text-white shadow-none" />
+									<TitleBadge.Title className="text-white">상담 시작</TitleBadge.Title>
+									<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">TALK</TitleBadge.Badge>
+								</TitleBadge>
 								<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.03em] sm:text-4xl">
 									행사의 한 잔부터 사무실의 매일,
 									<br className="hidden sm:block" /> 감사의 선물까지 함께 준비합니다.
