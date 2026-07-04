@@ -8,16 +8,16 @@ import Link from "next/link";
 
 function PackageLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="bg-slate-800 py-10">
-			<div className="mx-auto max-w-7xl sm:pt-10 relative flex flex-col">{children}</div>
+		<div className="bg-slate-800 py-20 sm:py-28">
+			<div className="mx-auto max-w-7xl relative flex flex-col">{children}</div>
 		</div>
 	);
 }
 
 function PackageHeading({ action }: { action: React.ReactNode }) {
 	return (
-		<ScreenSection className="p-4 flex w-full justify-between mb-4">
-			<h2 className="text-white text-2xl flex flex-col">
+		<ScreenSection className="flex w-full justify-between pb-8 sm:pb-10">
+			<h2 className="text-white text-3xl gap-1.5 flex flex-col">
 				<span className="">케이터링이 처음이신가요?</span>
 				<span className="font-bold">최적화된 패키지를 소개합니다!</span>
 			</h2>

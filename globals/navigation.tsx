@@ -23,7 +23,7 @@ export default function Navigation() {
 							<MenuTab icon={Coffee} title="케이터링" href="/catering" />
 						</li>
 						<li>
-							<MenuTab icon={Donut} title="프리미엄 스낵바" href="/snackbar" />
+							<MenuTab icon={Donut} title="스낵바" href="/snackbar" />
 						</li>
 						<li>
 							<MenuTab icon={Gift} title="시즌 기프트" href="/gift" />

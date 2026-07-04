@@ -7,7 +7,7 @@ interface ScreenSectionProps extends HTMLAttributes<HTMLDivElement> {
 
 export function ScreenSection({ children, className, ...rest }: ScreenSectionProps) {
 	return (
-		<section className={`${className} mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`} {...rest}>
+		<section className={`${className} mx-auto max-w-7xl px-4 sm:px-6`} {...rest}>
 			{children}
 		</section>
 	);

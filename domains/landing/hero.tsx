@@ -5,15 +5,15 @@ import Image from "next/image";
 
 const HEADING_CONTENT = {
 	HEADING: ["고민할 필요 없는 커피 케이터링!", "이디야 커피 케이터링"],
-	DESC: "맛과 품격을 동시에 높이는 최고의 선택!",
+	DESC: "행사 인원과 날짜만 있으면 준비 끝!",
 };
 
 const HERO_WELCOME_WORDS = ["커피 케이터링", "프라이빗 스낵바", "기프트 패키지"];
 
 function HeroLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="bg-content overflow-hidden pb-30 relative">
-			<div className="mx-auto max-w-7xl sm:pt-10 relative z-10 flex flex-col">{children}</div>
+		<div className="bg-content overflow-hidden pb-32 sm:pb-36 relative">
+			<div className="mx-auto max-w-7xl pt-8 sm:pt-10 relative z-10 flex flex-col">{children}</div>
 			<figure className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-40 overflow-hidden sm:h-44">
 				<div className="absolute bottom-0 left-0" style={{ animation: "car-run 8s linear infinite" }}>
 					<div
@@ -47,7 +47,7 @@ function HeroWelcome({ words = HERO_WELCOME_WORDS }: { words?: string[] }) {
 	const rollingWords = words.length > 0 ? [...words, words[0]] : [...HERO_WELCOME_WORDS, HERO_WELCOME_WORDS[0]];
 
 	return (
-		<div className="sm:flex sm:flex-col md:flex-row items-start justify-between sm:pl-6 gap-4 py-15 sm:pb-10 sm:pt-0">
+		<div className="sm:flex sm:flex-col md:flex-row items-start justify-between sm:pl-6 gap-4 py-16 sm:pb-10 sm:pt-8">
 			<div className="flex flex-col font-bold text-3xl sm:text-5xl gap-2 sm:gap-2 text-center sm:text-start">
 				<span className="block h-[1.15em] overflow-hidden">
 					<span className="flex animate-hero-welcome-slide flex-col text-primary">
@@ -116,13 +116,13 @@ function HeroDownload() {
 
 function HeroCard({ action }: { action: React.ReactNode }) {
 	return (
-		<CardSection className="relative overflow-hidden my-4 sm:mt-4">
+		<CardSection className="relative overflow-hidden my-6 sm:mt-6">
 			<div className="flex flex-col gap-3 z-20">
 				<div className="font-bold text-2xl flex flex-col">
 					<span className="text-slate-600">{HEADING_CONTENT.HEADING[0]}</span>
 					<span className="text-primary">{HEADING_CONTENT.HEADING[1]}</span>
 				</div>
-				<aside className="text-slate-500 text-sm">
+				<aside className="text-slate-500 text-base">
 					<p>{HEADING_CONTENT.DESC}</p>
 				</aside>
 			</div>
@@ -150,7 +150,7 @@ function HeroAction() {
 
 function HeroVideo() {
 	return (
-		<div className="max-w-7xl h-80 sm:h-150 flex items-center justify-center overflow-hidden sm:rounded-xl">
+		<div className="max-w-7xl h-80 sm:h-150 flex items-center justify-center overflow-hidden sm:rounded-lg">
 			<video autoPlay muted loop className="object-cover h-80 sm:h-150 w-screen">
 				<source src="/videos/hero.mp4" type="video/mp4" />
 			</video>

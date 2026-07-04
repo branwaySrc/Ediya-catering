@@ -9,7 +9,7 @@ import { Button } from "@/share/button";
 const menuItems = [
 	{ title: "지점소개", href: "/about", icon: House, delayClass: "delay-[80ms]" },
 	{ title: "케이터링", href: "/catering", icon: Coffee, delayClass: "delay-[125ms]" },
-	{ title: "프리미엄 스낵바", href: "/snackbar", icon: Donut, delayClass: "delay-[170ms]" },
+	{ title: "스낵바", href: "/snackbar", icon: Donut, delayClass: "delay-[170ms]" },
 	{ title: "시즌 기프트", href: "/gift", icon: Gift, delayClass: "delay-[215ms]" },
 	{ title: "공간대여", href: "/rental", icon: Store, delayClass: "delay-[260ms]" },
 ] satisfies Array<{ title: string; href: string; icon: LucideIcon; delayClass: string }>;
@@ -87,7 +87,7 @@ export function Menubar() {
 						role="dialog"
 						aria-modal="true"
 						aria-label="모바일 사이드 메뉴"
-						onClick={(event) => event.stopPropagation()}
+						onClick={event => event.stopPropagation()}
 					>
 						<div className="flex h-20 items-center justify-between border-b border-[#1B2E74]/10 px-4 sm:px-6">
 							<Image src="/logo.svg" alt="Ediya logo" width={160} height={62} priority className="w-35 sm:w-40" />
@@ -97,7 +97,7 @@ export function Menubar() {
 						<div className="flex flex-1 flex-col px-4 py-7 sm:px-6">
 							<nav aria-label="모바일 주요 메뉴">
 								<ul className="space-y-3">
-									{menuItems.map((item) => (
+									{menuItems.map(item => (
 										<li
 											key={item.href}
 											className={`transition-all duration-300 ease-out ${

@@ -110,7 +110,7 @@ export default function GiftPage() {
 							<TitleBadge.Title className="text-white">이디야 시즌 기프트</TitleBadge.Title>
 							<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">SEASONAL</TitleBadge.Badge>
 						</TitleBadge>
-						<h1 className="mt-7 text-4xl font-black leading-[1.16] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
+						<h1 className="mt-7 text-4xl font-bold leading-[1.16] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
 							이디야 MD 선물,
 							<br />
 							선택부터 <span className="text-[#91E2BD]">포장·배송까지</span> 한 번에
@@ -122,14 +122,14 @@ export default function GiftPage() {
 						<div className="mt-9 flex flex-col gap-3 sm:flex-row">
 							<Link
 								href="#gift-solution"
-								className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 text-sm font-black text-[#102B24] transition hover:bg-emerald-50"
+								className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 text-sm font-bold text-[#102B24] transition hover:bg-emerald-50"
 							>
 								선물 솔루션 살펴보기
 								<ArrowRight aria-hidden="true" className="size-4" />
 							</Link>
 							<Link
 								href="#latest-md"
-								className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/5 px-6 text-sm font-black text-white backdrop-blur-md transition hover:bg-white/15"
+								className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/5 px-6 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/15"
 							>
 								최신 MD 받아보기
 							</Link>
@@ -138,7 +138,7 @@ export default function GiftPage() {
 				</ScreenSection>
 			</section>
 
-			<section className="border-b border-slate-200 bg-[#F7F8F5] py-16 sm:py-20">
+			<section className="border-b border-slate-200 bg-[#F7F8F5] py-20 sm:py-24">
 				<ScreenSection className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
 					<div>
 						<TitleBadge>
@@ -146,7 +146,7 @@ export default function GiftPage() {
 							<TitleBadge.Title>상황별 선물 제안</TitleBadge.Title>
 							<TitleBadge.Badge className="border-[#009249] text-[#009249]">MOMENT</TitleBadge.Badge>
 						</TitleBadge>
-						<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.035em] sm:text-4xl">
+						<h2 className="mt-4 text-3xl font-bold leading-tight tracking-[-0.035em] sm:text-4xl">
 							선물이 필요한 순간마다
 							<br />알맞은 방법을 제안합니다.
 						</h2>
@@ -166,19 +166,19 @@ export default function GiftPage() {
 							<TitleBadge.Title>기프트 활용 장면</TitleBadge.Title>
 							<TitleBadge.Badge className="border-[#009249] text-[#009249]">OCCASION</TitleBadge.Badge>
 						</TitleBadge>
-						<h2 className="mt-4 text-3xl font-black tracking-[-0.035em] sm:text-4xl">어떤 선물을 준비하고 계신가요?</h2>
+						<h2 className="mt-4 text-3xl font-bold tracking-[-0.035em] sm:text-4xl">어떤 선물을 준비하고 계신가요?</h2>
 					</div>
 
 					<div className="mt-10 grid gap-5 lg:grid-cols-3">
 						{giftMoments.map(({ icon: Icon, eyebrow, title, description }) => (
-							<article key={title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-8">
+							<article key={title} className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm sm:p-8">
 								<div className="flex items-center justify-between gap-4">
-									<span className="inline-flex size-12 items-center justify-center rounded-2xl bg-emerald-50 text-[#087443]">
+									<span className="inline-flex size-12 items-center justify-center rounded-lg bg-emerald-50 text-[#087443]">
 										<Icon aria-hidden="true" className="size-5" />
 									</span>
-									<span className="text-[0.6875rem] font-black tracking-[0.16em] text-slate-400">{eyebrow}</span>
+									<span className="text-[0.6875rem] font-bold tracking-[0.16em] text-slate-400">{eyebrow}</span>
 								</div>
-								<h3 className="mt-7 text-xl font-black">{title}</h3>
+								<h3 className="mt-7 text-xl font-bold">{title}</h3>
 								<p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
 							</article>
 						))}
@@ -195,20 +195,20 @@ export default function GiftPage() {
 								<TitleBadge.Title>시즌 컬렉션</TitleBadge.Title>
 								<TitleBadge.Badge className="border-[#9A553E] text-[#9A553E]">COLLECTION</TitleBadge.Badge>
 							</TitleBadge>
-							<h2 className="mt-4 text-3xl font-black tracking-[-0.035em] sm:text-4xl">시즌마다 새롭게 만나는 이디야 MD</h2>
+							<h2 className="mt-4 text-3xl font-bold tracking-[-0.035em] sm:text-4xl">시즌마다 새롭게 만나는 이디야 MD</h2>
 						</div>
 						<p className="text-sm font-bold text-[#7C5A4E]">아래 이미지는 상품 구성 예시입니다.</p>
 					</div>
 
 					<div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
 						{giftImages.map((image, index) => (
-							<figure key={image} className={`relative overflow-hidden rounded-2xl bg-white/70 ${index === 0 || index === 5 ? "aspect-[4/5] md:row-span-2 md:aspect-auto" : "aspect-square"}`}>
+							<figure key={image} className={`relative overflow-hidden rounded-lg bg-white/70 ${index === 0 || index === 5 ? "aspect-[4/5] md:row-span-2 md:aspect-auto" : "aspect-square"}`}>
 								<Image src={image} alt={`이디야 시즌 MD 상품 구성 예시 ${index + 1}`} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-contain p-3 transition duration-500 hover:scale-105 sm:p-5" />
 							</figure>
 						))}
 					</div>
 
-					<div className="mt-6 flex gap-3 rounded-2xl border border-[#C89C8A]/35 bg-white/55 p-5 text-sm leading-6 text-[#6D4A3E]">
+					<div className="mt-6 flex gap-3 rounded-lg border border-[#C89C8A]/35 bg-white/55 p-5 text-sm leading-6 text-[#6D4A3E]">
 						<BadgeCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#9A553E]" />
 						<p>실제 판매 상품과 구성은 시즌, 주문 시점, 재고 상황에 따라 달라질 수 있습니다. 상담 시 준비 가능한 최신 목록을 별도로 안내해 드립니다.</p>
 					</div>
@@ -224,7 +224,7 @@ export default function GiftPage() {
 								<TitleBadge.Title>올인원 준비 서비스</TitleBadge.Title>
 								<TitleBadge.Badge className="border-[#009249] text-[#009249]">SERVICE</TitleBadge.Badge>
 							</TitleBadge>
-							<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.035em] sm:text-4xl">
+							<h2 className="mt-4 text-3xl font-bold leading-tight tracking-[-0.035em] sm:text-4xl">
 								상품만 고르세요.
 								<br />나머지는 준비해 드립니다.
 							</h2>
@@ -233,33 +233,33 @@ export default function GiftPage() {
 							</p>
 						</div>
 
-						<div className="grid gap-px overflow-hidden rounded-3xl border border-slate-200 bg-slate-200 sm:grid-cols-2">
+						<div className="grid gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 sm:grid-cols-2">
 							{strengths.map(({ icon: Icon, title, description, badge }) => (
 								<article key={title} className="relative bg-white p-7 sm:p-8">
 									<div className="flex items-start justify-between gap-3">
-										<span className="inline-flex size-11 items-center justify-center rounded-xl bg-emerald-50 text-[#087443]">
+										<span className="inline-flex size-11 items-center justify-center rounded-md bg-emerald-50 text-[#087443]">
 											<Icon aria-hidden="true" className="size-5" />
 										</span>
-										{badge ? <span className="rounded-full bg-[#102B24] px-3 py-1 text-[0.625rem] font-black tracking-[0.12em] text-white">{badge}</span> : null}
+										{badge ? <span className="rounded-full bg-[#102B24] px-3 py-1 text-[0.625rem] font-bold tracking-[0.12em] text-white">{badge}</span> : null}
 									</div>
-									<h3 className="mt-5 text-lg font-black">{title}</h3>
+									<h3 className="mt-5 text-lg font-bold">{title}</h3>
 									<p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
 								</article>
 							))}
 						</div>
 					</div>
 
-					<div className="mt-8 grid gap-4 rounded-3xl bg-[#102B24] p-6 text-white sm:p-8 lg:grid-cols-[auto_1fr_auto] lg:items-center">
-						<span className="inline-flex size-12 items-center justify-center rounded-2xl bg-white/10 text-[#91E2BD]">
+					<div className="mt-8 grid gap-4 rounded-lg bg-[#102B24] p-6 text-white sm:p-8 lg:grid-cols-[auto_1fr_auto] lg:items-center">
+						<span className="inline-flex size-12 items-center justify-center rounded-lg bg-white/10 text-[#91E2BD]">
 							<MapPinOff aria-hidden="true" className="size-5" />
 						</span>
 						<div>
-							<h3 className="font-black">배송 및 맞춤 포장 안내</h3>
+							<h3 className="font-bold">배송 및 맞춤 포장 안내</h3>
 							<p className="mt-2 text-sm leading-6 text-emerald-50/70">
 								무료 배송은 내륙 지역 기준이며 제주 및 도서·산간 지역은 서비스가 제한될 수 있습니다. 맞춤 포장 무료 제공 여부는 주문 수량과 견적 조건 확인 후 안내합니다.
 							</p>
 						</div>
-						<Link href="#latest-md" className="inline-flex items-center gap-2 text-sm font-black text-[#91E2BD]">
+						<Link href="#latest-md" className="inline-flex items-center gap-2 text-sm font-bold text-[#91E2BD]">
 							최신 구성 문의하기
 							<ArrowRight aria-hidden="true" className="size-4" />
 						</Link>
@@ -275,17 +275,17 @@ export default function GiftPage() {
 							<TitleBadge.Title>진행 단계</TitleBadge.Title>
 							<TitleBadge.Badge className="border-[#009249] text-[#009249]">PROCESS</TitleBadge.Badge>
 						</TitleBadge>
-						<h2 className="mt-4 text-3xl font-black tracking-[-0.035em] sm:text-4xl">상담부터 출고까지 네 단계로</h2>
+						<h2 className="mt-4 text-3xl font-bold tracking-[-0.035em] sm:text-4xl">상담부터 출고까지 네 단계로</h2>
 					</div>
 
 					<ol className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
 						{process.map((step, index) => (
-							<li key={step.number} className="relative rounded-2xl border border-slate-200 bg-white p-6">
+							<li key={step.number} className="relative rounded-lg border border-slate-200 bg-white p-6">
 								<div className="flex items-center justify-between">
-									<span className="text-xs font-black tracking-[0.16em] text-[#087443]">STEP {step.number}</span>
+									<span className="text-xs font-bold tracking-[0.16em] text-[#087443]">STEP {step.number}</span>
 									{index < process.length - 1 ? <ArrowRight aria-hidden="true" className="hidden size-4 text-slate-300 lg:block" /> : <Check aria-hidden="true" className="size-4 text-[#087443]" />}
 								</div>
-								<h3 className="mt-6 text-lg font-black">{step.title}</h3>
+								<h3 className="mt-6 text-lg font-bold">{step.title}</h3>
 								<p className="mt-3 text-sm leading-6 text-slate-600">{step.description}</p>
 							</li>
 						))}
@@ -295,7 +295,7 @@ export default function GiftPage() {
 
 			<section id="latest-md" className="scroll-mt-24 py-20 sm:py-28">
 				<ScreenSection>
-					<div className="relative overflow-hidden rounded-[2rem] bg-[#153D32] px-6 py-12 text-white sm:px-12 sm:py-16 lg:px-16 lg:py-20">
+					<div className="relative overflow-hidden rounded-lg bg-[#153D32] px-6 py-12 text-white sm:px-12 sm:py-16 lg:px-16 lg:py-20">
 						<div className="absolute -right-20 -top-24 size-72 rounded-full border-[3rem] border-white/5" />
 						<div className="absolute -bottom-24 left-1/3 size-56 rounded-full bg-emerald-300/5 blur-2xl" />
 						<div className="relative grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-end">
@@ -305,7 +305,7 @@ export default function GiftPage() {
 									<TitleBadge.Title className="text-white">최신 MD 소식</TitleBadge.Title>
 									<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">NEWS</TitleBadge.Badge>
 								</TitleBadge>
-								<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.035em] sm:text-4xl">
+								<h2 className="mt-4 text-3xl font-bold leading-tight tracking-[-0.035em] sm:text-4xl">
 									새로운 이디야 MD,
 									<br />가장 먼저 받아보세요.
 								</h2>
@@ -317,7 +317,7 @@ export default function GiftPage() {
 							<div className="grid gap-3">
 								<Link
 									href={KAKAO_CHANNEL_URL}
-									className="inline-flex min-h-14 items-center justify-between gap-4 rounded-xl bg-[#FEE500] px-6 text-sm font-black text-[#191919] transition hover:bg-[#F4DC00]"
+									className="inline-flex min-h-14 items-center justify-between gap-4 rounded-md bg-[#FEE500] px-6 text-sm font-bold text-[#191919] transition hover:bg-[#F4DC00]"
 								>
 									<span className="inline-flex items-center gap-3">
 										<MessageCircle aria-hidden="true" className="size-5" />
@@ -327,7 +327,7 @@ export default function GiftPage() {
 								</Link>
 								<a
 									href={emailSubscriptionHref}
-									className="inline-flex min-h-14 items-center justify-between gap-4 rounded-xl border border-white/25 bg-white/10 px-6 text-sm font-black text-white transition hover:bg-white/15"
+									className="inline-flex min-h-14 items-center justify-between gap-4 rounded-md border border-white/25 bg-white/10 px-6 text-sm font-bold text-white transition hover:bg-white/15"
 								>
 									<span className="inline-flex items-center gap-3">
 										<Mail aria-hidden="true" className="size-5" />

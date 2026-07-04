@@ -8,7 +8,7 @@ import Image from "next/image";
 function GiftBoxLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<section className="bg-white px-0 mx-auto max-w-7xl">
-			<div className="py-10">{children}</div>
+			<div className="py-20 sm:py-28">{children}</div>
 		</section>
 	);
 }
@@ -16,23 +16,21 @@ function GiftBoxLayout({ children }: { children: React.ReactNode }) {
 function GiftBoxHeader() {
 	const baseColor = "#009249";
 	return (
-		<ScreenSection className="pb-4 md:pb-8 flex flex-col text-2xl">
+		<ScreenSection className="pb-8 md:pb-10 flex flex-col sm:gap-1.5 text-2xl sm:text-3xl">
 			<TitleBadge>
 				<TitleBadge.Icon backgroundColor={["#04D48F", `${baseColor}`]} icon={Gift} className="text-white" />
 				<TitleBadge.Title>EDIYA 시즌 기프트</TitleBadge.Title>
 				<TitleBadge.Badge className={`border-[#009249] text-[#009249]`}>SEASONAL</TitleBadge.Badge>
 			</TitleBadge>
-			<span className="font-bold text-slate-800">
-				모두가 부담없이 즐길 수 있는
-				<br /> 이디야 선물 세트로 마음을 전하세요.
-			</span>
+			<span className="text-slate-800">모두가 선호하는 커피선물</span>
+			<span className="font-bold text-slate-800">이디야 선물 세트로 준비하세요.</span>
 		</ScreenSection>
 	);
 }
 
 function GiftBoxHero() {
 	return (
-		<div className="relative h-120 sm:h-150 overflow-hidden mb-4">
+		<div className="relative h-120 sm:h-150 overflow-hidden mb-2 sm:mb-2 rounded-md">
 			<aside className="z-10 absolute bottom-6 sm:place-self-end left-6 right-6 grid grid-cols-2 gap-3 sm:gap-1.5 sm:grid-cols-1">
 				<Button.Link href={"/"} className="text-white bg-green-700 hover:bg-emerald-900" variant="none" icon={ArrowRight} iconPosition="right">
 					지금 바로 문의하기
@@ -77,10 +75,10 @@ function GiftBoxSlider({ className, images = GIFTBOX_IMAGES }: GiftBoxContentPro
 	const sliderImages = [...images, ...images];
 
 	return (
-		<div className={`overflow-hidden ${className ?? ""}`}>
+		<div className={`overflow-hidden pt-2 ${className ?? ""}`}>
 			<div className="flex w-max gap-4 animate-giftbox-slider">
 				{sliderImages.map((image, index) => (
-					<CardSection key={`${image}-${index}`} className="relative h-60 w-60 shrink-0 overflow-hidden border-none md:h-65 md:w-65">
+					<CardSection key={`${image}-${index}`} className="relative h-60 w-60 shrink-0 overflow-hidden border-none md:h-68 md:w-65 rounded-md">
 						<figure className="absolute inset-0 flex items-center justify-center overflow-hidden bottom-2">
 							<Image src={image} alt="giftbox-slide" height={250} width={250} className="size-60 sm:size-65 max-w-none object-contain" />
 						</figure>

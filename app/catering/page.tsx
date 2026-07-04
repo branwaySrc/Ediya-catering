@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { CateringFAQ } from "@/domains/features/catering/faq";
-import { CateringFinalCTA } from "@/domains/features/catering/final-cta";
 import { CateringHero } from "@/domains/features/catering/hero";
 import { CateringNotice } from "@/domains/features/catering/notice";
 import { CateringPackageCards } from "@/domains/features/catering/package-cards";
@@ -17,15 +16,18 @@ export const metadata: Metadata = {
 export default function CateringPage() {
 	return (
 		<div className="min-h-screen bg-[#F8F9FC]">
-			<CateringHero />
+			<div className="lg:hidden">
+				<CateringHero />
+			</div>
 			<CateringPackageOverview />
-			<CateringPriceCalculator />
+			<div className="lg:hidden">
+				<CateringPriceCalculator />
+			</div>
 			<CateringPackageCards />
 			<CustomCateringSection />
 			<CateringProcess />
 			<CateringNotice />
 			<CateringFAQ />
-			<CateringFinalCTA />
 		</div>
 	);
 }

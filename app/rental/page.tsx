@@ -76,7 +76,7 @@ export default function RentalPage() {
 							<TitleBadge.Title>공간대여</TitleBadge.Title>
 							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">RENTAL</TitleBadge.Badge>
 						</TitleBadge>
-						<h1 className="mt-4 text-4xl font-black leading-tight text-slate-900 sm:text-5xl">
+						<h1 className="mt-4 text-4xl font-bold leading-tight text-slate-900 sm:text-5xl">
 							이디야 안산 매장을
 							<br className="hidden sm:block" /> 야간 공간으로 대여합니다
 						</h1>
@@ -103,7 +103,7 @@ export default function RentalPage() {
 				</ScreenSection>
 			</section>
 
-			<section className="py-16 sm:py-20">
+			<section className="py-20 sm:py-24">
 				<ScreenSection>
 					<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
 						{rentalNotes.map((note) => {
@@ -114,7 +114,7 @@ export default function RentalPage() {
 									<span className="inline-flex size-11 items-center justify-center rounded-xl bg-blue-50 text-[#1C5DBE]">
 										<Icon className="size-5" aria-hidden="true" />
 									</span>
-									<h2 className="mt-4 text-lg font-black text-slate-900">{note.title}</h2>
+									<h2 className="mt-4 text-lg font-bold text-slate-900">{note.title}</h2>
 									<p className="mt-3 text-sm leading-7 text-slate-600">{note.description}</p>
 								</article>
 							);
@@ -131,7 +131,7 @@ export default function RentalPage() {
 							<TitleBadge.Title>대여 가능 매장</TitleBadge.Title>
 							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">SPACES</TitleBadge.Badge>
 						</TitleBadge>
-						<h2 className="mt-4 text-3xl font-black leading-tight text-slate-900 sm:text-4xl">두 매장 모두 대여 가능합니다</h2>
+						<h2 className="mt-4 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">두 매장 모두 대여 가능합니다</h2>
 						<p className="mt-5 text-sm leading-7 text-slate-600 sm:text-base">
 							매장별 대여료를 각 카드에 함께 표기했습니다. 아래 버튼으로 네이버지도와 카카오지도에서도 위치를 바로 확인할 수 있습니다.
 						</p>
@@ -147,7 +147,7 @@ export default function RentalPage() {
 								<div className="p-6 sm:p-7">
 									<div className="flex items-center gap-2 text-slate-900">
 										<Store className="size-4 shrink-0 text-[#1B2E74]" aria-hidden="true" />
-										<h3 className="text-xl font-black">{space.name}</h3>
+										<h3 className="text-xl font-bold">{space.name}</h3>
 									</div>
 
 									<div className="mt-3 flex items-start gap-2 text-sm leading-7 text-slate-600">
@@ -184,7 +184,7 @@ export default function RentalPage() {
 				</ScreenSection>
 			</section>
 
-			<section id="contact" className="py-20 sm:py-24">
+			<section id="contact" className="py-20 sm:py-28">
 				<ScreenSection>
 					<div className="rounded-[2rem] bg-[#172966] px-6 py-12 text-white sm:px-10 sm:py-14">
 						<TitleBadge className="pb-0">
@@ -192,7 +192,7 @@ export default function RentalPage() {
 							<TitleBadge.Title className="text-white">문의 전 참고</TitleBadge.Title>
 							<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">GUIDE</TitleBadge.Badge>
 						</TitleBadge>
-						<h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">공간만 대여해도 되고, 메뉴까지 함께 준비해드립니다</h2>
+						<h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">공간만 대여해도 되고, 메뉴까지 함께 준비해드립니다</h2>
 						<p className="mt-5 max-w-3xl text-sm leading-7 text-blue-100/85 sm:text-base">
 							원하시는 일정과 사용 목적, 메뉴 필요 여부를 미리 알려주시면 대여 가능 여부와 준비 범위를 빠르게 안내해드립니다.
 							메뉴는 전 메뉴 기준으로 사전 협의 후 준비되며, 모든 제공 품목은 배달용 용기로 전달됩니다.

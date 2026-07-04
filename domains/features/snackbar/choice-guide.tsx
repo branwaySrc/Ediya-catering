@@ -19,16 +19,16 @@ export function ChoiceGuide() {
 							<TitleBadge.Title>스낵바 선택 가이드</TitleBadge.Title>
 							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">GUIDE</TitleBadge.Badge>
 						</TitleBadge>
-						<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.03em] text-slate-900 sm:text-4xl">정답은 공간마다<br />다르니까요</h2>
+						<h2 className="mt-4 text-3xl font-bold leading-tight tracking-[-0.03em] text-slate-900 sm:text-4xl">정답은 공간마다<br />다르니까요</h2>
 						<p className="mt-5 text-sm leading-7 text-slate-600 sm:text-base">정해진 패키지를 그대로 적용하기보다 실제 이용 환경을 확인하고 필요한 만큼 구성합니다.</p>
 					</header>
 					<div className="grid gap-4 sm:grid-cols-3">
 						{guides.map(({ icon: Icon, title, description }) => (
-							<article key={title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-								<span className="inline-flex size-11 items-center justify-center rounded-xl bg-blue-50 text-[#1C5DBE]">
+							<article key={title} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+								<span className="inline-flex size-11 items-center justify-center rounded-md bg-blue-50 text-[#1C5DBE]">
 									<Icon className="size-5" aria-hidden="true" />
 								</span>
-								<h3 className="mt-5 text-lg font-black text-slate-900">{title}</h3>
+								<h3 className="mt-5 text-lg font-bold text-slate-900">{title}</h3>
 								<p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
 							</article>
 						))}

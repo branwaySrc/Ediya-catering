@@ -18,7 +18,9 @@ export const metadata: Metadata = {
 export default function SnackbarPage() {
 	return (
 		<div className="bg-white text-slate-900">
-			<Hero />
+			<div className="lg:hidden">
+				<Hero />
+			</div>
 			<Stations />
 			<ProductCatalog />
 			<Pricing />

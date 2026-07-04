@@ -19,16 +19,16 @@ export function Process() {
 						<TitleBadge.Title>도입 진행 순서</TitleBadge.Title>
 						<TitleBadge.Badge className="border-[#E96106] text-[#E96106]">PROCESS</TitleBadge.Badge>
 					</TitleBadge>
-					<h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-900 sm:text-4xl">상담부터 설치까지 이렇게 진행합니다</h2>
+					<h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] text-slate-900 sm:text-4xl">상담부터 설치까지 이렇게 진행합니다</h2>
 				</header>
 				<ol className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
 					{steps.map(({ icon: Icon, title, description }, index) => (
-						<li key={title} className="rounded-2xl border border-slate-200 bg-white p-6">
+						<li key={title} className="rounded-lg border border-slate-200 bg-white p-6">
 							<div className="flex items-center justify-between">
-								<span className="inline-flex size-11 items-center justify-center rounded-xl bg-[#172966] text-white"><Icon className="size-5" aria-hidden="true" /></span>
-								<span className="text-3xl font-black text-slate-100">{String(index + 1).padStart(2, "0")}</span>
+								<span className="inline-flex size-11 items-center justify-center rounded-md bg-[#172966] text-white"><Icon className="size-5" aria-hidden="true" /></span>
+								<span className="text-3xl font-bold text-slate-100">{String(index + 1).padStart(2, "0")}</span>
 							</div>
-							<h3 className="mt-6 text-lg font-black text-slate-900">{title}</h3>
+							<h3 className="mt-6 text-lg font-bold text-slate-900">{title}</h3>
 							<p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
 						</li>
 					))}

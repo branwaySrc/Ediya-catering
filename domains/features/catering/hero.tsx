@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArrowRight, Coffee, MessageCircle } from "lucide-react";
 import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
@@ -13,10 +12,6 @@ const heroStats = [
 export function CateringHero() {
 	return (
 		<section className="relative isolate overflow-hidden bg-[#132760] text-white">
-			<Image src="/catering-herobgv03.png" alt="" fill priority sizes="100vw" className="-z-20 object-cover opacity-35" />
-			<div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#132760] via-[#132760]/90 to-[#132760]/45" />
-			<div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-gradient-to-t from-[#F8F9FC] to-transparent" />
-
 			<ScreenSection className="grid min-h-[42rem] items-center gap-10 py-20 sm:py-24 lg:grid-cols-[1.05fr_0.95fr]">
 				<div className="max-w-3xl">
 					<TitleBadge className="pb-2">
@@ -27,7 +22,7 @@ export function CateringHero() {
 						</TitleBadge.Badge>
 					</TitleBadge>
 
-					<h1 className="mt-7 text-4xl font-black leading-tight sm:text-5xl lg:text-5xl">
+					<h1 className="mt-7 text-4xl font-bold leading-tight sm:text-5xl lg:text-5xl">
 						행사에 필요한 커피와 음료를
 						<br />
 						인원수에 맞춰 준비해드립니다.
@@ -43,7 +38,7 @@ export function CateringHero() {
 							variant="outlined"
 							icon={ArrowRight}
 							iconPosition="right"
-							className="border-white bg-white text-primary hover:bg-blue-50"
+							className="border-white text-primary hover:bg-blue-50"
 						>
 							패키지 문의하기
 						</Button.Link>
@@ -58,17 +53,17 @@ export function CateringHero() {
 					</div>
 				</div>
 
-				<div className="rounded-3xl border border-white/15 bg-white/10 p-5 shadow-2xl shadow-black/15 backdrop-blur-md sm:p-6">
+				<div className="rounded-lg border border-white/15 bg-white/10 p-5 shadow-2xl shadow-black/15 backdrop-blur-md sm:p-6">
 					<div className="grid gap-3 sm:grid-cols-3">
 						{heroStats.map(([label, value]) => (
-							<div key={label} className="rounded-2xl border border-white/15 bg-white/10 p-4">
+							<div key={label} className="rounded-lg border border-white/15 bg-white/10 p-4">
 								<p className="text-xs font-bold text-blue-100/65">{label}</p>
-								<p className="mt-2 text-lg font-black">{value}</p>
+								<p className="mt-2 text-lg font-bold">{value}</p>
 							</div>
 						))}
 					</div>
-					<div className="mt-4 rounded-2xl bg-white p-5 text-primary">
-						<p className="text-sm font-black">상담 전 빠른 확인</p>
+					<div className="mt-4 rounded-lg bg-white p-5 text-primary">
+						<p className="text-sm font-bold">상담 전 빠른 확인</p>
 						<p className="mt-2 text-sm leading-6 text-slate-600">
 							원하는 패키지와 예상 인원만 입력하면 행사 규모에 맞는 예상 금액을 바로 확인할 수 있습니다.
 						</p>

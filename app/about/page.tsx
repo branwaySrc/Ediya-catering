@@ -1,23 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {
-	ArrowRight,
-	Building2,
-	Check,
-	Coffee,
-	Gift,
-	HeartHandshake,
-	MapPin,
-	MessageCircleMore,
-	PackageCheck,
-	Phone,
-	RefreshCw,
-	Sparkles,
-	Store,
-	Truck,
-	Utensils,
-} from "lucide-react";
+import { ArrowRight, Check, Coffee, MapPin, MessageCircleMore, RefreshCw, Sparkles, Store, Truck } from "lucide-react";
 
 import { ScreenSection } from "@/share/screen-section";
 import { TitleBadge } from "@/share/title-badge";
@@ -31,14 +15,12 @@ const branches = [
 	{
 		name: "이디야커피 안산 월피동점",
 		address: "경기도 안산시 상록구 월피동 492-16번지 103호",
-		label: "운영 지점",
 		image: "/ediya-rental-wolfee.jpg",
 		imageAlt: "월피동점 매장 전경",
 	},
 	{
 		name: "이디야커피 안산 동안산병원점",
 		address: "경기도 안산시 상록구 월피동 474-11",
-		label: "공동 운영점",
 		image: "/ediya-rental-dongansan.jpg",
 		imageAlt: "동안산병원점 매장 전경",
 	},
@@ -48,159 +30,134 @@ const services = [
 	{
 		number: "01",
 		title: "커피 케이터링",
-		subtitle: "행사에 카페를 더합니다",
-		description: "기업 행사와 세미나, 기관 모임의 규모와 분위기에 맞춰 음료와 다과 구성을 제안합니다.",
+		subtitle: "빠른 준비, 간편하고 확실하게",
 		image: "/catering-herobgv03.png",
 		contactHref: "/contact?service=catering",
 		detailHref: "/catering",
-		icon: Coffee,
 		accent: "bg-[#1C5DBE]",
 		imageClassName: "object-cover object-center",
 	},
 	{
 		number: "02",
 		title: "오피스 스낵바",
-		subtitle: "일하는 공간에 여유를 더합니다",
-		description: "사무실 환경과 이용 인원에 맞춘 음료·스낵 구성을 정기적으로 채우고 관리합니다.",
+		subtitle: "비즈니스 공간에 탁월한 스낵바",
 		image: "/snackbar-lounge-station.png",
 		contactHref: "/contact?service=snackbar",
 		detailHref: "/snackbar",
-		icon: Utensils,
 		accent: "bg-[#E96106]",
 		imageClassName: "object-contain p-7",
 	},
 	{
 		number: "03",
-		title: "시즌 커피 선물",
-		subtitle: "감사의 마음을 알맞게 전합니다",
-		description: "연말과 명절, 기념일의 목적과 예산에 맞춰 이디야 커피 선물 구성을 제안합니다.",
+		title: "시즌 기프트",
+		subtitle: "시즌에 알맞는 MD기프트 준비",
 		image: "/gift/gift.png",
 		contactHref: "/contact?service=gift",
 		detailHref: "/gift",
-		icon: Gift,
 		accent: "bg-[#009249]",
 		imageClassName: "object-contain p-7",
 	},
 	{
 		number: "04",
 		title: "공간대여",
-		subtitle: "야간 매장 공간을 유연하게 빌립니다",
-		description: "월피동점과 동안산병원점의 공간을 야간 시간대에 대여할 수 있도록 안내하고, 필요 시 메뉴 준비까지 함께 상담합니다.",
+		subtitle: "야간 매장 공간 대여",
 		image: "/ediya-rental-wolfee.jpg",
 		contactHref: "/contact?service=rental",
 		detailHref: "/rental",
-		icon: Store,
 		accent: "bg-[#8B5CF6]",
 		imageClassName: "object-cover object-center",
 	},
 ];
 
-const strengths = [
+const consultationExamples = [
 	{
-		icon: Store,
-		title: "매장에서 시작된 경험",
-		description: "고객을 매일 만나는 두 매장의 운영 경험을 바탕으로 필요한 구성을 현실적으로 제안합니다.",
+		request: "🙍‍♂️  30명 규모 세미나에 커피와 간단한 다과가 필요해요.",
+		solution: "커피 케이터링",
+		answer: "행사 시간과 참석 인원에 맞춰 음료, 베이커리, 세팅 방식까지 한 번에 제안합니다.",
+		tags: ["행사", "30명", "현장 세팅"],
 	},
 	{
-		icon: Sparkles,
-		title: "목적에 맞춘 구성",
-		description: "행사의 성격, 이용 인원, 공간과 예산을 함께 살펴 불필요함은 줄이고 만족도는 높입니다.",
+		request: "🙎‍♀️  직원들이 매일 이용할 간식 코너를 만들고 싶어요.",
+		solution: "오피스 스낵바",
+		answer: "공간 크기와 이용 패턴을 기준으로 음료와 스낵 구성을 잡고, 정기 보충 방식까지 안내합니다.",
+		tags: ["사무실", "정기 관리", "복지"],
 	},
 	{
-		icon: PackageCheck,
-		title: "한 번에 준비하는 솔루션",
-		description: "커피와 티, 다과, 스낵, 선물까지 여러 준비를 하나의 상담으로 간편하게 해결합니다.",
-	},
-	{
-		icon: HeartHandshake,
-		title: "안산 지역의 유연한 대응",
-		description: "지역을 잘 아는 운영자가 상담부터 준비까지 직접 소통하며 꼼꼼하게 대응합니다.",
+		request: "🙍‍♂️  명절 선물을 준비해야 하는데 너무 무겁지 않았으면 해요.",
+		solution: "시즌 기프트",
+		answer: "예산과 전달 대상에 맞춰 부담 없는 커피 선물 구성을 추천하고 수량별 준비 일정을 맞춥니다.",
+		tags: ["선물", "예산 맞춤", "수량 준비"],
 	},
 ];
 
 const process = [
-	{ icon: MessageCircleMore, title: "상담", description: "일정과 장소, 인원, 예산을 알려주세요." },
-	{ icon: Check, title: "맞춤 제안", description: "목적에 맞는 구성과 견적을 안내합니다." },
-	{ icon: Truck, title: "준비·진행", description: "약속한 일정에 맞춰 납품 또는 설치합니다." },
-	{ icon: RefreshCw, title: "운영 지원", description: "필요에 따라 현장 및 정기 운영을 지원합니다." },
+	{ icon: MessageCircleMore, title: "상담 신청", description: "일정과 장소, 인원, 예산 산정" },
+	{ icon: Check, title: "맞춤 제안", description: "목적에 맞는 구성과 견적 안내" },
+	{ icon: Truck, title: "준비 및 진행", description: "일정에 맞춘 납품 및 운영 설치" },
+	{ icon: RefreshCw, title: "운영 지원", description: "필요에 따라 현장 및 정기 운영 지원" },
 ];
 
 export default function AboutPage() {
 	return (
 		<div className="bg-white text-slate-900">
 			<section className="relative isolate overflow-hidden bg-[#172966] text-white">
-				<div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_75%_18%,rgba(67,117,220,0.7),transparent_28%),radial-gradient(circle_at_10%_85%,rgba(12,25,71,0.9),transparent_35%)]" />
 				<div className="absolute -right-28 top-24 -z-10 size-96 rounded-full border border-white/10" />
 				<div className="absolute -right-5 top-48 -z-10 size-52 rounded-full border border-white/10" />
 
-				<ScreenSection className="grid min-h-[42rem] items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
-					<div className="max-w-2xl">
-						<TitleBadge className="pb-2">
+				<ScreenSection className="flex min-h-[42rem] items-center justify-center py-20 text-center lg:py-28">
+					<div className="mx-auto max-w-3xl">
+						<TitleBadge className="justify-center pb-2">
 							<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={MapPin} className="text-white shadow-none" />
 							<TitleBadge.Title className="text-white">이디야 커피 안산</TitleBadge.Title>
-							<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">BRANCH</TitleBadge.Badge>
+							<TitleBadge.Badge backgroundColor="" className="border-white/25 text-white">
+								BRANCH
+							</TitleBadge.Badge>
 						</TitleBadge>
-						<h1 className="text-4xl font-black leading-[1.2] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
-							안산의 두 이디야 매장이
+						<h1 className="font-bold leading-[1.2] tracking-[-0.04em] text-5xl lg:text-6xl py-5">
+							비즈니스도
 							<br />
-							함께 만드는 <span className="text-[#8FB8FF]">커피 솔루션</span>
+							이디야 커피와 함께
 						</h1>
-						<p className="mt-7 max-w-xl text-base leading-8 text-blue-100/90 sm:text-lg">
-							이디야커피 안산 월피동점과 동안산병원점이 함께 운영하는 안산 지역 비즈니스 커피 솔루션입니다. 행사의 한 잔부터 사무실의 매일, 감사의
-							선물까지 목적과 예산에 맞춰 제안합니다.
+						<p className="mx-auto mt-7 max-w-xl text-blue-100/90 text-lg">
+							비즈니스 커피 솔루션, 이디야 커피.
+							<br />
+							비즈니스에 알맞는 목적과 예산에 맞춰 제안합니다.
 						</p>
-						<div className="mt-9 flex flex-col gap-3 sm:flex-row ">
+						<div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
 							<Link
 								href="#solutions"
-								className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 text-sm font-bold text-[#172966] transition hover:bg-blue-50"
+								className="inline-flex h-12 items-center justify-center w-full gap-2 rounded-lg bg-white px-6 text-sm font-bold text-[#172966] transition hover:bg-blue-50"
 							>
 								서비스 살펴보기
 								<ArrowRight className="size-4" aria-hidden="true" />
 							</Link>
 							<Link
 								href="#contact"
-								className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-white/30 px-6 text-sm font-bold text-white transition hover:bg-white/10"
+								className="inline-flex h-12 items-center justify-center w-full gap-2 rounded-lg border border-white/30 px-6 text-sm font-bold text-white transition hover:bg-white/10"
 							>
 								맞춤 상담하기
 							</Link>
-						</div>
-					</div>
-
-					<div className="relative mx-auto w-full max-w-xl lg:mx-0">
-						<div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 shadow-2xl shadow-black/20 sm:aspect-[5/4]">
-							<Image
-								src="/catering-herobgv03.png"
-								alt="커피와 디저트로 구성된 이디야 케이터링"
-								fill
-								priority
-								sizes="(max-width: 1024px) 100vw, 45vw"
-								className="object-cover"
-							/>
-							<div className="absolute inset-0 bg-gradient-to-t from-[#101D4B]/80 via-transparent to-transparent" />
-							<div className="absolute inset-x-6 bottom-6 rounded-2xl border border-white/20 bg-[#101D4B]/80 p-5 backdrop-blur-md sm:inset-x-8 sm:bottom-8">
-								<p className="text-xs font-bold tracking-[0.16em] text-blue-200">TWO STORES, ONE TEAM</p>
-								<p className="mt-2 text-lg font-bold">두 매장의 경험을 하나의 서비스로</p>
-							</div>
 						</div>
 					</div>
 				</ScreenSection>
 			</section>
 
 			<section className="border-b border-slate-200 bg-slate-50">
-				<ScreenSection className="py-16 lg:py-24">
+				<ScreenSection className="py-20 lg:py-28">
 					<div className="mx-auto max-w-3xl text-center">
 						<TitleBadge className="justify-center">
 							<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={Store} className="text-white shadow-none" />
 							<TitleBadge.Title>이디야 커피 매장 소개</TitleBadge.Title>
 							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">ABOUT</TitleBadge.Badge>
 						</TitleBadge>
-						<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.03em] text-slate-900 sm:text-4xl">
-							깊은 노하우를 가진 두 매장이
-							<br />한 팀으로 움직입니다.
+						<h2 className="mt-4 text-3xl font-bold leading-tight tracking-[-0.03em] text-slate-900 sm:text-4xl">
+							깊은 노하우를 가진
+							<br />
+							이디야 커피 안산 지점입니다.
 						</h2>
-						<p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-600 text-base">
-							이 서비스는 이디야커피 월피동점과 동안산병원점이 공동 운영하는 안산 지역 서비스입니다.
-							<br /> 실제 매장을 운영하는 담당자와 직접 소통하며 더 빠르고 구체적인 준비가 가능합니다.
+						<p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-600 text-lg">
+							실제 매장을 운영하며 만든 노하우로, 메뉴 추천과 구성을
+							<br />더 빠르고 책임있는 준비를 약속합니다.
 						</p>
 					</div>
 
@@ -208,7 +165,7 @@ export default function AboutPage() {
 						{branches.map(branch => (
 							<article
 								key={branch.name}
-								className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+								className="group overflow-hidden rounded-lg border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-lg"
 							>
 								<div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
 									<Image
@@ -219,17 +176,11 @@ export default function AboutPage() {
 										className="object-cover transition duration-500 group-hover:scale-105"
 									/>
 									<div className="absolute inset-0 bg-gradient-to-t from-[#101D4B]/45 via-transparent to-transparent" />
-									<span className="absolute left-5 top-5 rounded-full border border-white/40 bg-white/90 px-3 py-1.5 text-[0.6875rem] font-black text-[#1C5DBE] shadow-sm backdrop-blur-sm">
-										{branch.label}
-									</span>
 								</div>
-								<div className="p-6 sm:p-7">
-									<div className="flex items-start gap-4">
-										<span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#172966] text-white">
-											<Building2 className="size-5" aria-hidden="true" />
-										</span>
+								<div className="p-4 sm:p-6">
+									<div className="flex items-start">
 										<div>
-											<h3 className="text-lg font-black text-slate-900 sm:text-xl">{branch.name}</h3>
+											<h3 className="text-lg font-bold text-slate-900 sm:text-xl">{branch.name}</h3>
 											<p className="mt-3 flex gap-2 text-sm leading-6 text-slate-500">
 												<MapPin className="mt-1 size-4 shrink-0 text-[#1C5DBE]" aria-hidden="true" />
 												{branch.address}
@@ -251,97 +202,113 @@ export default function AboutPage() {
 							<TitleBadge.Title>운영 솔루션</TitleBadge.Title>
 							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">SOLUTIONS</TitleBadge.Badge>
 						</TitleBadge>
-						<h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-900 sm:text-4xl">필요한 순간마다, 알맞은 커피 경험</h2>
-						<p className="mt-5 text-base leading-7 text-slate-600">
-							한 번의 행사부터 매일 이용하는 사무실, 마음을 전하는 시즌 선물까지 세 가지 방식으로 함께합니다.
-						</p>
+						<h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] text-slate-900 sm:text-4xl">필요한 순간마다, 편리하고 간편하게.</h2>
 					</div>
 
-					<div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-						{services.map(service => {
-							const Icon = service.icon;
-
-							return (
-								<article
-									key={service.title}
-									className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
-								>
-									<div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-										<Image
-											src={service.image}
-											alt={`${service.title} 서비스 이미지`}
-											fill
-											sizes="(max-width: 1024px) 100vw, 33vw"
-											className={`${service.imageClassName} transition duration-500 group-hover:scale-105`}
-										/>
-										<div className="absolute left-5 top-5">
-											<TitleBadge className="gap-2 pb-0">
-												<TitleBadge.Icon backgroundColor={["#ffffff", "#f8fafc"]} className="text-slate-900 shadow-none">
-													<Icon aria-hidden="true" className="size-5" />
-												</TitleBadge.Icon>
-												<TitleBadge.Badge
-													className={`${service.accent} border-transparent px-3 py-1 text-white`}
-												>{`SOLUTION ${service.number}`}</TitleBadge.Badge>
-											</TitleBadge>
-										</div>
+					<div className="-mx-4 mt-12 overflow-x-auto overscroll-x-contain px-4 pb-3 sm:-mx-6 sm:px-6 md:mx-0 md:overflow-visible md:px-0 md:pb-0">
+						<div className="flex snap-x snap-mandatory gap-5 md:grid md:grid-cols-2 md:gap-6 xl:grid-cols-4">
+							{services.map(service => {
+								return (
+									<div
+										key={service.title}
+										className="flex w-[82vw] max-w-[22rem] shrink-0 snap-start flex-col sm:w-[21rem] md:w-auto md:max-w-none md:shrink md:snap-none"
+									>
+										<TitleBadge className="gap-2 pb-0">
+											<TitleBadge.Badge backgroundColor="" className={`${service.accent} border-transparent px-3 py-1 text-white`}>
+												{`SOLUTION ${service.number}`}
+											</TitleBadge.Badge>
+										</TitleBadge>
+										<article className="group flex flex-1 flex-col overflow-hidden rounded-lg border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+											<div className="relative aspect-4/3 overflow-hidden bg-slate-100">
+												<Image
+													src={service.image}
+													alt={`${service.title} 서비스 이미지`}
+													fill
+													sizes="(max-width: 767px) 82vw, (max-width: 1279px) 50vw, 25vw"
+													className={`${service.imageClassName} transition duration-500 group-hover:scale-105`}
+												/>
+											</div>
+											<div className="flex flex-1 flex-col p-4">
+												<h3 className="mt-3 text-xl font-bold text-slate-900">{service.title}</h3>
+												<p className="mt-1 text-base text-slate-500">{service.subtitle}</p>
+												<div className="mt-auto flex flex-col gap-3 pt-5">
+													<Link
+														href={service.contactHref}
+														className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-[#1B2E74] px-5 text-sm font-bold text-white transition hover:bg-[#15255F]"
+													>
+														서비스 상담하기
+														<ArrowRight className="size-4" aria-hidden="true" />
+													</Link>
+													<Link
+														href={service.detailHref}
+														className="inline-flex h-11 items-center justify-center rounded-lg border border-[#1B2E74]/15 px-5 text-sm font-bold text-[#1B2E74] transition hover:bg-slate-50"
+													>
+														자세히보기
+													</Link>
+												</div>
+											</div>
+										</article>
 									</div>
-									<div className="p-6 sm:p-7">
-										<h3 className="mt-3 text-2xl font-black text-slate-900">{service.title}</h3>
-										<p className="mt-1 text-sm font-bold text-[#1C5DBE]">{service.subtitle}</p>
-										<p className="mt-4 min-h-20 text-sm leading-7 text-slate-600">{service.description}</p>
-										<div className="mt-5 flex flex-col gap-3 sm:flex-row">
-											<Link
-												href={service.contactHref}
-												className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-[#1B2E74] px-5 text-sm font-bold text-white transition hover:bg-[#15255F]"
-											>
-												서비스 상담하기
-												<ArrowRight className="size-4" aria-hidden="true" />
-											</Link>
-											<Link
-												href={service.detailHref}
-												className="inline-flex h-11 items-center justify-center rounded-lg border border-[#1B2E74]/15 px-5 text-sm font-bold text-[#1B2E74] transition hover:bg-slate-50"
-											>
-												자세히보기
-											</Link>
-										</div>
-									</div>
-								</article>
-							);
-						})}
+								);
+							})}
+						</div>
 					</div>
 				</ScreenSection>
 			</section>
 
 			<section className="bg-[#F3F6FB] py-20 sm:py-28">
 				<ScreenSection>
-					<div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
-						<div>
+					<div className="grid gap-12 lg:grid-cols-[0.68fr_1.32fr] lg:gap-16">
+						<div className="lg:sticky lg:top-28 lg:self-start">
 							<TitleBadge>
 								<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={Sparkles} className="text-white shadow-none" />
-								<TitleBadge.Title>선택 이유</TitleBadge.Title>
-								<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">WHY US</TitleBadge.Badge>
+								<TitleBadge.Title>상담 제안</TitleBadge.Title>
+								<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">REPLY</TitleBadge.Badge>
 							</TitleBadge>
-							<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.03em] text-slate-900 sm:text-4xl">
-								준비는 간편하게,
-								<br />
-								경험은 더 만족스럽게
+							<h2 className="mt-4 text-3xl font-bold leading-tight tracking-[-0.03em] text-slate-900 sm:text-4xl">
+								함께 고민하는 <br /> 비즈니스 파트너
 							</h2>
-							<p className="mt-5 text-sm leading-7 text-slate-600 sm:text-base">
-								정해진 상품을 단순히 전달하는 데 그치지 않고, 필요한 이유부터 함께 살펴 가장 잘 맞는 방법을 찾습니다.
+							<p className="mt-5 text-lg leading-7 text-slate-600">
+								함께 고민하는 최적의 행사 파트너가
+								<br />
+								되어 드리겠습니다.
 							</p>
+							<div className="mt-8 rounded-lg border border-[#1C5DBE]/15 bg-white p-5">
+								<p className="text-sm font-bold text-[#1C5DBE]">상담 시, 필요 내용</p>
+								<ul className="mt-4 space-y-2 text-base leading-6 text-slate-600">
+									<li>✔️ ​일정과 장소, 예상 인원</li>
+									<li>✔️​ 필요한 상품 범위와 예산</li>
+									<li>✔️​ 세팅, 배송, 정기 관리 여부</li>
+								</ul>
+							</div>
 						</div>
 
-						<div className="grid gap-px overflow-hidden rounded-3xl border border-slate-200 bg-slate-200 sm:grid-cols-2">
-							{strengths.map(strength => {
-								const Icon = strength.icon;
-
+						<div className="grid gap-5">
+							{consultationExamples.map((example) => {
 								return (
-									<article key={strength.title} className="bg-white p-7 sm:p-8">
-										<span className="inline-flex size-11 items-center justify-center rounded-xl bg-blue-50 text-[#1C5DBE]">
-											<Icon className="size-5" aria-hidden="true" />
-										</span>
-										<h3 className="mt-5 text-lg font-black text-slate-900">{strength.title}</h3>
-										<p className="mt-3 text-sm leading-7 text-slate-600">{strength.description}</p>
+									<article key={example.solution} className="rounded-lg border border-slate-200 bg-white p-5 sm:p-6">
+										<div className="flex items-start gap-4">
+											<div className="min-w-0 flex-1">
+												<p className="text-xs font-bold tracking-[0.14em] text-slate-400">상담내용</p>
+												<p className="mt-2 rounded-lg bg-slate-100 px-4 py-3 text-base font-bold leading-7 text-slate-800">{example.request}</p>
+											</div>
+										</div>
+										<div className="mt-5 grid gap-4 border-t border-slate-100 pt-5 sm:grid-cols-[auto_1fr]">
+											<div>
+												<div className="flex flex-wrap items-center gap-2">
+													<span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-[#1C5DBE]">추천 솔루션</span>
+													<h3 className="text-xl font-bold text-slate-900">{example.solution}</h3>
+												</div>
+												<p className="mt-3 text-base leading-7 text-slate-600">{example.answer}</p>
+												<div className="mt-4 flex flex-wrap gap-2">
+													{example.tags.map(tag => (
+														<span key={tag} className="rounded-full border border-slate-200 px-3 py-1 text-xs font-bold text-slate-500">
+															{tag}
+														</span>
+													))}
+												</div>
+											</div>
+										</div>
 									</article>
 								);
 							})}
@@ -358,7 +325,7 @@ export default function AboutPage() {
 							<TitleBadge.Title>운영 방식</TitleBadge.Title>
 							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">PROCESS</TitleBadge.Badge>
 						</TitleBadge>
-						<h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-900 sm:text-4xl">상담부터 운영까지 함께합니다</h2>
+						<h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] text-slate-900 sm:text-4xl">솔루션 진행 프로세스 안내</h2>
 					</div>
 
 					<ol className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -366,59 +333,19 @@ export default function AboutPage() {
 							const Icon = step.icon;
 
 							return (
-								<li key={step.title} className="relative rounded-2xl border border-slate-200 p-6">
+								<li key={step.title} className="relative rounded-lg border border-slate-200 p-5">
 									<div className="flex items-center justify-between">
-										<span className="inline-flex size-11 items-center justify-center rounded-xl bg-[#172966] text-white">
+										<span className="inline-flex size-11 items-center justify-center rounded-md bg-[#172966] text-white">
 											<Icon className="size-5" aria-hidden="true" />
 										</span>
-										<span className="text-3xl font-black text-slate-100">{String(index + 1).padStart(2, "0")}</span>
+										<span className="text-3xl font-bold text-slate-300">{String(index + 1).padStart(2, "0")}</span>
 									</div>
-									<h3 className="mt-6 text-lg font-black text-slate-900">{step.title}</h3>
-									<p className="mt-2 text-sm leading-6 text-slate-600">{step.description}</p>
+									<h3 className="mt-6 text-lg font-bold text-slate-900">{step.title}</h3>
+									<p className="mt-2 text-base leading-6 text-slate-600">{step.description}</p>
 								</li>
 							);
 						})}
 					</ol>
-				</ScreenSection>
-			</section>
-
-			<section id="contact" className="scroll-mt-24 pb-20 sm:pb-28">
-				<ScreenSection>
-					<div className="relative overflow-hidden rounded-[2rem] bg-[#172966] px-6 py-12 text-white sm:px-12 sm:py-16 lg:px-16">
-						<div className="absolute -right-24 -top-28 size-80 rounded-full border-[3rem] border-white/5" />
-						<div className="relative grid gap-9 lg:grid-cols-[1fr_auto] lg:items-end">
-							<div>
-								<TitleBadge className="pb-0">
-									<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={Phone} className="text-white shadow-none" />
-									<TitleBadge.Title className="text-white">상담 시작</TitleBadge.Title>
-									<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">TALK</TitleBadge.Badge>
-								</TitleBadge>
-								<h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.03em] sm:text-4xl">
-									행사의 한 잔부터 사무실의 매일,
-									<br className="hidden sm:block" /> 감사의 선물까지 함께 준비합니다.
-								</h2>
-								<p className="mt-5 max-w-2xl text-sm leading-7 text-blue-100/80 sm:text-base">
-									필요한 서비스와 예상 인원, 일정만 알려주셔도 좋습니다. 안산 지역 운영 담당자가 확인 후 알맞은 방법을 안내해 드립니다.
-								</p>
-							</div>
-							<div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-								<a
-									href="tel:01045147173"
-									className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 text-sm font-bold text-[#172966] transition hover:bg-blue-50"
-								>
-									<Phone className="size-4" aria-hidden="true" />
-									010-4514-7173
-								</a>
-								<a
-									href="mailto:contact@ediya-catering.kr"
-									className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-white/30 px-6 text-sm font-bold text-white transition hover:bg-white/10"
-								>
-									이메일 문의하기
-									<ArrowRight className="size-4" aria-hidden="true" />
-								</a>
-							</div>
-						</div>
-					</div>
 				</ScreenSection>
 			</section>
 		</div>

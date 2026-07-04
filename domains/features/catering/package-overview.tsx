@@ -7,7 +7,7 @@ const icons = [PackageCheck, Calculator, CheckCircle2, SlidersHorizontal];
 
 export function CateringPackageOverview() {
 	return (
-		<section className="bg-[#F8F9FC] py-16 sm:py-20" aria-labelledby="catering-overview-heading">
+		<section className="bg-[#F8F9FC] py-20 sm:py-24" aria-labelledby="catering-overview-heading">
 			<ScreenSection className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
 				<div>
 					<TitleBadge>
@@ -15,8 +15,8 @@ export function CateringPackageOverview() {
 						<TitleBadge.Title>패키지 가격 안내</TitleBadge.Title>
 						<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">PRICING</TitleBadge.Badge>
 					</TitleBadge>
-					<p className="hidden text-sm font-black uppercase tracking-[0.16em] text-primary/55">Package Pricing</p>
-					<h2 id="catering-overview-heading" className="mt-4 text-3xl font-black leading-tight text-primary sm:text-4xl">
+					<p className="hidden text-sm font-bold uppercase tracking-[0.16em] text-primary/55">Package Pricing</p>
+					<h2 id="catering-overview-heading" className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl">
 						인원수에 따라 계산하는
 						<br />
 						케이터링 패키지
@@ -32,11 +32,11 @@ export function CateringPackageOverview() {
 						const Icon = icons[index] ?? CheckCircle2;
 
 						return (
-							<article key={point} className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
-								<span className="inline-flex size-11 items-center justify-center rounded-xl bg-blue-50 text-primary">
+							<article key={point} className="rounded-lg border border-primary/10 bg-white p-6 shadow-sm">
+								<span className="inline-flex size-11 items-center justify-center rounded-md bg-blue-50 text-primary">
 									<Icon aria-hidden="true" className="size-5" />
 								</span>
-								<h3 className="mt-5 text-lg font-black text-primary">{point}</h3>
+								<h3 className="mt-5 text-lg font-bold text-primary">{point}</h3>
 							</article>
 						);
 					})}

@@ -7,13 +7,13 @@ import { generalOrderChecklist, generalOrderExamples, generalOrderTypes } from "
 export function CateringGeneralOrder() {
 	return (
 		<div className="bg-[#F8F9FC] text-slate-900">
-			<section className="bg-white py-16 sm:py-20">
+			<section className="bg-white py-20 sm:py-24">
 				<ScreenSection className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
 					<div>
-						<p className="inline-flex rounded-full border border-primary/10 bg-blue-50 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-primary">
+						<p className="inline-flex rounded-full border border-primary/10 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-primary">
 							General Order
 						</p>
-						<h1 className="mt-6 text-4xl font-black leading-tight text-primary sm:text-5xl">
+						<h1 className="mt-6 text-4xl font-bold leading-tight text-primary sm:text-5xl">
 							필요한 메뉴와 수량만 정해졌다면
 							<br />
 							일반주문으로 빠르게 상담하세요.
@@ -34,12 +34,12 @@ export function CateringGeneralOrder() {
 
 					<div className="grid gap-3 sm:grid-cols-2">
 						{generalOrderTypes.map((item) => (
-							<article key={item.id} className="overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-sm">
+							<article key={item.id} className="overflow-hidden rounded-lg border border-primary/10 bg-white shadow-sm">
 								<div className="relative aspect-[4/3] bg-slate-50">
 									<Image src={item.image} alt="" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-contain p-6" />
 								</div>
 								<div className="p-5">
-									<h2 className="font-black text-primary">{item.title}</h2>
+									<h2 className="font-bold text-primary">{item.title}</h2>
 									<p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
 								</div>
 							</article>
@@ -48,16 +48,16 @@ export function CateringGeneralOrder() {
 				</ScreenSection>
 			</section>
 
-			<section className="py-16 sm:py-20">
+			<section className="py-20 sm:py-24">
 				<ScreenSection className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-					<article className="rounded-3xl border border-primary/10 bg-white p-6 shadow-sm sm:p-8">
-						<span className="inline-flex size-12 items-center justify-center rounded-2xl bg-blue-50 text-primary">
+					<article className="rounded-lg border border-primary/10 bg-white p-6 shadow-sm sm:p-8">
+						<span className="inline-flex size-12 items-center justify-center rounded-lg bg-blue-50 text-primary">
 							<ClipboardList aria-hidden="true" className="size-6" />
 						</span>
-						<h2 className="mt-6 text-2xl font-black text-primary">문의 전에 알려주시면 좋은 정보</h2>
+						<h2 className="mt-6 text-2xl font-bold text-primary">문의 전에 알려주시면 좋은 정보</h2>
 						<ul className="mt-6 grid gap-3">
 							{generalOrderChecklist.map((item) => (
-								<li key={item} className="flex gap-3 rounded-2xl bg-slate-50 px-4 py-3 text-sm font-bold text-slate-700">
+								<li key={item} className="flex gap-3 rounded-lg bg-slate-50 px-4 py-3 text-sm font-bold text-slate-700">
 									<CheckCircle2 aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-[#1C5DBE]" />
 									{item}
 								</li>
@@ -65,14 +65,14 @@ export function CateringGeneralOrder() {
 						</ul>
 					</article>
 
-					<article className="rounded-3xl border border-primary/10 bg-primary p-6 text-white shadow-xl shadow-primary/15 sm:p-8">
-						<span className="inline-flex size-12 items-center justify-center rounded-2xl bg-white/10">
+					<article className="rounded-lg border border-primary/10 bg-primary p-6 text-white shadow-xl shadow-primary/15 sm:p-8">
+						<span className="inline-flex size-12 items-center justify-center rounded-lg bg-white/10">
 							<PackageCheck aria-hidden="true" className="size-6" />
 						</span>
-						<h2 className="mt-6 text-2xl font-black">일반주문이 잘 맞는 경우</h2>
+						<h2 className="mt-6 text-2xl font-bold">일반주문이 잘 맞는 경우</h2>
 						<ul className="mt-6 grid gap-3">
 							{generalOrderExamples.map((item) => (
-								<li key={item} className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-black">
+								<li key={item} className="rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-sm font-bold">
 									{item}
 								</li>
 							))}
@@ -81,14 +81,14 @@ export function CateringGeneralOrder() {
 				</ScreenSection>
 			</section>
 
-			<section className="bg-white py-16 sm:py-20">
+			<section className="bg-white py-20 sm:py-24">
 				<ScreenSection>
-					<div className="grid gap-6 rounded-3xl border border-amber-200 bg-amber-50 p-6 text-amber-950 sm:p-8 lg:grid-cols-[auto_1fr_auto] lg:items-center">
-						<span className="inline-flex size-12 items-center justify-center rounded-2xl bg-white text-amber-600">
+					<div className="grid gap-6 rounded-lg border border-amber-200 bg-amber-50 p-6 text-amber-950 sm:p-8 lg:grid-cols-[auto_1fr_auto] lg:items-center">
+						<span className="inline-flex size-12 items-center justify-center rounded-lg bg-white text-amber-600">
 							<Clock3 aria-hidden="true" className="size-6" />
 						</span>
 						<div>
-							<h2 className="text-xl font-black">가능 여부와 최종 금액은 상담 후 확정됩니다</h2>
+							<h2 className="text-xl font-bold">가능 여부와 최종 금액은 상담 후 확정됩니다</h2>
 							<p className="mt-2 text-sm leading-7 text-amber-900/75">
 								일반주문은 매장 상황, 재고, 일정, 수량에 따라 준비 가능 여부가 달라질 수 있습니다. 급한 일정은 전화 문의를 권장합니다.
 							</p>

@@ -8,7 +8,7 @@ export default function Footer() {
 			<ScreenSection className="px-4 pt-12 pb-4 lg:py-16">
 				<div className="grid gap-10 lg:grid-cols-[1.5fr_0.5fr]">
 					<section className="space-y-2">
-						<p className="text-sm font-black uppercase tracking-wide leading-7">EDIYA COFFEE 케이터링 안산지점</p>
+						<p className="text-sm font-bold uppercase tracking-wide leading-7">EDIYA COFFEE 케이터링 안산지점</p>
 
 						<p className="max-w-2xl text-sm">
 							본 케이터링 서비스는 <span className="font-bold">이디야 안산 월피동점/동안산병원점</span>이 함께 제공하는 케이터링 서비스입니다.
@@ -36,16 +36,16 @@ export default function Footer() {
 							<p className="text-xs font-bold leading-7">운영 사업자</p>
 							<dl className="space-y-1 text-xs">
 								<div className="flex gap-2">
-									<dt className="shrink-0 font-bold">대표자:</dt>
-									<dd>김민석</dd>
+									<dt className="shrink-0 font-bold">대 표 자:</dt>
+									<dd>김 민 석</dd>
 								</div>
 								<div className="flex gap-2">
-									<dt className="shrink-0 font-bold">사업장:</dt>
+									<dt className="shrink-0 font-bold">사 업 장:</dt>
 									<dd className="shrink-0">이디야커피 안산 월피동점</dd>
 								</div>
 								<div className="flex gap-2">
 									<dt className="shrink-0 font-bold">사업자등록번호</dt>
-									<dd>123-45-67890</dd>
+									<dd>211-39-63056</dd>
 								</div>
 							</dl>
 						</div>
@@ -53,7 +53,7 @@ export default function Footer() {
 						<div className="text-xs flex flex-col gap-1">
 							<p className="font-bold leading-7">위탁 마케팅 · 사이트 운영</p>
 							<p>브랜웨이(Branway)</p>
-							<p>개인정보보안책임: 김민기</p>
+							<p>개인정보처리자: 김 민 기</p>
 						</div>
 					</section>
 				</div>

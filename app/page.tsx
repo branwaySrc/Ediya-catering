@@ -11,11 +11,11 @@ export default function Home() {
 				<Hero.Layout>
 					<Hero.Welcome />
 					<Hero.Video />
-					<div className="sm:grid sm:grid-cols-2 sm:gap-3 max-h-200">
+					<div className="sm:grid sm:grid-cols-2 sm:gap-2.5 max-h-200">
 						<div>
 							<Hero.Card action={<Hero.Action />} />
 						</div>
-						<div className="sm:flex sm:flex-col sm:gap-3 my-4">
+						<div className="sm:flex sm:flex-col sm:gap-5 my-6 sm:my-6">
 							<Hero.Download />
 						</div>
 					</div>
@@ -28,7 +28,7 @@ export default function Home() {
 							</aside>
 						}
 					/>
-					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible md:gap-4 md:pb-0">
+					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible md:gap-5 md:pb-0">
 						<Package.Content image="/live/basic-package.png" packageName="Basic" subtitle="베이직 패키지" desc="커피 80% / 티 20%" href="/" />
 						<Package.Content
 							image="/live/standard-package.png"
@@ -54,7 +54,7 @@ export default function Home() {
 				<Catering.Layout>
 					<Catering.Header />
 					<Catering.Hero />
-					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-4 md:overflow-visible md:gap-4 md:pb-0">
+					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-4 md:overflow-visible md:gap-5 md:pb-0">
 						<Catering.Category
 							packageName="커피/티"
 							image="/catering-drinks.png"
@@ -86,7 +86,7 @@ export default function Home() {
 				<SnackBar.Layout>
 					<SnackBar.Header />
 					<SnackBar.Hero />
-					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible md:gap-4 md:pb-0">
+					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible md:gap-5 md:pb-0">
 						<SnackBar.Category
 							packageName="음료 스테이션"
 							image="/snackbar-drink-station.png"
