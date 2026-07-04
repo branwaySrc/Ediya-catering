@@ -50,6 +50,14 @@ function getActiveStyles(href: string) {
 		};
 	}
 
+	if (href === "/catering/calculator") {
+		return {
+			container: "border-primary bg-slate-800 text-white shadow-md shadow-primary/15",
+			icon: "bg-white/15",
+			description: "text-white/75",
+		};
+	}
+
 	if (href === "/catering/menu") {
 		return {
 			container: "border-[#009249] bg-[#009249] text-white shadow-md shadow-[#009249]/20",
@@ -84,23 +92,19 @@ export function CateringSecondaryNavigation({ orientation = "row" }: CateringSec
 						href={href}
 						aria-current={isActive ? "page" : undefined}
 						className={`flex min-w-0 rounded-lg border px-3 py-3 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:px-4 ${
-							orientation === "column" ? "items-center gap-4 text-left" : "flex-col items-center justify-center gap-2 text-center sm:flex-row sm:justify-start sm:gap-4 sm:text-start"
+							orientation === "column"
+								? "items-center gap-4 text-left"
+								: "flex-col items-center justify-center gap-2 text-center sm:flex-row sm:justify-start sm:gap-4 sm:text-start"
 						} ${
-							isActive
-								? activeStyles.container
-								: "border-primary/30 bg-white text-primary hover:border-2.5 hover:border-primary/80 hover:bg-slate-50"
+							isActive ? activeStyles.container : "border-primary/30 bg-white text-primary hover:border-2.5 hover:border-primary/80 hover:bg-slate-50"
 						}`}
 					>
-						<span
-							className={`inline-flex size-10 shrink-0 items-center justify-center rounded-md ${isActive ? activeStyles.icon : "bg-blue-50"}`}
-						>
+						<span className={`inline-flex size-10 shrink-0 items-center justify-center rounded-md ${isActive ? activeStyles.icon : "bg-blue-50"}`}>
 							<Icon aria-hidden="true" className="size-5" />
 						</span>
 						<span className="min-w-0">
 							<span className="block text-[13px] font-bold leading-tight sm:text-sm">{label}</span>
-							<span
-								className={`mt-1 block text-[11px] font-bold leading-tight sm:text-xs ${isActive ? activeStyles.description : "text-slate-500"}`}
-							>
+							<span className={`mt-1 block text-[11px] font-bold leading-tight sm:text-xs ${isActive ? activeStyles.description : "text-slate-500"}`}>
 								{description}
 							</span>
 						</span>

@@ -1,32 +1,16 @@
 import type { Metadata } from "next";
-import { CateringFAQ } from "@/domains/features/catering/faq";
-import { CateringHero } from "@/domains/features/catering/hero";
-import { CateringNotice } from "@/domains/features/catering/notice";
-import { CateringPackageCards } from "@/domains/features/catering/package-cards";
-import { CateringPackageOverview } from "@/domains/features/catering/package-overview";
-import { CateringPriceCalculator } from "@/domains/features/catering/price-calculator";
-import { CateringProcess } from "@/domains/features/catering/process";
-import { CustomCateringSection } from "@/domains/features/catering/custom-catering";
+import { CateringFAQ } from "@/domains/catering/faq";
+import { CateringSolutionIntro } from "@/domains/catering/solution-intro";
 
 export const metadata: Metadata = {
-	title: "규모패키지 | 이디야 안산지점 케이터링",
-	description: "행사 인원수에 맞춰 커피와 음료 케이터링 예상 견적을 확인하고 상담을 요청하세요.",
+	title: "솔루션 소개 | 이디야 안산지점 케이터링",
+	description: "이디야 커피 메뉴를 기반으로 행사 인원과 예산에 맞춘 음료와 간식 구성을 안내합니다.",
 };
 
 export default function CateringPage() {
 	return (
 		<div className="min-h-screen bg-[#F8F9FC]">
-			<div className="lg:hidden">
-				<CateringHero />
-			</div>
-			<CateringPackageOverview />
-			<div className="lg:hidden">
-				<CateringPriceCalculator />
-			</div>
-			<CateringPackageCards />
-			<CustomCateringSection />
-			<CateringProcess />
-			<CateringNotice />
+			<CateringSolutionIntro />
 			<CateringFAQ />
 		</div>
 	);

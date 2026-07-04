@@ -7,8 +7,8 @@ export function LoungePlan() {
 		<section className="bg-white py-20 sm:py-28">
 			<ScreenSection>
 				<div className="overflow-hidden rounded-lg bg-[#172966] text-white">
-					<div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-						<div className="p-7 sm:p-10 lg:p-14">
+					<div className="grid">
+						<div className="p-7 sm:p-10">
 							<TitleBadge className="pb-0">
 								<TitleBadge.Icon backgroundColor={["#FBB34B", "#8A5A11"]} icon={Coffee} className="text-white shadow-none" />
 								<TitleBadge.Title className="text-white">머신 라운지 플랜</TitleBadge.Title>
@@ -17,7 +17,7 @@ export function LoungePlan() {
 							<h2 className="mt-3 text-3xl font-bold leading-tight tracking-[-0.03em] sm:text-4xl">머신 제공과 캡슐 공급을<br />하나의 계약으로</h2>
 							<p className="mt-5 text-sm leading-7 text-blue-100/80 sm:text-base">필요한 수량의 캡슐커피 머신을 제공하고, 계약 기간 동안 약정한 캡슐을 정기적으로 납품합니다.</p>
 						</div>
-						<div className="border-t border-white/10 bg-white/[0.06] p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-14">
+						<div className="border-t border-white/10 bg-white/[0.06] p-7 sm:p-10">
 							<div className="space-y-6">
 								<div className="flex gap-4">
 									<CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#FBB34B]" aria-hidden="true" />

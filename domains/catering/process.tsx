@@ -19,7 +19,7 @@ export function CateringProcess() {
 					</h2>
 				</div>
 
-				<ol className="mt-10 grid gap-4 md:grid-cols-5">
+				<ol className="mt-10 grid gap-4">
 					{cateringProcessSteps.map((step, index) => (
 						<li key={step} className="relative rounded-lg border border-primary/10 bg-white p-5 shadow-sm">
 							<div className="flex items-center justify-between gap-3">
@@ -27,7 +27,7 @@ export function CateringProcess() {
 								{index === cateringProcessSteps.length - 1 ? (
 									<CheckCircle2 aria-hidden="true" className="size-4 text-[#1C5DBE]" />
 								) : (
-									<ArrowRight aria-hidden="true" className="hidden size-4 text-slate-300 md:block" />
+									<ArrowRight aria-hidden="true" className="hidden size-4 text-slate-300" />
 								)}
 							</div>
 							<h3 className="mt-6 text-base font-bold leading-6 text-primary">{step}</h3>

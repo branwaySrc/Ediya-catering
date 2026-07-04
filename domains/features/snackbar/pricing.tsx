@@ -18,7 +18,7 @@ export function Pricing() {
 					<p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">인원별 추천 시작 금액이며 실제 품목, 수량, 설비와 배송 조건에 따라 최종 견적이 달라집니다.</p>
 				</header>
 
-				<div className="mt-12 grid gap-5 lg:grid-cols-3">
+				<div className="mt-12 grid gap-5">
 					{pricePlans.map((plan, index) => (
 						<article key={plan.id} className={`relative rounded-lg border p-6 sm:p-7 ${index === 1 ? "border-primary bg-[#F3F6FF] shadow-xl shadow-primary/10" : "border-slate-200 bg-white shadow-sm"}`}>
 							{index === 1 ? <span className="absolute right-5 top-5 rounded-full bg-primary px-3 py-1 text-[11px] font-bold text-white">RECOMMENDED</span> : null}

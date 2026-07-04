@@ -12,7 +12,7 @@ export function ChoiceGuide() {
 	return (
 		<section className="bg-[#F3F6FB] py-20 sm:py-28">
 			<ScreenSection>
-				<div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:gap-16">
+				<div className="grid gap-10">
 					<header>
 						<TitleBadge>
 							<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={LayoutGrid} className="text-white shadow-none" />
@@ -22,7 +22,7 @@ export function ChoiceGuide() {
 						<h2 className="mt-4 text-3xl font-bold leading-tight tracking-[-0.03em] text-slate-900 sm:text-4xl">정답은 공간마다<br />다르니까요</h2>
 						<p className="mt-5 text-sm leading-7 text-slate-600 sm:text-base">정해진 패키지를 그대로 적용하기보다 실제 이용 환경을 확인하고 필요한 만큼 구성합니다.</p>
 					</header>
-					<div className="grid gap-4 sm:grid-cols-3">
+					<div className="grid gap-4">
 						{guides.map(({ icon: Icon, title, description }) => (
 							<article key={title} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
 								<span className="inline-flex size-11 items-center justify-center rounded-md bg-blue-50 text-[#1C5DBE]">

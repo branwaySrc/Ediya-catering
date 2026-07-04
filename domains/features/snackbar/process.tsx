@@ -21,7 +21,7 @@ export function Process() {
 					</TitleBadge>
 					<h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] text-slate-900 sm:text-4xl">상담부터 설치까지 이렇게 진행합니다</h2>
 				</header>
-				<ol className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+				<ol className="mt-12 grid gap-4">
 					{steps.map(({ icon: Icon, title, description }, index) => (
 						<li key={title} className="rounded-lg border border-slate-200 bg-white p-6">
 							<div className="flex items-center justify-between">

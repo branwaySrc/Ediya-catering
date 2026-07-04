@@ -21,7 +21,7 @@ export default function RootLayout({
 			<body className="min-h-full text-[#1B2E74]">
 				<Navigation />
 				<Shortcut />
-				<main className="overflow-x-hidden">{children}</main>
+				<main className="overflow-x-clip">{children}</main>
 				<BottomCTA />
 				<Footer />
 			</body>

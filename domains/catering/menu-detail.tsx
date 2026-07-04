@@ -8,7 +8,7 @@ export function CateringMenuDetail() {
 	return (
 		<div className="bg-[#F8F9FC] text-slate-900">
 			<section className="bg-white py-20 sm:py-24">
-				<ScreenSection className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+				<ScreenSection className="grid gap-10">
 					<div>
 						<p className="inline-flex rounded-full border border-primary/10 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-primary">
 							Menu Catalog
@@ -43,12 +43,12 @@ export function CateringMenuDetail() {
 				<ScreenSection className="grid gap-6">
 					{detailedMenuCategories.map((category) => (
 						<article key={category.id} id={category.id} className="scroll-mt-40 overflow-hidden rounded-lg border border-primary/10 bg-white shadow-sm">
-							<div className="grid lg:grid-cols-[0.72fr_1.28fr]">
+							<div className="grid">
 								<div className="relative min-h-72 bg-slate-50">
-									<Image src={category.image} alt="" fill sizes="(max-width: 1024px) 100vw, 32vw" className="object-contain p-8" />
+									<Image src={category.image} alt="" fill sizes="100vw" className="object-contain p-8" />
 								</div>
 								<div className="p-6 sm:p-8">
-									<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+									<div className="flex flex-col gap-4">
 										<div>
 											<p className="text-xs font-bold uppercase tracking-[0.16em] text-primary/45">{category.id}</p>
 											<h2 className="mt-2 text-2xl font-bold text-primary">{category.name}</h2>
@@ -59,7 +59,7 @@ export function CateringMenuDetail() {
 										</Button.Link>
 									</div>
 
-									<div className="mt-7 grid gap-3 md:grid-cols-3">
+									<div className="mt-7 grid gap-3">
 										{category.items.map((item) => (
 											<div key={item.name} className="rounded-lg border border-slate-200 bg-white p-5">
 												<h3 className="font-bold text-primary">{item.name}</h3>

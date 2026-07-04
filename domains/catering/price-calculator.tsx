@@ -22,7 +22,7 @@ export function CateringPriceCalculator() {
 	return (
 		<section id="estimate" className="scroll-mt-24 bg-white py-20 sm:py-24" aria-labelledby="catering-calculator-heading">
 			<ScreenSection>
-				<div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+				<div className="grid gap-8">
 					<div>
 						<TitleBadge>
 							<TitleBadge.Icon backgroundColor={["#4A8DF1", "#1C5DBE"]} icon={Calculator} className="text-white shadow-none" />
@@ -40,8 +40,8 @@ export function CateringPriceCalculator() {
 						</p>
 					</div>
 
-					<div className="rounded-lg border border-primary/10 bg-[#F8F9FC] p-5 shadow-xl shadow-primary/5 sm:p-6 lg:p-8">
-						<div className="grid gap-3 sm:grid-cols-3" role="group" aria-label="케이터링 패키지 선택">
+					<div className="rounded-lg border border-primary/10 bg-[#F8F9FC] p-5 shadow-xl shadow-primary/5 sm:p-6">
+						<div className="grid gap-3" role="group" aria-label="케이터링 패키지 선택">
 							{estimatePackages.map((item) => {
 								const isSelected = item.id === selectedPackageId;
 
@@ -64,7 +64,7 @@ export function CateringPriceCalculator() {
 							})}
 						</div>
 
-						<div className="mt-6 grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
+						<div className="mt-6 grid gap-5">
 							<label className="block rounded-lg border border-primary/10 bg-white p-5">
 								<span className="text-sm font-bold text-primary">예상 인원</span>
 								<div className="mt-4 flex items-center gap-3">
@@ -109,7 +109,7 @@ export function CateringPriceCalculator() {
 							</div>
 						) : null}
 
-						<div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-end">
+						<div className="mt-6 flex flex-col gap-3">
 							<Button.Link href={`/contact?service=catering&package=${selectedPackage.id}`} variant="primary" icon={ArrowRight} iconPosition="right">
 								이 패키지 문의하기
 							</Button.Link>

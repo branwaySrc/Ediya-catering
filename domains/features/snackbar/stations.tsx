@@ -18,14 +18,14 @@ export function Stations() {
 					<p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">설비의 종류와 크기, 상품 구성은 현장 환경을 확인한 뒤 상담을 통해 확정합니다.</p>
 				</header>
 
-				<div className="mt-12 grid gap-6 lg:grid-cols-3">
+				<div className="mt-12 grid gap-6">
 					{stations.map((station) => {
 						const Icon = station.icon;
 
 						return (
 							<article key={station.id} className="group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
 								<div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-									<Image src={station.image} alt={station.imageAlt} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-contain p-6 transition duration-500 group-hover:scale-105" />
+									<Image src={station.image} alt={station.imageAlt} fill sizes="100vw" className="object-contain p-6 transition duration-500 group-hover:scale-105" />
 									<span className="absolute left-5 top-5 inline-flex size-11 items-center justify-center rounded-md text-white shadow-lg" style={{ backgroundColor: station.accent }}>
 										<Icon className="size-5" aria-hidden="true" />
 									</span>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CateringPriceCalculator } from "@/domains/features/catering/price-calculator";
+import { CateringPriceCalculator } from "@/domains/catering/price-calculator";
 
 export const metadata: Metadata = {
 	title: "견적 계산 | 이디야 안산지점 케이터링",

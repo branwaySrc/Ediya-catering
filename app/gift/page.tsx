@@ -52,14 +52,7 @@ const giftMoments: Array<{ icon: LucideIcon; eyebrow: string; title: string; des
 	},
 ];
 
-const giftImages = [
-	"/gift/gift-1.png",
-	"/gift/gift-2.png",
-	"/gift/gift-3.png",
-	"/gift/gift-4.png",
-	"/gift/gift-5.png",
-	"/gift/gift-6.png",
-];
+const giftImages = ["/gift/gift-1.png", "/gift/gift-2.png", "/gift/gift-3.png", "/gift/gift-4.png", "/gift/gift-5.png", "/gift/gift-6.png"];
 
 const strengths: Array<{ icon: LucideIcon; title: string; description: string; badge?: string }> = [
 	{
@@ -108,7 +101,9 @@ export default function GiftPage() {
 						<TitleBadge className="pb-2">
 							<TitleBadge.Icon backgroundColor={["#04D48F", "#009249"]} icon={Gift} className="text-white shadow-none" />
 							<TitleBadge.Title className="text-white">이디야 시즌 기프트</TitleBadge.Title>
-							<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">SEASONAL</TitleBadge.Badge>
+							<TitleBadge.Badge backgroundColor="" className="border-white/25 bg-white/10 text-white">
+								SEASONAL
+							</TitleBadge.Badge>
 						</TitleBadge>
 						<h1 className="mt-7 text-4xl font-bold leading-[1.16] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
 							이디야 MD 선물,
@@ -116,8 +111,8 @@ export default function GiftPage() {
 							선택부터 <span className="text-[#91E2BD]">포장·배송까지</span> 한 번에
 						</h1>
 						<p className="mt-7 max-w-2xl text-base leading-8 text-emerald-50/85 sm:text-lg">
-							행사와 명절, 기업의 특별한 순간에 어울리는 이디야 MD를 제안합니다. 상품 확보부터 포장과 배송 준비까지 맡기고,
-							 전하고 싶은 마음에만 집중하세요.
+							행사와 명절, 기업의 특별한 순간에 어울리는 이디야 MD를 제안합니다. 상품 확보부터 포장과 배송 준비까지 맡기고, 전하고 싶은 마음에만
+							집중하세요.
 						</p>
 						<div className="mt-9 flex flex-col gap-3 sm:flex-row">
 							<Link
@@ -148,12 +143,13 @@ export default function GiftPage() {
 						</TitleBadge>
 						<h2 className="mt-4 text-3xl font-bold leading-tight tracking-[-0.035em] sm:text-4xl">
 							선물이 필요한 순간마다
-							<br />알맞은 방법을 제안합니다.
+							<br />
+							알맞은 방법을 제안합니다.
 						</h2>
 					</div>
 					<p className="max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-						MD 상품은 시즌과 재고에 따라 계속 달라집니다. 정해진 세트를 일방적으로 권하기보다 선물의 목적과 받는 분, 예산과
-						 수량을 먼저 확인하고 그 시점에 준비할 수 있는 가장 알맞은 구성을 찾아드립니다.
+						MD 상품은 시즌과 재고에 따라 계속 달라집니다. 정해진 세트를 일방적으로 권하기보다 선물의 목적과 받는 분, 예산과 수량을 먼저 확인하고 그
+						시점에 준비할 수 있는 가장 알맞은 구성을 찾아드립니다.
 					</p>
 				</ScreenSection>
 			</section>
@@ -202,15 +198,26 @@ export default function GiftPage() {
 
 					<div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
 						{giftImages.map((image, index) => (
-							<figure key={image} className={`relative overflow-hidden rounded-lg bg-white/70 ${index === 0 || index === 5 ? "aspect-[4/5] md:row-span-2 md:aspect-auto" : "aspect-square"}`}>
-								<Image src={image} alt={`이디야 시즌 MD 상품 구성 예시 ${index + 1}`} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-contain p-3 transition duration-500 hover:scale-105 sm:p-5" />
+							<figure
+								key={image}
+								className={`relative overflow-hidden rounded-lg bg-white/70 ${index === 0 || index === 5 ? "aspect-[4/5] md:row-span-2 md:aspect-auto" : "aspect-square"}`}
+							>
+								<Image
+									src={image}
+									alt={`이디야 시즌 MD 상품 구성 예시 ${index + 1}`}
+									fill
+									sizes="(max-width: 768px) 50vw, 33vw"
+									className="object-contain p-3 transition duration-500 hover:scale-105 sm:p-5"
+								/>
 							</figure>
 						))}
 					</div>
 
 					<div className="mt-6 flex gap-3 rounded-lg border border-[#C89C8A]/35 bg-white/55 p-5 text-sm leading-6 text-[#6D4A3E]">
 						<BadgeCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#9A553E]" />
-						<p>실제 판매 상품과 구성은 시즌, 주문 시점, 재고 상황에 따라 달라질 수 있습니다. 상담 시 준비 가능한 최신 목록을 별도로 안내해 드립니다.</p>
+						<p>
+							실제 판매 상품과 구성은 시즌, 주문 시점, 재고 상황에 따라 달라질 수 있습니다. 상담 시 준비 가능한 최신 목록을 별도로 안내해 드립니다.
+						</p>
 					</div>
 				</ScreenSection>
 			</section>
@@ -226,7 +233,8 @@ export default function GiftPage() {
 							</TitleBadge>
 							<h2 className="mt-4 text-3xl font-bold leading-tight tracking-[-0.035em] sm:text-4xl">
 								상품만 고르세요.
-								<br />나머지는 준비해 드립니다.
+								<br />
+								나머지는 준비해 드립니다.
 							</h2>
 							<p className="mt-5 text-sm leading-7 text-slate-600 sm:text-base">
 								많은 수량의 선물을 직접 포장하고 배송하는 번거로움까지 줄일 수 있도록 상품 확보 이후의 과정도 함께합니다.
@@ -240,7 +248,9 @@ export default function GiftPage() {
 										<span className="inline-flex size-11 items-center justify-center rounded-md bg-emerald-50 text-[#087443]">
 											<Icon aria-hidden="true" className="size-5" />
 										</span>
-										{badge ? <span className="rounded-full bg-[#102B24] px-3 py-1 text-[0.625rem] font-bold tracking-[0.12em] text-white">{badge}</span> : null}
+										{badge ? (
+											<span className="rounded-full bg-[#102B24] px-3 py-1 text-[0.625rem] font-bold tracking-[0.12em] text-white">{badge}</span>
+										) : null}
 									</div>
 									<h3 className="mt-5 text-lg font-bold">{title}</h3>
 									<p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
@@ -256,7 +266,8 @@ export default function GiftPage() {
 						<div>
 							<h3 className="font-bold">배송 및 맞춤 포장 안내</h3>
 							<p className="mt-2 text-sm leading-6 text-emerald-50/70">
-								무료 배송은 내륙 지역 기준이며 제주 및 도서·산간 지역은 서비스가 제한될 수 있습니다. 맞춤 포장 무료 제공 여부는 주문 수량과 견적 조건 확인 후 안내합니다.
+								무료 배송은 내륙 지역 기준이며 제주 및 도서·산간 지역은 서비스가 제한될 수 있습니다. 맞춤 포장 무료 제공 여부는 주문 수량과 견적 조건
+								확인 후 안내합니다.
 							</p>
 						</div>
 						<Link href="#latest-md" className="inline-flex items-center gap-2 text-sm font-bold text-[#91E2BD]">
@@ -283,7 +294,11 @@ export default function GiftPage() {
 							<li key={step.number} className="relative rounded-lg border border-slate-200 bg-white p-6">
 								<div className="flex items-center justify-between">
 									<span className="text-xs font-bold tracking-[0.16em] text-[#087443]">STEP {step.number}</span>
-									{index < process.length - 1 ? <ArrowRight aria-hidden="true" className="hidden size-4 text-slate-300 lg:block" /> : <Check aria-hidden="true" className="size-4 text-[#087443]" />}
+									{index < process.length - 1 ? (
+										<ArrowRight aria-hidden="true" className="hidden size-4 text-slate-300 lg:block" />
+									) : (
+										<Check aria-hidden="true" className="size-4 text-[#087443]" />
+									)}
 								</div>
 								<h3 className="mt-6 text-lg font-bold">{step.title}</h3>
 								<p className="mt-3 text-sm leading-6 text-slate-600">{step.description}</p>
@@ -303,11 +318,14 @@ export default function GiftPage() {
 								<TitleBadge className="pb-0">
 									<TitleBadge.Icon backgroundColor={["#04D48F", "#009249"]} icon={Mail} className="text-white shadow-none" />
 									<TitleBadge.Title className="text-white">최신 MD 소식</TitleBadge.Title>
-									<TitleBadge.Badge className="border-white/25 bg-white/10 text-white">NEWS</TitleBadge.Badge>
+									<TitleBadge.Badge backgroundColor="" className="border-white/25 bg-white/10 text-white">
+										NEWS
+									</TitleBadge.Badge>
 								</TitleBadge>
 								<h2 className="mt-4 text-3xl font-bold leading-tight tracking-[-0.035em] sm:text-4xl">
 									새로운 이디야 MD,
-									<br />가장 먼저 받아보세요.
+									<br />
+									가장 먼저 받아보세요.
 								</h2>
 								<p className="mt-5 text-sm leading-7 text-emerald-50/75 sm:text-base">
 									시즌마다 달라지는 최신 MD 상품과 단체 선물 구성을 카카오톡 또는 이메일로 안내해 드립니다.

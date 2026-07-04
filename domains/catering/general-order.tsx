@@ -8,7 +8,7 @@ export function CateringGeneralOrder() {
 	return (
 		<div className="bg-[#F8F9FC] text-slate-900">
 			<section className="bg-white py-20 sm:py-24">
-				<ScreenSection className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+				<ScreenSection className="grid gap-10">
 					<div>
 						<p className="inline-flex rounded-full border border-primary/10 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-primary">
 							General Order
@@ -22,7 +22,7 @@ export function CateringGeneralOrder() {
 							규모패키지까지는 필요 없지만 회의, 미팅, 소규모 행사에 커피와 간식이 필요할 때 적합합니다.
 							날짜, 수량, 픽업 또는 제공 방식을 알려주시면 가능한 구성을 확인해드립니다.
 						</p>
-						<div className="mt-8 flex flex-col gap-3 sm:flex-row">
+						<div className="mt-8 flex flex-col gap-3">
 							<Button.Link href="/contact?service=catering&type=general-order" variant="primary" icon={ArrowRight} iconPosition="right">
 								일반주문 문의하기
 							</Button.Link>
@@ -32,11 +32,11 @@ export function CateringGeneralOrder() {
 						</div>
 					</div>
 
-					<div className="grid gap-3 sm:grid-cols-2">
+					<div className="grid gap-3">
 						{generalOrderTypes.map((item) => (
 							<article key={item.id} className="overflow-hidden rounded-lg border border-primary/10 bg-white shadow-sm">
 								<div className="relative aspect-[4/3] bg-slate-50">
-									<Image src={item.image} alt="" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-contain p-6" />
+									<Image src={item.image} alt="" fill sizes="100vw" className="object-contain p-6" />
 								</div>
 								<div className="p-5">
 									<h2 className="font-bold text-primary">{item.title}</h2>
@@ -49,7 +49,7 @@ export function CateringGeneralOrder() {
 			</section>
 
 			<section className="py-20 sm:py-24">
-				<ScreenSection className="grid gap-6 lg:grid-cols-[1fr_1fr]">
+				<ScreenSection className="grid gap-6">
 					<article className="rounded-lg border border-primary/10 bg-white p-6 shadow-sm sm:p-8">
 						<span className="inline-flex size-12 items-center justify-center rounded-lg bg-blue-50 text-primary">
 							<ClipboardList aria-hidden="true" className="size-6" />
@@ -83,7 +83,7 @@ export function CateringGeneralOrder() {
 
 			<section className="bg-white py-20 sm:py-24">
 				<ScreenSection>
-					<div className="grid gap-6 rounded-lg border border-amber-200 bg-amber-50 p-6 text-amber-950 sm:p-8 lg:grid-cols-[auto_1fr_auto] lg:items-center">
+					<div className="grid gap-6 rounded-lg border border-amber-200 bg-amber-50 p-6 text-amber-950 sm:p-8">
 						<span className="inline-flex size-12 items-center justify-center rounded-lg bg-white text-amber-600">
 							<Clock3 aria-hidden="true" className="size-6" />
 						</span>

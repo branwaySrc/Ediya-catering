@@ -18,7 +18,7 @@ export function Hero() {
 							SNACK
 						</TitleBadge.Badge>
 					</TitleBadge>
-					<h1 className="text-4xl font-bold leading-[1.15] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+					<h1 className="text-4xl font-bold leading-[1.15] tracking-[-0.04em] sm:text-5xl">
 						일하는 공간에 맞춘
 						<br />세 가지 <span className="text-[#FBB34B]">스테이션</span>
 					</h1>
@@ -27,7 +27,7 @@ export function Hero() {
 						<br />
 						이용 인원과 공간, 예산을 살펴 사무실에 필요한 구성을 함께 설계합니다.
 					</p>
-					<div className="mt-9 flex flex-col gap-3 sm:flex-row">
+					<div className="mt-9 flex flex-col gap-3">
 						<Button.Link
 							href="#consult"
 							variant="none"

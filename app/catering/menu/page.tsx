@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CateringMenuDetail } from "@/domains/features/catering/menu-detail";
+import { CateringMenuDetail } from "@/domains/catering/menu-detail";
 
 export const metadata: Metadata = {
 	title: "세부 메뉴보기 | 이디야 안산지점 케이터링",

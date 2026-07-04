@@ -45,11 +45,11 @@ export function ProductCatalog() {
 					</div>
 				</div>
 
-				<div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite">
+				<div className="mt-10 grid gap-5" aria-live="polite">
 					{visibleProducts.map((product) => (
 						<article key={product.id} className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
 							<div className="relative aspect-[4/3] overflow-hidden bg-white">
-								<Image src={product.image} alt={product.imageAlt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-contain p-6" />
+								<Image src={product.image} alt={product.imageAlt} fill sizes="100vw" className="object-contain p-6" />
 							</div>
 							<div className="border-t border-slate-100 p-6">
 								<div className="flex items-start justify-between gap-4">
