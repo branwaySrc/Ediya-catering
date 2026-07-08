@@ -3,6 +3,7 @@ import { Package } from "@/domains/landing/packages";
 import { Catering } from "@/domains/landing/catering";
 import { SnackBar } from "@/domains/landing/snackbar";
 import { GiftBox } from "@/domains/landing/giftbox";
+import { cateringPackages } from "@/domains/catering/data";
 
 export default function Home() {
 	return (
@@ -24,30 +25,25 @@ export default function Home() {
 					<Package.Heading
 						action={
 							<aside className="hidden sm:inline">
-								<Package.Action href="/" title={"더 많은 패키지 보기"} variant="outlined" />
+								<Package.Action href="/catering/calculator" title={"더 많은 패키지 보기"} variant="outlined" />
 							</aside>
 						}
 					/>
 					<div className="scrollbar-x-thin flex overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible md:gap-5 md:pb-0">
-						<Package.Content image="/live/basic-package.png" packageName="Basic" subtitle="베이직 패키지" desc="커피 80% / 티 20%" href="/" />
-						<Package.Content
-							image="/live/standard-package.png"
-							packageName="Standard"
-							subtitle="스탠다드 패키지"
-							desc="커피 40% / 티 30% / 다과 30%"
-							href="/"
-						/>
-						<Package.Content
-							image="/live/premium-package.png"
-							packageName="Special"
-							subtitle="스페셜 패키지"
-							desc="이디야 야외 전용 커피트럭"
-							href="/"
-						/>
+						{cateringPackages.map((item) => (
+							<Package.Content
+								key={item.id}
+								image={item.image}
+								packageName={item.name}
+								subtitle={item.koreanName}
+								desc={item.landingDescription}
+								href={`/catering/calculator?package=${item.id}`}
+							/>
+						))}
 						<div className="ml-5" />
 					</div>
 					<aside className="px-3 py-3 sm:hidden">
-						<Package.Action href="/" title={"더 많은 패키지 보기"} variant="outlined" />
+						<Package.Action href="/catering/calculator" title={"더 많은 패키지 보기"} variant="outlined" />
 					</aside>
 				</Package.Layout>
 
@@ -58,19 +54,19 @@ export default function Home() {
 						<Catering.Category
 							packageName="커피/티"
 							image="/catering-drinks.png"
-							href="/catering/menu"
+							href="/catering/order"
 							summary={["1인 4,500원부터,", "20명 이상 행사에 맞는 기본 음료 구성입니다."]}
 						/>
 						<Catering.Category
 							packageName="스낵"
 							image="/catering-snacks.png"
-							href="/catering/menu"
+							href="/catering/order"
 							summary={["1인 5,000원대부터,", "20~50명 미팅과 휴게 구성에 적합합니다."]}
 						/>
 						<Catering.Category
 							packageName="베이커리"
 							image="/catering-bakery.png"
-							href="/catering/menu"
+							href="/catering/order"
 							summary={["1인 6,000원대부터,", "오전 행사와 브런치형 일정에 잘 맞습니다."]}
 						/>
 						<Catering.Category

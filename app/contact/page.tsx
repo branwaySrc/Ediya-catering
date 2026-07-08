@@ -16,8 +16,7 @@ const inquiryLabels: Record<string, string> = {
 	"self-estimate": "셀프 견적",
 	snackbar: "오피스 스낵바 상담",
 	custom: "커스텀 상담",
-	"general-order": "일반주문",
-	menu: "세부 메뉴 상담",
+	"custom-order": "커스텀 주문",
 };
 
 const serviceLabels: Record<string, string> = {

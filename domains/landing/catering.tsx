@@ -84,7 +84,7 @@ function CateringCategory({ packageName, className, image, href, summary }: Cate
 						</figure>
 						<aside className="z-30">
 							<div className="relative z-30 flex items-center gap-1 text-sm font-bold text-slate-800 transition-all hover:gap-4">
-								<span>세부 메뉴 보기</span>
+								<span>커스텀 주문하기</span>
 								<ArrowRight size={14} />
 							</div>
 						</aside>

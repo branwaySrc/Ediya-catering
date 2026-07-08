@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check, Coffee, MapPin, MessageCircleMore, RefreshCw, Sparkles, Store, Truck } from "lucide-react";
+import { ArrowRight, Check, Coffee, MapPin, MapPinned, MessageCircleMore, RefreshCw, Sparkles, Store, Truck } from "lucide-react";
 
+import { CopyAddressButton } from "@/domains/about/copy-address-button";
+import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
 import { TitleBadge } from "@/share/title-badge";
 
@@ -15,12 +17,16 @@ const branches = [
 	{
 		name: "이디야커피 안산 월피동점",
 		address: "경기도 안산시 상록구 월피동 492-16번지 103호",
+		mapHref: `https://map.naver.com/p/search/${encodeURIComponent("이디야커피 안산 월피동점")}`,
+		copyAddress: "경기도 안산시 상록구 월피동 492-16번지 103호",
 		image: "/ediya-rental-wolfee.jpg",
 		imageAlt: "월피동점 매장 전경",
 	},
 	{
 		name: "이디야커피 안산 동안산병원점",
 		address: "경기도 안산시 상록구 월피동 474-11",
+		mapHref: `https://map.naver.com/p/search/${encodeURIComponent("이디야커피 안산 동안산병원점")}`,
+		copyAddress: "경기도 안산시 상록구 월피동 474-11",
 		image: "/ediya-rental-dongansan.jpg",
 		imageAlt: "동안산병원점 매장 전경",
 	},
@@ -161,35 +167,50 @@ export default function AboutPage() {
 						</p>
 					</div>
 
-					<div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2">
-						{branches.map(branch => (
-							<article
-								key={branch.name}
-								className="group overflow-hidden rounded-lg border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-lg"
-							>
-								<div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
-									<Image
-										src={branch.image}
-										alt={branch.imageAlt}
-										fill
-										sizes="(max-width: 768px) 100vw, 40vw"
-										className="object-cover transition duration-500 group-hover:scale-105"
-									/>
-									<div className="absolute inset-0 bg-gradient-to-t from-[#101D4B]/45 via-transparent to-transparent" />
-								</div>
-								<div className="p-4 sm:p-6">
-									<div className="flex items-start">
-										<div>
-											<h3 className="text-lg font-bold text-slate-900 sm:text-xl">{branch.name}</h3>
-											<p className="mt-3 flex gap-2 text-sm leading-6 text-slate-500">
-												<MapPin className="mt-1 size-4 shrink-0 text-[#1C5DBE]" aria-hidden="true" />
-												{branch.address}
-											</p>
+					<div className="-mx-4 mt-12 overflow-x-auto overscroll-x-contain px-4 pb-3 sm:-mx-6 sm:px-6 md:mx-auto md:grid md:max-w-5xl md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
+						<div className="flex snap-x snap-mandatory gap-5 md:contents">
+							{branches.map(branch => (
+								<article
+									key={branch.name}
+									className="group flex w-[84vw] max-w-[24rem] shrink-0 snap-center flex-col overflow-hidden rounded-lg border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:w-[22rem] md:w-auto md:max-w-none md:shrink md:snap-none"
+								>
+									<div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+										<Image
+											src={branch.image}
+											alt={branch.imageAlt}
+											fill
+											sizes="(max-width: 768px) 84vw, 40vw"
+											className="object-cover transition duration-500 group-hover:scale-105"
+										/>
+										<div className="absolute inset-0 bg-gradient-to-t from-[#101D4B]/45 via-transparent to-transparent" />
+									</div>
+									<div className="flex flex-1 flex-col p-4 sm:p-6">
+										<div className="flex items-start">
+											<div>
+												<h3 className="text-lg font-bold text-slate-900 sm:text-xl">{branch.name}</h3>
+												<p className="mt-3 flex gap-2 text-sm leading-6 text-slate-500">
+													<MapPin className="mt-1 size-4 shrink-0 text-[#1C5DBE]" aria-hidden="true" />
+													{branch.address}
+												</p>
+											</div>
+										</div>
+										<div className="mt-auto grid gap-2 pt-5 sm:grid-cols-2">
+											<Button.Link
+												href={branch.mapHref}
+												target="_blank"
+												rel="noopener noreferrer"
+												variant="primary"
+												icon={MapPinned}
+												className="w-full bg-green-700"
+											>
+												네이버지도 검색
+											</Button.Link>
+											<CopyAddressButton address={branch.copyAddress} className="w-full" />
 										</div>
 									</div>
-								</div>
-							</article>
-						))}
+								</article>
+							))}
+						</div>
 					</div>
 				</ScreenSection>
 			</section>
@@ -284,7 +305,7 @@ export default function AboutPage() {
 						</div>
 
 						<div className="grid gap-5">
-							{consultationExamples.map((example) => {
+							{consultationExamples.map(example => {
 								return (
 									<article key={example.solution} className="rounded-lg border border-slate-200 bg-white p-5 sm:p-6">
 										<div className="flex items-start gap-4">
@@ -299,7 +320,7 @@ export default function AboutPage() {
 													<span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-[#1C5DBE]">추천 솔루션</span>
 													<h3 className="text-xl font-bold text-slate-900">{example.solution}</h3>
 												</div>
-												<p className="mt-3 text-base leading-7 text-slate-600">{example.answer}</p>
+												<p className="mt-3 text-base text-slate-600">{example.answer}</p>
 												<div className="mt-4 flex flex-wrap gap-2">
 													{example.tags.map(tag => (
 														<span key={tag} className="rounded-full border border-slate-200 px-3 py-1 text-xs font-bold text-slate-500">

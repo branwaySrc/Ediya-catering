@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Calculator, ClipboardList, MenuSquare, Coffee } from "lucide-react";
+import { Calculator, ClipboardList, Coffee, Download } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { ScreenSection } from "@/share/screen-section";
+
+const cateringCatalogueHref = "#";
 
 const cateringTabs = [
 	{
@@ -15,21 +17,21 @@ const cateringTabs = [
 	},
 	{
 		href: "/catering/calculator",
-		label: "견적 계산",
-		description: "인원 기준 빠른 확인",
+		label: "패키지 구성",
+		description: "구성별 예상 금액",
 		icon: Calculator,
 	},
 	{
 		href: "/catering/order",
-		label: "일반주문",
-		description: "메뉴와 수량 상담",
+		label: "커스텀 주문",
+		description: "메뉴별 장바구니",
 		icon: ClipboardList,
 	},
 	{
-		href: "/catering/menu",
-		label: "세부메뉴보기",
-		description: "카테고리별 메뉴 확인",
-		icon: MenuSquare,
+		href: cateringCatalogueHref,
+		label: "소개서 다운받기",
+		description: "구글 드라이브 예정",
+		icon: Download,
 	},
 ] as const;
 
@@ -53,14 +55,6 @@ function getActiveStyles(href: string) {
 	if (href === "/catering/calculator") {
 		return {
 			container: "border-primary bg-slate-800 text-white shadow-md shadow-primary/15",
-			icon: "bg-white/15",
-			description: "text-white/75",
-		};
-	}
-
-	if (href === "/catering/menu") {
-		return {
-			container: "border-[#009249] bg-[#009249] text-white shadow-md shadow-[#009249]/20",
 			icon: "bg-white/15",
 			description: "text-white/75",
 		};

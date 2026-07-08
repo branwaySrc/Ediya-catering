@@ -6,7 +6,7 @@ import {
 	ClipboardCheck,
 	ClipboardList,
 	Coffee,
-	FileText,
+	Download,
 	Info,
 	Lightbulb,
 	PackageCheck,
@@ -24,27 +24,27 @@ import { ScreenSection } from "@/share/screen-section";
 const routes = {
 	estimate: "/catering/calculator",
 	order: "/catering/order",
-	menu: "/catering/menu",
+	catalogue: "#",
 };
 
 const serviceLinks = [
 	{
-		title: "견적 모의 계산기",
-		description: "1인 기준 패키지와 인원을 선택해 대략적인 예상 견적을 확인합니다.",
+		title: "패키지 예상 금액",
+		description: "케이터링 패키지와 세부 옵션, 인원을 선택해 예상 금액을 확인합니다.",
 		href: routes.estimate,
 		icon: Calculator,
 	},
 	{
-		title: "일반 주문",
+		title: "커스텀 주문",
 		description: "원하는 메뉴와 수량이 정해져 있다면 직접 선택해 주문 문의를 진행합니다.",
 		href: routes.order,
 		icon: ClipboardList,
 	},
 	{
-		title: "세부메뉴 보기",
-		description: "케이터링 가능한 메뉴를 카테고리별로 확인하고 행사에 맞는 메뉴를 고릅니다.",
-		href: routes.menu,
-		icon: FileText,
+		title: "소개서 다운받기",
+		description: "케이터링 소개서는 추후 구글 드라이브 링크로 연결됩니다.",
+		href: routes.catalogue,
+		icon: Download,
 	},
 ];
 
@@ -58,7 +58,7 @@ const useCases = [
 
 const orderingSteps = [
 	"먼저 예상 인원과 행사 유형을 정합니다.",
-	"그다음 패키지 견적으로 빠르게 확인할지, 일반 주문으로 직접 메뉴를 고를지 선택합니다.",
+	"그다음 패키지 견적으로 빠르게 확인할지, 커스텀 주문으로 직접 메뉴를 고를지 선택합니다.",
 	"마지막으로 메뉴, 수량, 수령 방식, 준비 시간을 확인한 뒤 최종 가능 여부와 견적을 안내받습니다.",
 ];
 
@@ -148,22 +148,25 @@ export function CateringSolutionIntro() {
 							행사 커피 준비를
 							<br />
 							더 쉽고, 더 익숙하고,
-							<br />
-							더 예측 가능하게.
+							<br />더 예측 가능하게.
 						</h1>
 						<div className="mt-6 space-y-5 text-sm leading-7 text-slate-600 sm:text-base">
-							<StoryParagraph>회의, 세미나, 기업 행사, 학교 행사, 촬영 현장까지. 이디야 커피 메뉴를 기반으로 인원과 예산에 맞는 음료와 간식 구성을 제안합니다.</StoryParagraph>
-							<StoryParagraph>단순한 대량 주문이 아니라, 행사 담당자가 필요한 수량과 예산을 빠르게 확인하고 상황에 맞게 주문할 수 있는 케이터링 솔루션입니다.</StoryParagraph>
+							<StoryParagraph>
+								회의, 세미나, 기업 행사, 학교 행사, 촬영 현장까지. 이디야 커피 메뉴를 기반으로 인원과 예산에 맞는 음료와 간식 구성을 제안합니다.
+							</StoryParagraph>
+							<StoryParagraph>
+								단순한 대량 주문이 아니라, 행사 담당자가 필요한 수량과 예산을 빠르게 확인하고 상황에 맞게 주문할 수 있는 케이터링 솔루션입니다.
+							</StoryParagraph>
 						</div>
 						<div className="mt-8 flex flex-col gap-3">
 							<Button.Link href={routes.estimate} variant="primary" icon={Calculator}>
 								견적 모의 계산하기
 							</Button.Link>
 							<Button.Link href={routes.order} variant="ghost" icon={ClipboardList}>
-								일반 주문 문의하기
+								커스텀 주문하기
 							</Button.Link>
-							<Button.Link href={routes.menu} variant="ghost" icon={FileText}>
-								세부메뉴 보기
+							<Button.Link href={routes.catalogue} variant="ghost" icon={Download}>
+								소개서 다운받기
 							</Button.Link>
 						</div>
 					</div>
@@ -182,39 +185,125 @@ export function CateringSolutionIntro() {
 				</ScreenSection>
 			</section>
 
-			<StoryChapter id="catering-story-problem" number="02" label="Problem" icon={TriangleAlert} title={<>행사 준비에서 커피와 간식은<br />생각보다 번거로운 일입니다.</>} tone="orange">
+			<StoryChapter
+				id="catering-story-problem"
+				number="02"
+				label="Problem"
+				icon={TriangleAlert}
+				title={
+					<>
+						행사 준비에서 커피와 간식은
+						<br />
+						생각보다 번거로운 일입니다.
+					</>
+				}
+				tone="orange"
+			>
 				<StoryParagraph>행사 인원은 정해졌지만, 몇 잔을 준비해야 할지 애매합니다.</StoryParagraph>
 				<StoryParagraph>커피만 준비하면 되는지, 논커피와 디저트까지 함께 준비해야 하는지도 고민됩니다.</StoryParagraph>
 				<StoryParagraph>예산은 정해져 있지만, 인원별 단가와 총액을 매번 따로 계산해야 합니다.</StoryParagraph>
-				<StoryParagraph>대량 주문의 경우 준비 가능 수량, 수령 시간, 포장 방식까지 확인해야 하기 때문에 작은 주문보다 오히려 더 많은 조율이 필요합니다.</StoryParagraph>
+				<StoryParagraph>
+					대량 주문의 경우 준비 가능 수량, 수령 시간, 포장 방식까지 확인해야 하기 때문에 작은 주문보다 오히려 더 많은 조율이 필요합니다.
+				</StoryParagraph>
 			</StoryChapter>
 
-			<StoryChapter id="catering-story-gap" number="03" label="Current Gap" icon={Scale} title={<>기존 방식은<br />너무 단순하거나, 너무 복잡합니다.</>} tone="slate">
+			<StoryChapter
+				id="catering-story-gap"
+				number="03"
+				label="Current Gap"
+				icon={Scale}
+				title={
+					<>
+						기존 방식은
+						<br />
+						너무 단순하거나, 너무 복잡합니다.
+					</>
+				}
+				tone="slate"
+			>
 				<StoryParagraph>일반 매장 주문은 원하는 메뉴를 고를 수는 있지만, 행사 규모에 맞는 구성이나 예산 계산이 어렵습니다.</StoryParagraph>
 				<StoryParagraph>반대로 일반 케이터링 서비스는 구성은 갖춰져 있지만, 가격 부담이 크거나 메뉴가 낯설 수 있습니다.</StoryParagraph>
-				<StoryParagraph>행사 담당자에게 필요한 것은 화려한 케이터링보다 참석자들이 익숙하게 마실 수 있고, 예산 안에서 빠르게 결정할 수 있는 현실적인 선택지입니다.</StoryParagraph>
+				<StoryParagraph>
+					행사 담당자에게 필요한 것은 화려한 케이터링보다 참석자들이 익숙하게 마실 수 있고, 예산 안에서 빠르게 결정할 수 있는 현실적인 선택지입니다.
+				</StoryParagraph>
 			</StoryChapter>
 
-			<StoryChapter id="catering-story-insight" number="04" label="Insight" icon={Lightbulb} title={<>행사 케이터링의 핵심은<br />화려함보다 실패하지 않는 구성입니다.</>} tone="blue">
+			<StoryChapter
+				id="catering-story-insight"
+				number="04"
+				label="Insight"
+				icon={Lightbulb}
+				title={
+					<>
+						행사 케이터링의 핵심은
+						<br />
+						화려함보다 실패하지 않는 구성입니다.
+					</>
+				}
+				tone="blue"
+			>
 				<StoryParagraph>참석자의 취향은 다양합니다. 누군가는 커피를 원하고, 누군가는 논커피를 원합니다.</StoryParagraph>
 				<StoryParagraph>담당자는 한정된 시간 안에서 수량, 예산, 메뉴, 수령 방식을 모두 결정해야 합니다.</StoryParagraph>
 				<StoryParagraph>그래서 단체 음료 준비에는 익숙한 브랜드 메뉴, 예측 가능한 가격, 빠른 선택 구조가 필요합니다.</StoryParagraph>
 				<StoryParagraph>이디야 커피 케이터링은 바로 이 지점에 집중합니다.</StoryParagraph>
 			</StoryChapter>
 
-			<StoryChapter id="catering-story-solution" number="05" label="Solution" icon={PackageCheck} title={<>이디야 커피 메뉴를 기반으로<br />행사에 맞는 단체 구성을 만듭니다.</>} tone="green">
+			<StoryChapter
+				id="catering-story-solution"
+				number="05"
+				label="Solution"
+				icon={PackageCheck}
+				title={
+					<>
+						이디야 커피 메뉴를 기반으로
+						<br />
+						행사에 맞는 단체 구성을 만듭니다.
+					</>
+				}
+				tone="green"
+			>
 				<StoryParagraph>이디야 커피 케이터링은 누구에게나 익숙한 음료와 간식 메뉴를 기반으로 행사 규모에 맞는 구성을 제안합니다.</StoryParagraph>
-				<StoryParagraph>인원 기준 패키지로 빠르게 견적을 확인할 수 있고, 원하는 메뉴가 있다면 일반 주문 방식으로 직접 구성할 수도 있습니다.</StoryParagraph>
+				<StoryParagraph>
+					인원 기준 패키지로 빠르게 견적을 확인할 수 있고, 원하는 메뉴가 있다면 커스텀 주문 방식으로 직접 구성할 수도 있습니다.
+				</StoryParagraph>
 				<StoryParagraph>즉, 정해진 패키지의 간편함과 개별 주문의 자유도를 함께 제공하는 방식입니다.</StoryParagraph>
 			</StoryChapter>
 
-			<StoryChapter id="catering-story-value" number="06" label="Key Value" icon={Calculator} title={<>인원만 정해져도<br />예산과 구성을 빠르게 가늠할 수 있습니다.</>} tone="blue">
+			<StoryChapter
+				id="catering-story-value"
+				number="06"
+				label="Key Value"
+				icon={Calculator}
+				title={
+					<>
+						인원만 정해져도
+						<br />
+						예산과 구성을 빠르게 가늠할 수 있습니다.
+					</>
+				}
+				tone="blue"
+			>
 				<StoryParagraph>이 서비스의 가장 큰 장점은 행사 담당자의 판단 시간을 줄여주는 것입니다.</StoryParagraph>
-				<StoryParagraph>몇 명이 참석하는지, 어떤 분위기의 행사인지, 예산을 어느 정도로 잡고 싶은지만 정하면 기본적인 구성을 빠르게 확인할 수 있습니다.</StoryParagraph>
-				<StoryParagraph>패키지는 빠른 판단을 돕고, 일반 주문은 세부 조정을 가능하게 합니다.</StoryParagraph>
+				<StoryParagraph>
+					몇 명이 참석하는지, 어떤 분위기의 행사인지, 예산을 어느 정도로 잡고 싶은지만 정하면 기본적인 구성을 빠르게 확인할 수 있습니다.
+				</StoryParagraph>
+				<StoryParagraph>패키지는 빠른 판단을 돕고, 커스텀 주문은 세부 조정을 가능하게 합니다.</StoryParagraph>
 			</StoryChapter>
 
-			<StoryChapter id="catering-story-structure" number="07" label="Service Structure" icon={Route} title={<>패키지로 빠르게,<br />일반 주문으로 자유롭게.</>} tone="orange">
+			<StoryChapter
+				id="catering-story-structure"
+				number="07"
+				label="Service Structure"
+				icon={Route}
+				title={
+					<>
+						패키지로 빠르게,
+						<br />
+						커스텀 주문으로 자유롭게.
+					</>
+				}
+				tone="orange"
+			>
 				<StoryParagraph>서비스는 크게 세 가지 방식으로 연결됩니다.</StoryParagraph>
 				<div className="grid gap-3">
 					{serviceLinks.map(({ title, description, href, icon: Icon }) => (
@@ -228,9 +317,22 @@ export function CateringSolutionIntro() {
 				</div>
 			</StoryChapter>
 
-			<StoryChapter id="catering-story-usecase" number="08" label="Use Case" icon={Coffee} title={<>회의부터 촬영 현장까지,<br />필요한 순간에 맞춰 구성합니다.</>} tone="green">
+			<StoryChapter
+				id="catering-story-usecase"
+				number="08"
+				label="Use Case"
+				icon={Coffee}
+				title={
+					<>
+						회의부터 촬영 현장까지,
+						<br />
+						필요한 순간에 맞춰 구성합니다.
+					</>
+				}
+				tone="green"
+			>
 				<ul className="grid gap-3">
-					{useCases.map((item) => (
+					{useCases.map(item => (
 						<li key={item} className="flex gap-3 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-700">
 							<CheckCircle2 aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-[#1C5DBE]" />
 							<span>{item}</span>
@@ -239,13 +341,43 @@ export function CateringSolutionIntro() {
 				</ul>
 			</StoryChapter>
 
-			<StoryChapter id="catering-story-why" number="09" label="Why EDIYA" icon={ShieldCheck} title={<>낯선 메뉴보다<br />익숙한 선택이 더 안전합니다.</>} tone="blue">
+			<StoryChapter
+				id="catering-story-why"
+				number="09"
+				label="Why EDIYA"
+				icon={ShieldCheck}
+				title={
+					<>
+						낯선 메뉴보다
+						<br />
+						익숙한 선택이 더 안전합니다.
+					</>
+				}
+				tone="blue"
+			>
 				<StoryParagraph>행사장에서 제공되는 음료는 특별함보다 안정성이 중요할 때가 많습니다.</StoryParagraph>
-				<StoryParagraph>이디야 커피 메뉴는 대중적으로 익숙하고, 커피와 논커피 선택지가 함께 있어 다양한 참석자에게 무난하게 제공할 수 있습니다.</StoryParagraph>
-				<StoryParagraph>익숙한 브랜드 메뉴를 기반으로 하기 때문에 담당자는 메뉴 선택에 대한 부담을 줄이고, 참석자는 편하게 음료를 선택할 수 있습니다.</StoryParagraph>
+				<StoryParagraph>
+					이디야 커피 메뉴는 대중적으로 익숙하고, 커피와 논커피 선택지가 함께 있어 다양한 참석자에게 무난하게 제공할 수 있습니다.
+				</StoryParagraph>
+				<StoryParagraph>
+					익숙한 브랜드 메뉴를 기반으로 하기 때문에 담당자는 메뉴 선택에 대한 부담을 줄이고, 참석자는 편하게 음료를 선택할 수 있습니다.
+				</StoryParagraph>
 			</StoryChapter>
 
-			<StoryChapter id="catering-story-flow" number="10" label="Ordering Flow" icon={ClipboardCheck} title={<>복잡한 단체 주문을<br />간단한 흐름으로 줄입니다.</>} tone="slate">
+			<StoryChapter
+				id="catering-story-flow"
+				number="10"
+				label="Ordering Flow"
+				icon={ClipboardCheck}
+				title={
+					<>
+						복잡한 단체 주문을
+						<br />
+						간단한 흐름으로 줄입니다.
+					</>
+				}
+				tone="slate"
+			>
 				<ol className="grid gap-3">
 					{orderingSteps.map((step, index) => (
 						<li key={step} className="rounded-lg border border-slate-200 bg-white p-4">
@@ -256,9 +388,22 @@ export function CateringSolutionIntro() {
 				</ol>
 			</StoryChapter>
 
-			<StoryChapter id="catering-story-notice" number="11" label="Notice" icon={Info} title={<>최종 구성은<br />행사 조건에 맞춰 상담 후 확정됩니다.</>} tone="orange">
+			<StoryChapter
+				id="catering-story-notice"
+				number="11"
+				label="Notice"
+				icon={Info}
+				title={
+					<>
+						최종 구성은
+						<br />
+						행사 조건에 맞춰 상담 후 확정됩니다.
+					</>
+				}
+				tone="orange"
+			>
 				<ul className="grid gap-3">
-					{noticeItems.map((item) => (
+					{noticeItems.map(item => (
 						<li key={item} className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-950">
 							{item}
 						</li>
@@ -277,18 +422,20 @@ export function CateringSolutionIntro() {
 						</h2>
 						<div className="mt-6 space-y-5 text-sm leading-7 text-slate-600 sm:text-base">
 							<StoryParagraph>행사 커피와 간식 준비가 필요하다면 먼저 인원과 예산에 맞는 구성을 확인해보세요.</StoryParagraph>
-							<StoryParagraph>패키지로 빠르게 견적을 가늠하고, 필요한 메뉴와 수량은 일반 주문을 통해 조정할 수 있습니다.</StoryParagraph>
-							<StoryParagraph>이디야 커피 케이터링은 행사 담당자가 더 쉽게 결정하고, 참석자가 더 익숙하게 즐길 수 있는 실용적인 단체 음료·간식 솔루션입니다.</StoryParagraph>
+							<StoryParagraph>패키지로 빠르게 견적을 가늠하고, 필요한 메뉴와 수량은 커스텀 주문을 통해 조정할 수 있습니다.</StoryParagraph>
+							<StoryParagraph>
+								이디야 커피 케이터링은 행사 담당자가 더 쉽게 결정하고, 참석자가 더 익숙하게 즐길 수 있는 실용적인 단체 음료·간식 솔루션입니다.
+							</StoryParagraph>
 						</div>
 						<div className="mt-8 flex flex-col gap-3">
 							<Button.Link href={routes.estimate} variant="primary" icon={Calculator}>
 								견적 모의 계산하기
 							</Button.Link>
 							<Button.Link href={routes.order} variant="ghost" icon={ArrowRight} iconPosition="right">
-								일반 주문 문의하기
+								커스텀 주문하기
 							</Button.Link>
-							<Button.Link href={routes.menu} variant="ghost" icon={FileText}>
-								세부메뉴 보기
+							<Button.Link href={routes.catalogue} variant="ghost" icon={Download}>
+								소개서 다운받기
 							</Button.Link>
 						</div>
 					</div>
