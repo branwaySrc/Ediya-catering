@@ -29,10 +29,10 @@ const customOrderSteps: Array<{ title: string; description: string; icon: Lucide
 const customOrderUseCases = ["직접 메뉴 조합", "예산별 구성", "행사별 다과", "수량 중심 상담"];
 
 const customOrderTools = [
-	{ label: "담기", description: "메뉴를 장바구니에 추가합니다." },
-	{ label: "장바구니 보기", description: "담은 메뉴와 수량을 확인합니다." },
-	{ label: "상담 신청", description: "장바구니 구성을 토대로 상담 진행" },
-	{ label: "확정 안내", description: "조율을 통해 구성과 일정을 확정합니다." },
+	{ label: "1. 담기", description: "메뉴를 장바구니에 추가합니다." },
+	{ label: "2. 장바구니 보기", description: "담은 메뉴와 수량을 확인합니다." },
+	{ label: "3. 상담 신청", description: "장바구니 구성을 토대로 상담 진행" },
+	{ label: "4. 확정 안내", description: "조율을 통해 구성과 일정을 확정합니다." },
 ];
 
 const customOrderFaqs = [
@@ -132,7 +132,7 @@ export function CateringCustomOrderGuide() {
 						</article>
 
 						<article className="rounded-lg border border-slate-200 bg-white p-6">
-							<h3 className="text-xl font-bold text-slate-950">케이터링 확정 순서</h3>
+							<h3 className="text-xl font-bold text-slate-950">케이터링 확정 안내</h3>
 							<div className="mt-5 grid gap-3 sm:grid-cols-2">
 								{customOrderTools.map(item => (
 									<div key={item.label} className="rounded-lg border border-slate-200 bg-slate-50 p-4">

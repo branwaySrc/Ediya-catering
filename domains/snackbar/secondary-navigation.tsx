@@ -40,8 +40,8 @@ const snackbarTabs = [
 	{
 		id: "consult",
 		href: routes.snackbar.consult,
-		label: "상담 시작",
-		description: "맞춤 구성 문의",
+		label: "FAQ",
+		description: "자주 묻는 질문",
 		icon: MessagesSquare,
 	},
 ] as const;
@@ -101,7 +101,9 @@ export function SnackbarSecondaryNavigation({ orientation = "row" }: SnackbarSec
 	const content = (
 		<div
 			ref={scrollContainerRef}
-			className={isColumn ? "grid gap-3" : "scrollbar-x-thin -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-2 overflow-x-auto px-4 pb-1 sm:-mx-6 sm:px-6"}
+			className={
+				isColumn ? "grid gap-3" : "scrollbar-x-thin -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-2 overflow-x-auto px-4 pb-1 sm:-mx-6 sm:px-6"
+			}
 		>
 			{snackbarTabs.map(({ href, id, label, description, icon: Icon }) => {
 				const isActive = isActivePath(pathname, href);
@@ -122,7 +124,9 @@ export function SnackbarSecondaryNavigation({ orientation = "row" }: SnackbarSec
 						</span>
 						<span className="min-w-0">
 							<span className="block truncate text-[13px] font-bold leading-tight sm:text-sm">{label}</span>
-							<span className={`mt-1 block truncate text-[11px] font-bold leading-tight sm:text-xs ${isActive ? activeStyles.description : "text-slate-500"}`}>
+							<span
+								className={`mt-1 block truncate text-[11px] font-bold leading-tight sm:text-xs ${isActive ? activeStyles.description : "text-slate-500"}`}
+							>
 								{description}
 							</span>
 						</span>
