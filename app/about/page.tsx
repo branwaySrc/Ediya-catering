@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, Coffee, MapPin, MapPinned, MessageCircleMore, RefreshCw, Sparkles, Store, Truck } from "lucide-react";
@@ -8,10 +7,7 @@ import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
 import { TitleBadge } from "@/share/title-badge";
 
-export const metadata: Metadata = {
-	title: "지점 소개 | 이디야커피 안산 비즈니스 솔루션",
-	description: "이디야커피 안산 월피동점과 동안산병원점이 함께 제공하는 커피 케이터링, 오피스 스낵바, 시즌 커피 선물 솔루션을 소개합니다.",
-};
+export { metadata } from "./meta";
 
 const branches = [
 	{

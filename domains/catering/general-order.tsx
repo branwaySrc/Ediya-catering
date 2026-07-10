@@ -32,8 +32,8 @@ const cartCategoryLabels: Array<{ key: keyof CartCategorySummary; label: string 
 
 function getCartLines(cartItems: Array<{ itemId: CustomOrderItemId; quantity: number }>) {
 	return cartItems
-		.map((cartItem) => {
-			const item = customOrderItems.find((orderItem) => orderItem.id === cartItem.itemId);
+		.map(cartItem => {
+			const item = customOrderItems.find(orderItem => orderItem.id === cartItem.itemId);
 
 			return item ? { item, quantity: cartItem.quantity } : null;
 		})
@@ -52,10 +52,10 @@ function getCartCategorySummary(lines: CartLine[]): CartCategorySummary {
 }
 
 function CustomOrderCartList({ lines }: { lines: CartLine[] }) {
-	const increaseItem = useCateringCustomOrderStore((state) => state.increaseItem);
-	const decreaseItem = useCateringCustomOrderStore((state) => state.decreaseItem);
-	const setItemQuantity = useCateringCustomOrderStore((state) => state.setItemQuantity);
-	const removeItem = useCateringCustomOrderStore((state) => state.removeItem);
+	const increaseItem = useCateringCustomOrderStore(state => state.increaseItem);
+	const decreaseItem = useCateringCustomOrderStore(state => state.decreaseItem);
+	const setItemQuantity = useCateringCustomOrderStore(state => state.setItemQuantity);
+	const removeItem = useCateringCustomOrderStore(state => state.removeItem);
 
 	return (
 		<div className="mt-4 grid max-h-48 gap-2 overflow-y-auto pr-1 lg:max-h-64">
@@ -82,7 +82,7 @@ function CustomOrderCartList({ lines }: { lines: CartLine[] }) {
 							min={1}
 							inputMode="numeric"
 							value={quantity}
-							onChange={(event) => setItemQuantity(item.id, Number.parseInt(event.target.value, 10))}
+							onChange={event => setItemQuantity(item.id, Number.parseInt(event.target.value, 10))}
 							className="h-8 w-11 rounded-md border border-slate-200 bg-white text-center text-sm font-bold text-primary outline-none focus:border-primary focus:ring-2 focus:ring-primary/15"
 							aria-label={`${item.name} 수량`}
 						/>
@@ -122,7 +122,7 @@ function CustomOrderSummaryPanel({
 }) {
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [isHidden, setIsHidden] = useState(false);
-	const clearCart = useCateringCustomOrderStore((state) => state.clearCart);
+	const clearCart = useCateringCustomOrderStore(state => state.clearCart);
 
 	if (itemCount === 0) {
 		return null;
@@ -144,73 +144,69 @@ function CustomOrderSummaryPanel({
 	}
 
 	return (
-		<aside className="fixed inset-x-0 bottom-0 z-[120] border-t border-primary/10 bg-white/95 p-4 shadow-[0_-18px_45px_rgba(15,23,42,0.18)] backdrop-blur-xl lg:left-1/2 lg:right-auto lg:bottom-6 lg:w-[calc(100vw-24rem)] lg:max-w-4xl lg:-translate-x-1/2 lg:rounded-lg lg:border lg:bg-white lg:p-5 lg:shadow-2xl lg:shadow-slate-950/20 lg:backdrop-blur-0">
-			<div className="mx-auto max-w-md lg:max-w-none">
-				<div className="grid grid-cols-[1fr_auto] items-start gap-4 lg:grid-cols-[1fr_auto_auto] lg:items-center">
-					<div className="min-w-0">
-						<p className="text-[11px] font-bold uppercase leading-tight tracking-[0.12em] text-primary/50">Custom Cart</p>
-						<div className="mt-2 grid grid-cols-4 gap-1.5">
-							{cartCategoryLabels.map(({ key, label }) => (
-								<span
-									key={key}
-									className={`inline-flex min-h-8 flex-col justify-center rounded-md px-2 py-1 text-center text-[10px] font-bold leading-tight ${
-										key === "total" ? "bg-[#E96106] text-white shadow-sm shadow-[#E96106]/20" : "bg-orange-50 text-[#B45309]"
-									}`}
-								>
-									<span>{label}</span>
-									<span>{categorySummary[key]}개</span>
-								</span>
-							))}
+		<aside className="pointer-events-none fixed inset-x-0 bottom-0 z-[120] pt-14 lg:left-1/2 lg:right-auto lg:bottom-6 lg:w-[calc(100vw-20rem)] lg:max-w-5xl lg:-translate-x-1/2 lg:p-0 lg:pt-14">
+			<div className="relative w-full lg:mx-auto lg:max-w-none">
+				<button
+					type="button"
+					onClick={() => setIsHidden(true)}
+					className="pointer-events-auto absolute -top-12 right-4 inline-flex h-10 items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-4 text-sm font-bold text-primary shadow-lg shadow-slate-950/10 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 lg:right-0"
+					aria-label="계산기 숨기기"
+				>
+					<Minimize2 aria-hidden="true" className="size-4" />
+					숨기기
+				</button>
+
+				<div className="pointer-events-auto w-full border-t border-primary/10 bg-white/95 p-4 shadow-[0_-18px_45px_rgba(15,23,42,0.18)] backdrop-blur-xl lg:rounded-lg lg:border lg:bg-white lg:p-5 lg:shadow-2xl lg:shadow-slate-950/20 lg:backdrop-blur-0">
+					<div className="grid grid-cols-[1fr_auto] items-start gap-4 lg:items-center">
+						<div className="min-w-0">
+							<p className="text-[11px] font-bold uppercase leading-tight tracking-[0.12em] text-primary/50">Custom Cart</p>
+							<div className="mt-2 grid grid-cols-4 gap-1.5 lg:flex lg:flex-row lg:flex-wrap lg:gap-2">
+								{cartCategoryLabels.map(({ key, label }) => (
+									<span
+										key={key}
+										className={`inline-flex min-h-8 flex-col justify-center rounded-md px-2 py-1 text-center text-[10px] font-bold leading-tight lg:min-h-10 lg:flex-row lg:items-center lg:gap-1.5 lg:px-4 lg:text-base ${
+											key === "total" ? "bg-[#E96106] text-white shadow-sm shadow-[#E96106]/20" : "bg-orange-50 text-[#B45309]"
+										}`}
+									>
+										<span>{label}</span>
+										<span>{categorySummary[key]}개</span>
+									</span>
+								))}
+							</div>
+						</div>
+						<div className="text-right">
+							<p className="text-[11px] font-bold text-slate-500">총 주문 금액</p>
+							<p className="mt-1 text-2xl font-bold tracking-tight text-primary lg:text-3xl">{priceFormatter.format(totalPrice)}원</p>
 						</div>
 					</div>
-					<div className="text-right">
-						<p className="text-[11px] font-bold text-slate-500">총 주문 금액</p>
-						<p className="mt-1 text-2xl font-bold tracking-tight text-primary lg:text-3xl">{priceFormatter.format(totalPrice)}원</p>
+
+					<div className={isExpanded ? "block" : "hidden"}>
+						<CustomOrderCartList lines={lines} />
 					</div>
-					<div className="grid justify-items-end gap-2">
+
+					<div className="mt-4 grid grid-cols-[auto_1fr_auto] gap-2">
 						<button
 							type="button"
-							onClick={() => setIsHidden(true)}
-							className="inline-flex size-9 items-center justify-center rounded-full border border-slate-200 bg-white text-primary transition hover:bg-slate-100"
-							aria-label="계산기 숨기기"
+							onClick={() => setIsExpanded(current => !current)}
+							className="inline-flex h-11 items-center justify-center gap-1 rounded-lg border border-primary/15 bg-white px-2 text-xs font-bold text-primary transition hover:bg-slate-100 sm:gap-1.5 sm:px-3 sm:text-sm"
+							aria-label={isExpanded ? "장바구니 목록 닫기" : "장바구니보기"}
+							aria-expanded={isExpanded}
 						>
-							<Minimize2 aria-hidden="true" className="size-4" />
+							<ShoppingCart aria-hidden="true" className="size-4" />
+							<span className="whitespace-nowrap">{isExpanded ? "목록닫기" : "장바구니보기"}</span>
+							{isExpanded ? <ChevronDown aria-hidden="true" className="size-3.5" /> : <ChevronUp aria-hidden="true" className="size-3.5" />}
+						</button>
+						<Button.Link href="/contact?service=catering&type=custom-order" variant="primary" icon={ArrowRight} iconPosition="right" className="px-3">
+							주문 상담
+						</Button.Link>
+						<button
+							type="button"
+							onClick={clearCart}
+							className="inline-flex h-11 items-center justify-center rounded-lg border border-slate-200 bg-white px-4 text-sm font-bold text-slate-600 transition hover:bg-slate-100"
+						>
+							비우기
 						</button>
 					</div>
-				</div>
-
-				<div className={isExpanded ? "block" : "hidden"}>
-					<CustomOrderCartList lines={lines} />
-				</div>
-
-				<div className="mt-4 grid grid-cols-[auto_1fr_auto] gap-2">
-					<button
-						type="button"
-						onClick={() => setIsExpanded((current) => !current)}
-						className="inline-flex h-11 items-center justify-center gap-1 rounded-lg border border-primary/15 bg-white px-2 text-xs font-bold text-primary transition hover:bg-slate-100 sm:gap-1.5 sm:px-3 sm:text-sm"
-						aria-label={isExpanded ? "장바구니 목록 닫기" : "장바구니보기"}
-						aria-expanded={isExpanded}
-					>
-						<ShoppingCart aria-hidden="true" className="size-4" />
-						<span className="whitespace-nowrap">{isExpanded ? "목록닫기" : "장바구니보기"}</span>
-						{isExpanded ? <ChevronDown aria-hidden="true" className="size-3.5" /> : <ChevronUp aria-hidden="true" className="size-3.5" />}
-					</button>
-					<Button.Link
-						href="/contact?service=catering&type=custom-order"
-						variant="primary"
-						icon={ArrowRight}
-						iconPosition="right"
-						className="px-3"
-					>
-						주문 상담
-					</Button.Link>
-					<button
-						type="button"
-						onClick={clearCart}
-						className="inline-flex h-11 items-center justify-center rounded-lg border border-slate-200 bg-white px-4 text-sm font-bold text-slate-600 transition hover:bg-slate-100"
-					>
-						비우기
-					</button>
 				</div>
 			</div>
 		</aside>
@@ -219,15 +215,15 @@ function CustomOrderSummaryPanel({
 
 export function CateringGeneralOrder() {
 	const [selectedCategory, setSelectedCategory] = useState<CustomOrderFilterId>("all");
-	const cartItems = useCateringCustomOrderStore((state) => state.items);
-	const addItem = useCateringCustomOrderStore((state) => state.addItem);
+	const cartItems = useCateringCustomOrderStore(state => state.items);
+	const addItem = useCateringCustomOrderStore(state => state.addItem);
 
 	const visibleItems = useMemo(() => {
 		if (selectedCategory === "all") {
 			return customOrderItems;
 		}
 
-		return customOrderItems.filter((item) => item.category === selectedCategory);
+		return customOrderItems.filter(item => item.category === selectedCategory);
 	}, [selectedCategory]);
 
 	const cartLines = useMemo(() => getCartLines(cartItems), [cartItems]);
@@ -249,13 +245,14 @@ export function CateringGeneralOrder() {
 							예상 주문 금액을 확인하세요.
 						</h1>
 						<p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-							음료, 베이커리, 스낵을 선택해 장바구니에 담으면 현재 선택 기준의 예상 금액을 확인할 수 있습니다. 최종 가능 여부와 구성은 상담 후 확정됩니다.
+							음료, 베이커리, 스낵을 선택해 장바구니에 담으면 현재 선택 기준의 예상 금액을 확인할 수 있습니다. 최종 가능 여부와 구성은 상담 후
+							확정됩니다.
 						</p>
 					</div>
 
 					<div className="rounded-lg border border-primary/10 bg-[#F8F9FC] p-5 shadow-xl shadow-primary/5 sm:p-6">
 						<div className="grid grid-cols-4 gap-2" role="tablist" aria-label="커스텀 주문 카테고리">
-							{customOrderCategories.map((category) => {
+							{customOrderCategories.map(category => {
 								const isSelected = category.id === selectedCategory;
 
 								return (
@@ -264,7 +261,9 @@ export function CateringGeneralOrder() {
 										type="button"
 										onClick={() => setSelectedCategory(category.id)}
 										className={`h-10 rounded-md border px-2 text-xs font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:text-sm ${
-											isSelected ? "border-[#E96106] bg-[#E96106] text-white shadow-sm shadow-[#E96106]/20" : "border-slate-200 bg-white text-primary hover:border-[#E96106]/40"
+											isSelected
+												? "border-[#E96106] bg-[#E96106] text-white shadow-sm shadow-[#E96106]/20"
+												: "border-slate-200 bg-white text-primary hover:border-[#E96106]/40"
 										}`}
 										aria-selected={isSelected}
 										role="tab"
@@ -275,14 +274,20 @@ export function CateringGeneralOrder() {
 							})}
 						</div>
 
-						<div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3" role="list" aria-label="커스텀 주문 메뉴">
-							{visibleItems.map((item) => {
-								const quantity = cartItems.find((cartItem) => cartItem.itemId === item.id)?.quantity ?? 0;
+						<div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3" role="list" aria-label="커스텀 주문 메뉴">
+							{visibleItems.map(item => {
+								const quantity = cartItems.find(cartItem => cartItem.itemId === item.id)?.quantity ?? 0;
 
 								return (
 									<article key={item.id} className="min-w-0 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm" role="listitem">
 										<div className="relative aspect-square bg-slate-50">
-											<Image src={item.image} alt={item.imageAlt} fill sizes="(min-width: 1024px) 180px, 33vw" className="object-contain p-3 sm:p-4" />
+											<Image
+												src={item.image}
+												alt={item.imageAlt}
+												fill
+												sizes="(min-width: 1024px) 240px, 50vw"
+												className="object-contain p-3 sm:p-4"
+											/>
 											{quantity > 0 ? (
 												<span className="absolute right-2 top-2 inline-flex size-6 items-center justify-center rounded-full bg-[#E96106] text-white shadow-sm">
 													<Check aria-hidden="true" className="size-3.5" />
@@ -291,8 +296,22 @@ export function CateringGeneralOrder() {
 										</div>
 										<div className="grid min-h-36 gap-2 p-3 sm:p-4">
 											<div>
+												{item.temperatureBadges ? (
+													<div className="mb-2 flex flex-wrap gap-1">
+														{item.temperatureBadges.map(badge => (
+															<span
+																key={badge}
+																className={`inline-flex rounded-full border px-2 py-0.5 text-[10px] font-bold ${
+																	badge === "HOT" ? "border-red-200 bg-red-50 text-red-600" : "border-blue-200 bg-blue-50 text-blue-600"
+																}`}
+															>
+																{badge}
+															</span>
+														))}
+													</div>
+												) : null}
 												<h2 className="break-keep text-sm font-bold leading-5 text-primary sm:text-base">{item.name}</h2>
-												<p className="mt-1 text-xs font-bold text-[#E96106] sm:text-sm">{priceFormatter.format(item.price)}원</p>
+												<p className="mt-1 text-xs font-bold text-slate-900 sm:text-sm">{priceFormatter.format(item.price)}원</p>
 											</div>
 											<button
 												type="button"

@@ -133,8 +133,8 @@ function FloatingEstimatePanel({
 						</div>
 					</div>
 					<div className="text-right">
-						<p className="text-[11px] font-bold text-slate-500">{headcount}명 기준</p>
-						<p className="mt-1 text-2xl font-bold tracking-tight text-primary">{priceFormatter.format(totalPrice)}원</p>
+						<p className="text-[11px] font-bold text-primary">{headcount}명 기준</p>
+						<p className="mt-1 text-2xl font-bold tracking-tight text-slate-900">{priceFormatter.format(totalPrice)}원</p>
 					</div>
 				</div>
 
@@ -200,7 +200,7 @@ export function CateringPriceCalculator() {
 	const isBelowMinimum = headcount < minimumCateringHeadcount;
 
 	return (
-		<section id="estimate" className="scroll-mt-24 bg-white py-10 pb-64 sm:py-24 sm:pb-60 lg:pb-24" aria-labelledby="catering-calculator-heading">
+		<section id="estimate" className="scroll-mt-24 bg-white py-10 pb-20 sm:py-24 sm:pb-60 lg:pb-24" aria-labelledby="catering-calculator-heading">
 			<ScreenSection>
 				<div className="grid gap-6">
 					<div>

@@ -233,6 +233,7 @@ export type CustomOrderItem = {
 	category: CustomOrderCategoryId;
 	name: string;
 	price: number;
+	temperatureBadges?: Array<"HOT" | "COLD">;
 	image: string;
 	imageAlt: string;
 };
@@ -250,6 +251,7 @@ export const customOrderItems: CustomOrderItem[] = [
 		category: "beverage",
 		name: "아메리카노",
 		price: 4500,
+		temperatureBadges: ["HOT", "COLD"],
 		image: "/coffee-americano.png",
 		imageAlt: "아메리카노",
 	},
@@ -258,6 +260,7 @@ export const customOrderItems: CustomOrderItem[] = [
 		category: "beverage",
 		name: "카페라떼",
 		price: 5000,
+		temperatureBadges: ["HOT", "COLD"],
 		image: "/catering-drinks.png",
 		imageAlt: "카페라떼와 음료 구성",
 	},
@@ -266,6 +269,7 @@ export const customOrderItems: CustomOrderItem[] = [
 		category: "beverage",
 		name: "병음료",
 		price: 3500,
+		temperatureBadges: ["COLD"],
 		image: "/snackbar-drink-station.png",
 		imageAlt: "병음료 구성",
 	},

@@ -1,42 +1,42 @@
 "use client";
 
 import Link from "next/link";
-import { Calculator, ClipboardList, Coffee, Download } from "lucide-react";
+import { Calculator, CircleHelp, ClipboardList, Coffee } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
+import { routes } from "@/share/routes";
 import { ScreenSection } from "@/share/screen-section";
-
-const cateringCatalogueHref = "#";
 
 const cateringTabs = [
 	{
-		href: "/catering",
+		href: routes.catering.root,
 		label: "솔루션 소개",
 		description: "이디야 케이터링",
 		icon: Coffee,
 	},
 	{
-		href: "/catering/calculator",
+		href: routes.catering.package,
 		label: "패키지 구성",
 		description: "구성별 예상 금액",
 		icon: Calculator,
 	},
 	{
-		href: "/catering/order",
+		href: routes.catering.customOrder,
 		label: "커스텀 주문",
 		description: "메뉴별 장바구니",
 		icon: ClipboardList,
 	},
 	{
-		href: cateringCatalogueHref,
-		label: "소개서 다운받기",
-		description: "구글 드라이브 예정",
-		icon: Download,
+		href: routes.catering.faq,
+		label: "FAQ",
+		description: "자주 묻는 질문",
+		icon: CircleHelp,
 	},
 ] as const;
 
 function isActivePath(pathname: string, href: string) {
-	if (href === "/catering") {
+	if (href === routes.catering.root) {
 		return pathname === href;
 	}
 
@@ -44,7 +44,7 @@ function isActivePath(pathname: string, href: string) {
 }
 
 function getActiveStyles(href: string) {
-	if (href === "/catering/order") {
+	if (href === routes.catering.customOrder) {
 		return {
 			container: "border-[#E96106] bg-[#E96106] text-white shadow-md shadow-[#E96106]/20",
 			icon: "bg-white/15",
@@ -52,7 +52,7 @@ function getActiveStyles(href: string) {
 		};
 	}
 
-	if (href === "/catering/calculator") {
+	if (href === routes.catering.package) {
 		return {
 			container: "border-primary bg-slate-800 text-white shadow-md shadow-primary/15",
 			icon: "bg-white/15",
@@ -73,9 +73,25 @@ type CateringSecondaryNavigationProps = {
 
 export function CateringSecondaryNavigation({ orientation = "row" }: CateringSecondaryNavigationProps) {
 	const pathname = usePathname();
+	const isColumn = orientation === "column";
+	const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (isColumn) {
+			return;
+		}
+
+		const activeItem = scrollContainerRef.current?.querySelector<HTMLElement>('[data-active="true"]');
+		activeItem?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+	}, [isColumn, pathname]);
 
 	const content = (
-		<div className={orientation === "column" ? "grid gap-3" : "grid grid-cols-4 gap-2"}>
+		<div
+			ref={scrollContainerRef}
+			className={
+				isColumn ? "grid gap-3" : "scrollbar-x-thin -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-2 overflow-x-auto px-4 pb-1 sm:-mx-6 sm:px-6"
+			}
+		>
 			{cateringTabs.map(({ href, label, description, icon: Icon }) => {
 				const isActive = isActivePath(pathname, href);
 				const activeStyles = getActiveStyles(href);
@@ -85,10 +101,9 @@ export function CateringSecondaryNavigation({ orientation = "row" }: CateringSec
 						key={href}
 						href={href}
 						aria-current={isActive ? "page" : undefined}
-						className={`flex min-w-0 rounded-lg border px-3 py-3 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:px-4 ${
-							orientation === "column"
-								? "items-center gap-4 text-left"
-								: "flex-col items-center justify-center gap-2 text-center sm:flex-row sm:justify-start sm:gap-4 sm:text-start"
+						data-active={isActive ? "true" : undefined}
+						className={`flex rounded-lg border px-3 py-3 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:px-4 ${
+							isColumn ? "items-center gap-4 text-left" : "min-w-45 snap-center flex-row items-center gap-3 text-left"
 						} ${
 							isActive ? activeStyles.container : "border-primary/30 bg-white text-primary hover:border-2.5 hover:border-primary/80 hover:bg-slate-50"
 						}`}
@@ -97,8 +112,10 @@ export function CateringSecondaryNavigation({ orientation = "row" }: CateringSec
 							<Icon aria-hidden="true" className="size-5" />
 						</span>
 						<span className="min-w-0">
-							<span className="block text-[13px] font-bold leading-tight sm:text-sm">{label}</span>
-							<span className={`mt-1 block text-[11px] font-bold leading-tight sm:text-xs ${isActive ? activeStyles.description : "text-slate-500"}`}>
+							<span className="block truncate text-[13px] font-bold leading-tight sm:text-sm">{label}</span>
+							<span
+								className={`mt-1 block truncate text-[11px] font-bold leading-tight sm:text-xs ${isActive ? activeStyles.description : "text-slate-500"}`}
+							>
 								{description}
 							</span>
 						</span>

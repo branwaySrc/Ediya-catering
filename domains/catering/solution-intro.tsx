@@ -22,8 +22,8 @@ import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
 
 const routes = {
-	estimate: "/catering/calculator",
-	order: "/catering/order",
+	estimate: "/catering/package",
+	order: "/catering/custom-order",
 	catalogue: "#",
 };
 

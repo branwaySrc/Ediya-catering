@@ -2,6 +2,7 @@ import { ArrowDown, ArrowRight, Donut } from "lucide-react";
 import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
 import { TitleBadge } from "@/share/title-badge";
+import { routes } from "@/share/routes";
 
 export function Hero() {
 	return (
@@ -29,7 +30,7 @@ export function Hero() {
 					</p>
 					<div className="mt-9 flex flex-col gap-3">
 						<Button.Link
-							href="#consult"
+							href={routes.snackbar.consult}
 							variant="none"
 							icon={ArrowRight}
 							iconPosition="right"
@@ -37,7 +38,7 @@ export function Hero() {
 						>
 							맞춤 구성 상담
 						</Button.Link>
-						<Button.Link href="#stations" variant="outlined" icon={ArrowDown} iconPosition="right" className="h-12 px-6">
+						<Button.Link href={routes.snackbar.stations} variant="outlined" icon={ArrowDown} iconPosition="right" className="h-12 px-6">
 							솔루션 살펴보기
 						</Button.Link>
 					</div>

@@ -2,6 +2,7 @@ import { ArrowRight, Check, WalletCards } from "lucide-react";
 import { Button } from "@/share/button";
 import { ScreenSection } from "@/share/screen-section";
 import { TitleBadge } from "@/share/title-badge";
+import { routes } from "@/share/routes";
 import { pricePlans } from "./data";
 
 export function Pricing() {
@@ -30,7 +31,7 @@ export function Pricing() {
 							<ul className="mt-6 space-y-3">
 								{plan.features.map((feature) => <li key={feature} className="flex gap-2 text-sm text-slate-600"><Check className="mt-0.5 size-4 shrink-0 text-[#1C5DBE]" aria-hidden="true" />{feature}</li>)}
 							</ul>
-							<Button.Link href="#consult" variant={index === 1 ? "primary" : "ghost"} icon={ArrowRight} iconPosition="right" className="mt-8 w-full">이 구성으로 상담하기</Button.Link>
+							<Button.Link href={routes.snackbar.consult} variant={index === 1 ? "primary" : "ghost"} icon={ArrowRight} iconPosition="right" className="mt-8 w-full">이 구성으로 상담하기</Button.Link>
 						</article>
 					))}
 				</div>

@@ -4,6 +4,9 @@ import { Catering } from "@/domains/landing/catering";
 import { SnackBar } from "@/domains/landing/snackbar";
 import { GiftBox } from "@/domains/landing/giftbox";
 import { cateringPackages } from "@/domains/catering/data";
+import { routes } from "@/share/routes";
+
+export { homeMetadata as metadata } from "./meta";
 
 export default function Home() {
 	return (
@@ -25,7 +28,7 @@ export default function Home() {
 					<Package.Heading
 						action={
 							<aside className="hidden sm:inline">
-								<Package.Action href="/catering/calculator" title={"더 많은 패키지 보기"} variant="outlined" />
+								<Package.Action href={routes.catering.package} title={"더 많은 패키지 보기"} variant="outlined" />
 							</aside>
 						}
 					/>
@@ -37,13 +40,13 @@ export default function Home() {
 								packageName={item.name}
 								subtitle={item.koreanName}
 								desc={item.landingDescription}
-								href={`/catering/calculator?package=${item.id}`}
+								href={`${routes.catering.package}?package=${item.id}`}
 							/>
 						))}
 						<div className="ml-5" />
 					</div>
 					<aside className="px-3 py-3 sm:hidden">
-						<Package.Action href="/catering/calculator" title={"더 많은 패키지 보기"} variant="outlined" />
+						<Package.Action href={routes.catering.package} title={"더 많은 패키지 보기"} variant="outlined" />
 					</aside>
 				</Package.Layout>
 
@@ -54,25 +57,25 @@ export default function Home() {
 						<Catering.Category
 							packageName="커피/티"
 							image="/catering-drinks.png"
-							href="/catering/order"
+							href={routes.catering.customOrder}
 							summary={["1인 4,500원부터,", "20명 이상 행사에 맞는 기본 음료 구성입니다."]}
 						/>
 						<Catering.Category
 							packageName="스낵"
 							image="/catering-snacks.png"
-							href="/catering/order"
+							href={routes.catering.customOrder}
 							summary={["1인 5,000원대부터,", "20~50명 미팅과 휴게 구성에 적합합니다."]}
 						/>
 						<Catering.Category
 							packageName="베이커리"
 							image="/catering-bakery.png"
-							href="/catering/order"
+							href={routes.catering.customOrder}
 							summary={["1인 6,000원대부터,", "오전 행사와 브런치형 일정에 잘 맞습니다."]}
 						/>
 						<Catering.Category
 							packageName="기프트"
 							image="/catering-gift.png"
-							href="/gift"
+							href={routes.gift.root}
 							summary={["20명 이상 선물용 추천,", "맞춤 예산 및 개별 포장과 배송을 지원합니다."]}
 						/>
 						<div className="ml-5" />
@@ -86,19 +89,19 @@ export default function Home() {
 						<SnackBar.Category
 							packageName="음료 스테이션"
 							image="/snackbar-drink-station.png"
-							href="/snackbar"
+							href={routes.snackbar.root}
 							summary={["월 10만원대부터,", "10명 이하 팀에 맞는 음료 중심 솔루션입니다."]}
 						/>
 						<SnackBar.Category
 							packageName="디저트 스테이션"
 							image="/snackbar-snack-station.png"
-							href="/snackbar"
+							href={routes.snackbar.root}
 							summary={["월 30만원대 기준,", "10~30명 사무실의 간식 구성에 권장됩니다."]}
 						/>
 						<SnackBar.Category
 							packageName="라운지 스테이션"
 							image="/snackbar-lounge-station.png"
-							href="/snackbar"
+							href={routes.snackbar.root}
 							summary={["월 50만원대부터,", "30명 이상 팀의 라운지 운영에 적합합니다."]}
 						/>
 						<div className="ml-5" />
