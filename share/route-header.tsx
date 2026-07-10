@@ -79,7 +79,7 @@ export function RouteHeader({ breadcrumbs, title, description, backHref, backLab
 						</nav>
 
 						<h1 className="mt-5 text-3xl font-bold leading-tight tracking-[-0.03em] text-slate-900">{title}</h1>
-						{description ? <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600">{description}</p> : null}
+						{description ? <p className="mt-2 max-w-xl text-sm leading-6 text-slate-500">{description}</p> : null}
 					</div>
 				</div>
 			</ScreenSection>

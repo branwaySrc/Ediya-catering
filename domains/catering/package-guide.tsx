@@ -1,4 +1,4 @@
-import { Calculator, CheckCircle2, ClipboardCheck, MessageCircle, Users } from "lucide-react";
+import { Calculator, CheckCircle2, ClipboardCheck, MessageCircle, Users, Info } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import { ScreenSection } from "@/share/screen-section";
@@ -6,17 +6,17 @@ import { ScreenSection } from "@/share/screen-section";
 const packageSteps: Array<{ title: string; description: string; icon: LucideIcon }> = [
 	{
 		title: "예상 인원 입력",
-		description: "행사 참석 인원을 입력하면 패키지 기준 예상 금액이 함께 계산됩니다.",
+		description: "행사 및 예상 참여 인원을 입력합니다.",
 		icon: Users,
 	},
 	{
-		title: "패키지와 옵션 선택",
-		description: "커피 중심, 음료 혼합, 다과 포함 구성 중 행사 목적에 가까운 조합을 고릅니다.",
+		title: "패키지 선택 및 예상 견적 확인",
+		description: "패키지 구성 중 행사 목적에 가까운 조합을 고릅니다.",
 		icon: ClipboardCheck,
 	},
 	{
-		title: "예상 견적 확인",
-		description: "선택한 조건을 기준으로 내부 공유와 상담에 활용할 견적 기준안을 확인합니다.",
+		title: "상담 정보 입력",
+		description: "선택한 조건을 기준으로 상담을 위한 연락 정보를 입력합니다.",
 		icon: Calculator,
 	},
 	{
@@ -62,28 +62,36 @@ export function CateringPackageGuide() {
 			<ScreenSection>
 				<div className="grid gap-10">
 					<header className="max-w-3xl">
-						<p className="inline-flex rounded-full border border-primary/15 bg-white px-4 py-2 text-base font-bold text-primary">PACKAGE GUIDE</p>
-						<h2 id="package-guide-heading" className="mt-5 text-3xl font-bold tracking-[-0.03em] text-slate-950 sm:text-4xl">
-							패키지를 고르면, 상담 요청안이 만들어집니다.
-						</h2>
+						<div className="flex gap-2 items-center mt-5">
+							<Info />
+							<h2 id="package-guide-heading" className="text-xl font-bold tracking-[-0.03em] text-slate-950 sm:text-2xl">
+								패키지를 고르면, 상담 요청안이 만들어집니다.
+							</h2>
+						</div>
 						<p className="mt-5 text-base text-slate-600">
-							패키지 견적은 바로 주문을 확정하는 화면이 아니라, 행사 조건을 빠르게 정리해 담당자에게 전달하는 요청안입니다.
+							패키지 견적은 바로 주문을 확정하는 화면이 아니라,
+							<br />
+							행사 조건을 빠르게 정리해 담당자에게 전달하는 요청안입니다.
 						</p>
 					</header>
 
 					<div className="grid gap-5 lg:grid-cols-[0.86fr_1.14fr]">
 						<article className="rounded-lg border border-primary/10 bg-white p-6">
 							<div className="rounded-lg border border-primary/15 bg-[#F5F9FF] p-5">
-								<p className="text-base font-bold text-primary">고객 요청안</p>
+								<p className="text-base font-bold text-primary">빠른 문의</p>
 								<div className="mt-5 grid gap-3">
-									<div className="rounded-lg bg-white p-4 text-base text-slate-700">30명 세미나에 커피와 간단한 음료 구성이 필요해요.</div>
-									<div className="ml-auto rounded-lg bg-primary p-4 text-base font-bold text-white">Standard / Beverage Mix 선택</div>
-									<div className="rounded-lg bg-white p-4 text-base text-slate-700">선택한 옵션과 인원 기준으로 예상 견적을 확인했어요.</div>
+									<div className="rounded-lg mr-auto bg-white border border-slate-400 p-4 text-sm text-slate-700">
+										30명 세미나에 커피와 간단한 음료 구성이 한데...
+									</div>
+									<div className="rounded-lg mr-auto bg-primary p-4 text-sm font-bold text-white">Standard / Beverage Mix 선택</div>
+									<div className="rounded-lg mr-auto bg-blue-500/20 border border-slate-400 p-4 text-sm font-bold text-primary">
+										선택한 옵션과 인원 기준으로 상담 신청 완료!
+									</div>
 								</div>
 							</div>
 
 							<div className="mt-5 rounded-lg border border-[#E96106]/25 bg-orange-50 p-5">
-								<p className="text-base font-bold text-[#E96106]">담당자 확인 예정</p>
+								<p className="text-base font-bold text-[#E96106]">문의 안내</p>
 								<p className="mt-3 text-base text-slate-700">
 									요청 내용을 기준으로 행사 일정, 장소, 수량, 제공 방식을 확인한 뒤 연락드립니다. 표시 금액은 상담을 위한 예상 견적이며, 최종 견적은
 									상담 후 확정됩니다.
@@ -99,10 +107,10 @@ export function CateringPackageGuide() {
 											<Icon aria-hidden="true" className="size-6" />
 										</span>
 										<div>
-											<h3 className="text-xl font-bold text-slate-950">{title}</h3>
-											<p className="mt-2 text-base text-slate-600">{description}</p>
+											<h3 className="text-lg font-bold text-slate-950">{title}</h3>
+											<p className="text-base text-slate-600">{description}</p>
 										</div>
-										<span className="text-4xl font-bold text-primary/15">{String(index + 1).padStart(2, "0")}</span>
+										<span className="text-2xl font-bold text-primary/15">{String(index + 1).padStart(2, "0")}</span>
 									</li>
 								))}
 							</ol>
@@ -111,7 +119,7 @@ export function CateringPackageGuide() {
 
 					<div className="grid gap-5 lg:grid-cols-[1fr_1fr]">
 						<article className="rounded-lg border border-primary/10 bg-white p-6">
-							<h3 className="text-2xl font-bold text-slate-950">패키지 견적이 잘 맞는 상황</h3>
+							<h3 className="text-xl font-bold text-slate-950">패키지 견적이 잘 맞는 상황</h3>
 							<div className="mt-5 grid grid-cols-2 gap-3">
 								{packageUseCases.map(item => (
 									<div key={item} className="rounded-lg border border-primary/10 bg-blue-50 p-4 text-base font-bold text-primary">
@@ -122,7 +130,7 @@ export function CateringPackageGuide() {
 						</article>
 
 						<article className="rounded-lg border border-slate-200 bg-white p-6">
-							<h3 className="text-2xl font-bold text-slate-950">견적 요청 전에 기억할 점</h3>
+							<h3 className="text-xl font-bold text-slate-950">견적 요청 전에 기억할 점</h3>
 							<ul className="mt-5 grid gap-3">
 								<li className="flex gap-3 text-base text-slate-700">
 									<CheckCircle2 aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-primary" />

@@ -274,7 +274,7 @@ export function CateringGeneralOrder() {
 							})}
 						</div>
 
-						<div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3" role="list" aria-label="커스텀 주문 메뉴">
+						<div className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3" role="list" aria-label="커스텀 주문 메뉴">
 							{visibleItems.map(item => {
 								const quantity = cartItems.find(cartItem => cartItem.itemId === item.id)?.quantity ?? 0;
 

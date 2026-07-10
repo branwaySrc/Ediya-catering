@@ -79,7 +79,7 @@ export const defaultCateringHeadcount = 50;
 export const cateringPackageOptions: CateringPackageOption[] = [
 	{
 		id: "basic-coffee",
-		name: "Basic Coffee",
+		name: "Basic",
 		koreanName: "베이직 커피 패키지",
 		pricePerPerson: 4500,
 		description: "회의, 인터뷰, 소규모 행사에 적합한 기본 커피 구성입니다.",
@@ -88,7 +88,7 @@ export const cateringPackageOptions: CateringPackageOption[] = [
 	},
 	{
 		id: "beverage-mix",
-		name: "Beverage Mix",
+		name: "Beverage",
 		koreanName: "음료 믹스 패키지",
 		pricePerPerson: 5500,
 		description: "커피와 티, 병음료를 함께 제공하는 균형형 구성입니다.",
@@ -97,7 +97,7 @@ export const cateringPackageOptions: CateringPackageOption[] = [
 	},
 	{
 		id: "premium-refresh",
-		name: "Premium Refresh",
+		name: "Premium",
 		koreanName: "프리미엄 리프레시 패키지",
 		pricePerPerson: 7500,
 		description: "음료와 디저트 또는 스낵을 함께 구성할 수 있는 행사형 패키지입니다.",
@@ -151,13 +151,13 @@ export const cateringPackages: CateringPackage[] = [
 ];
 
 export function getCateringPackage(packageId: CateringPackageId) {
-	return cateringPackages.find((item) => item.id === packageId) ?? cateringPackages[0];
+	return cateringPackages.find(item => item.id === packageId) ?? cateringPackages[0];
 }
 
 export function getCateringPackageOption(packageId: CateringPackageId, optionId: CateringPackageOptionId) {
 	const selectedPackage = getCateringPackage(packageId);
 
-	return selectedPackage.options.find((item) => item.id === optionId) ?? selectedPackage.options[0];
+	return selectedPackage.options.find(item => item.id === optionId) ?? selectedPackage.options[0];
 }
 
 export const cateringOverviewPoints = ["1인 기준 가격", "인원수 기반 예상 견적", "최종 견적은 상담 후 확정", "정해진 패키지 외 커스텀 가능"];
@@ -170,13 +170,7 @@ export const customCateringCases = [
 	"행사 성격에 맞춘 메뉴 제안",
 ];
 
-export const cateringProcessSteps = [
-	"행사 일정 확인",
-	"예상 인원 및 예산 확인",
-	"음료/스낵 구성 제안",
-	"주문 수량 확정",
-	"픽업 또는 제공 방식 협의",
-];
+export const cateringProcessSteps = ["행사 일정 확인", "예상 인원 및 예산 확인", "음료/스낵 구성 제안", "주문 수량 확정", "픽업 또는 제공 방식 협의"];
 
 export const cateringNoticeItems = [
 	"표기된 금액은 기본 구성 기준의 예상 가격입니다.",
