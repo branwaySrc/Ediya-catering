@@ -156,7 +156,7 @@ function CustomOrderSummaryPanel({
 					숨기기
 				</button>
 
-				<div className="pointer-events-auto w-full border-t border-primary/10 bg-white/95 p-4 shadow-[0_-18px_45px_rgba(15,23,42,0.18)] backdrop-blur-xl lg:rounded-lg lg:border lg:bg-white lg:p-5 lg:shadow-2xl lg:shadow-slate-950/20 lg:backdrop-blur-0">
+				<div className="pointer-events-auto w-full border-t border-primary/10 lg:border-primary/50 bg-white/95 p-4 shadow-[0_-18px_45px_rgba(15,23,42,0.18)] backdrop-blur-xl lg:rounded-lg lg:border lg:bg-white lg:p-5 lg:shadow-2xl lg:shadow-slate-950/20 lg:backdrop-blur-0">
 					<div className="grid grid-cols-[1fr_auto] items-start gap-4 lg:items-center">
 						<div className="min-w-0">
 							<p className="text-[11px] font-bold uppercase leading-tight tracking-[0.12em] text-primary/50">Custom Cart</p>
@@ -233,21 +233,12 @@ export function CateringGeneralOrder() {
 
 	return (
 		<div className="bg-[#F8F9FC] text-slate-900">
-			<section className={`bg-white py-10 sm:py-16 ${itemCount > 0 ? "pb-48 sm:pb-52 lg:pb-72" : ""}`} aria-labelledby="custom-order-heading">
+			<section className={`bg-white py-10 ${itemCount > 0 ? "pb-24 sm:pb-30 lg:pb-40" : ""}`} aria-labelledby="custom-order-heading">
 				<ScreenSection className="grid gap-8">
 					<div>
-						<p className="inline-flex rounded-full border border-[#E96106]/15 bg-orange-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#E96106]">
-							Custom Order
-						</p>
-						<h1 id="custom-order-heading" className="mt-5 text-3xl font-bold leading-tight text-primary sm:text-4xl">
-							필요한 메뉴를 직접 담고
-							<br />
-							예상 주문 금액을 확인하세요.
+						<h1 id="custom-order-heading" className="text-xl font-bold leading-tight text-primary">
+							필요한 메뉴를 직접 담고 예상 주문 금액을 확인하세요.
 						</h1>
-						<p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-							음료, 베이커리, 스낵을 선택해 장바구니에 담으면 현재 선택 기준의 예상 금액을 확인할 수 있습니다. 최종 가능 여부와 구성은 상담 후
-							확정됩니다.
-						</p>
 					</div>
 
 					<div className="rounded-lg border border-primary/10 bg-[#F8F9FC] p-5 shadow-xl shadow-primary/5 sm:p-6">

@@ -205,7 +205,7 @@ export function CateringPriceCalculator() {
 				<div className="grid gap-6">
 					<div>
 						<p className="hidden text-sm font-bold uppercase tracking-[0.16em] text-primary/55">Catering Package</p>
-						<h2 id="catering-calculator-heading" className="text-lg font-bold text-primary">
+						<h2 id="catering-calculator-heading" className="text-xl font-bold text-primary">
 							패키지와 옵션을 선택하고 예상 금액을 확인하세요.
 						</h2>
 					</div>
