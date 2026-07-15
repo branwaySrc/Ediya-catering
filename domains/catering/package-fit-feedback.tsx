@@ -1,4 +1,4 @@
-import { Building2, CircleCheck, MessageSquareText, Presentation, TriangleAlert, UsersRound, type LucideIcon } from "lucide-react";
+import { Building2, CircleCheck, Presentation, TriangleAlert, UsersRound, type LucideIcon } from "lucide-react";
 
 import type { CateringPackageOption } from "./data";
 
@@ -67,15 +67,15 @@ export function PackageFitFeedback({ selectedOption }: PackageFitFeedbackProps) 
 	const fitCards = fitCardsByOption[selectedOption.id];
 
 	return (
-		<div className="mt-6 overflow-hidden rounded-lg border border-primary/10 bg-white">
-			<div className="grid gap-4 p-5">
+		<div className="mt-6 overflow-hidden rounded-lg sm:border border-primary/10 sm:bg-white">
+			<div className="grid gap-4 p-0 sm:p-5">
 				<h3 className="break-keep text-sm text-slate-800 font-bold">선택 피드백</h3>
 
-				<div className="flex gap-2 items-center bg-slate-100 mr-auto py-2 px-3 border rounded-md border-slate-200">
+				<div className="flex w-full flex-col items-start gap-2 rounded-md border border-slate-200 bg-slate-100 px-3 py-3 sm:mr-auto sm:w-auto sm:flex-row sm:items-center sm:py-2">
 					<h3 className="break-keep text-sm text-slate-800">👀 {optionMessage.title}</h3>
 				</div>
 
-				<div className="grid grid-cols-3 gap-2 border-t border-slate-100 pt-4">
+				<div className="grid grid-cols-1 gap-2 border-t border-slate-100 pt-4 sm:grid-cols-3">
 					{fitCards.map(({ label, status, icon: Icon }) => {
 						const tone = statusTone[status];
 						const Marker = tone.marker;
@@ -88,7 +88,7 @@ export function PackageFitFeedback({ selectedOption }: PackageFitFeedbackProps) 
 									</span>
 									<Marker aria-hidden="true" className="size-4 shrink-0" />
 								</div>
-								<p className="mt-3 break-keep text-base font-bold">{label}</p>
+								<p className="mt-3 break-keep text-sm font-bold sm:text-base">{label}</p>
 							</div>
 						);
 					})}

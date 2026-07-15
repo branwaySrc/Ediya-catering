@@ -237,11 +237,12 @@ export function CateringGeneralOrder() {
 				<ScreenSection className="grid gap-8">
 					<div>
 						<h1 id="custom-order-heading" className="text-xl font-bold leading-tight text-primary">
-							필요한 메뉴를 직접 담고 예상 주문 금액을 확인하세요.
+							필요한 메뉴를 직접 담고 <br className="flex sm:hidden" />
+							예상 주문 금액을 확인하세요.
 						</h1>
 					</div>
 
-					<div className="rounded-lg border border-primary/10 bg-[#F8F9FC] p-5 shadow-xl shadow-primary/5 sm:p-6">
+					<div className="rounded-lg border border-primary/10 bg-[#F8F9FC] p-3 shadow-xl shadow-primary/5 sm:p-6">
 						<div className="grid grid-cols-4 gap-2" role="tablist" aria-label="커스텀 주문 카테고리">
 							{customOrderCategories.map(category => {
 								const isSelected = category.id === selectedCategory;
@@ -251,7 +252,7 @@ export function CateringGeneralOrder() {
 										key={category.id}
 										type="button"
 										onClick={() => setSelectedCategory(category.id)}
-										className={`h-10 rounded-md border px-2 text-xs font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:text-sm ${
+										className={`h-10 rounded-sm border px-2 text-xs font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:text-sm ${
 											isSelected
 												? "border-[#E96106] bg-[#E96106] text-white shadow-sm shadow-[#E96106]/20"
 												: "border-slate-200 bg-white text-primary hover:border-[#E96106]/40"
@@ -265,13 +266,17 @@ export function CateringGeneralOrder() {
 							})}
 						</div>
 
-						<div className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3" role="list" aria-label="커스텀 주문 메뉴">
+						<div className="mt-5 grid grid-cols-1 lg:grid-cols-4 gap-2 sm:gap-3" role="list" aria-label="커스텀 주문 메뉴">
 							{visibleItems.map(item => {
 								const quantity = cartItems.find(cartItem => cartItem.itemId === item.id)?.quantity ?? 0;
 
 								return (
-									<article key={item.id} className="min-w-0 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm" role="listitem">
-										<div className="relative aspect-square bg-slate-50">
+									<article
+										key={item.id}
+										className="flex min-w-0 overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm lg:flex-col"
+										role="listitem"
+									>
+										<div className="relative aspect-square w-28 shrink-0 bg-slate-50 sm:w-32 lg:w-full">
 											<Image
 												src={item.image}
 												alt={item.imageAlt}
@@ -285,14 +290,16 @@ export function CateringGeneralOrder() {
 												</span>
 											) : null}
 										</div>
-										<div className="grid min-h-36 gap-2 p-3 sm:p-4">
-											<div>
+										<div className="flex min-h-36 min-w-0 flex-1 items-center justify-between gap-2 p-3 sm:p-4 lg:flex-col lg:items-start">
+											<div className="min-w-0">
+												<h2 className="break-keep text-sm font-bold leading-5 text-primary sm:text-base">{item.name}</h2>
+												<p className="my-1 text-lg font-bold text-slate-900">{priceFormatter.format(item.price)}원</p>
 												{item.temperatureBadges ? (
-													<div className="mb-2 flex flex-wrap gap-1">
+													<div className="mt-2 flex flex-wrap gap-1">
 														{item.temperatureBadges.map(badge => (
 															<span
 																key={badge}
-																className={`inline-flex rounded-full border px-2 py-0.5 text-[10px] font-bold ${
+																className={`inline-flex rounded-xs border px-2 py-0.5 text-[9px] font-bold ${
 																	badge === "HOT" ? "border-red-200 bg-red-50 text-red-600" : "border-blue-200 bg-blue-50 text-blue-600"
 																}`}
 															>
@@ -301,13 +308,11 @@ export function CateringGeneralOrder() {
 														))}
 													</div>
 												) : null}
-												<h2 className="break-keep text-sm font-bold leading-5 text-primary sm:text-base">{item.name}</h2>
-												<p className="mt-1 text-xs font-bold text-slate-900 sm:text-sm">{priceFormatter.format(item.price)}원</p>
 											</div>
 											<button
 												type="button"
 												onClick={() => addItem(item.id)}
-												className="mt-auto inline-flex h-9 items-center justify-center gap-1.5 rounded-md bg-primary px-2 text-xs font-bold text-white transition hover:bg-[#15255F] sm:text-sm"
+												className="flex h-9 w-full max-w-[150px] shrink-0 items-center justify-center gap-1.5 rounded-md bg-primary px-2 text-xs font-bold text-white transition hover:bg-[#15255F] sm:text-sm lg:mt-auto lg:max-w-none"
 											>
 												<ShoppingCart aria-hidden="true" className="size-3.5" />
 												담기

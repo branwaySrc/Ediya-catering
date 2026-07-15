@@ -1,27 +1,27 @@
-import { Calculator, CheckCircle2, ClipboardCheck, MessageCircle, Users, Info } from "lucide-react";
+import { Calculator, CheckCircle2, ClipboardCheck, MessageCircle, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import { ScreenSection } from "@/share/screen-section";
 
 const packageSteps: Array<{ title: string; description: string; icon: LucideIcon }> = [
 	{
-		title: "예상 인원 입력",
-		description: "행사 및 예상 참여 인원을 입력합니다.",
-		icon: Users,
-	},
-	{
-		title: "패키지 선택 및 예상 견적 확인",
-		description: "패키지 구성 중 행사 목적에 가까운 조합을 고릅니다.",
+		title: "패키지 선택",
+		description: "원하는 구성을 선택합니다.",
 		icon: ClipboardCheck,
 	},
 	{
-		title: "상담 정보 입력",
-		description: "선택한 조건을 기준으로 상담을 위한 연락 정보를 입력합니다.",
+		title: "인원 입력",
+		description: "예상 인원을 입력합니다.",
+		icon: Users,
+	},
+	{
+		title: "최종 견적",
+		description: "상담 후 최종 견적을 안내드립니다.",
 		icon: Calculator,
 	},
 	{
-		title: "선택안으로 문의",
-		description: "요청안이 접수되면 담당자가 일정, 장소, 제공 방식 확인을 위해 연락드립니다.",
+		title: "예약 완료",
+		description: "결제 후 예약이 확정됩니다.",
 		icon: MessageCircle,
 	},
 ];
@@ -58,34 +58,31 @@ const packageFaqJsonLd = {
 
 export function CateringPackageGuide() {
 	return (
-		<section className="border-t border-primary/10 bg-[#F8F9FC] py-16 pb-72 sm:py-24 sm:pb-72 lg:pb-24" aria-labelledby="package-guide-heading">
+		<section className="border-t border-primary/10 bg-[#F8F9FC] py-16 pb-30 sm:py-24 sm:pb-72 lg:pb-24" aria-labelledby="package-guide-heading">
 			<ScreenSection>
 				<div className="grid gap-10">
 					<header className="max-w-3xl">
-						<div className="flex gap-2 items-center mt-5">
-							<Info />
+						<div className="flex flex-col gap-2 mt-5">
 							<h2 id="package-guide-heading" className="text-xl font-bold tracking-[-0.03em] text-slate-950 sm:text-2xl">
-								패키지를 고르면, 상담 요청안이 만들어집니다.
+								패키지를 고르면,
+								<br />
+								상담 요청안이 만들어집니다.
 							</h2>
 						</div>
-						<p className="mt-5 text-base text-slate-600">
-							패키지 견적은 바로 주문을 확정하는 화면이 아니라,
-							<br />
-							행사 조건을 빠르게 정리해 담당자에게 전달하는 요청안입니다.
-						</p>
 					</header>
 
 					<div className="grid gap-5 lg:grid-cols-[0.86fr_1.14fr]">
-						<article className="rounded-lg border border-primary/10 bg-white p-6">
+						<article className="rounded-lg sm:border border-primary/10 sm:bg-white p-0 sm:p-4">
 							<div className="rounded-lg border border-primary/15 bg-[#F5F9FF] p-5">
-								<p className="text-base font-bold text-primary">빠른 문의</p>
+								<p className="text-base font-bold text-primary">빠른 온라인 문의</p>
 								<div className="mt-5 grid gap-3">
 									<div className="rounded-lg mr-auto bg-white border border-slate-400 p-4 text-sm text-slate-700">
-										30명 세미나에 커피와 간단한 음료 구성이 한데...
+										30명 세미나에 <br className="block sm:hidden" />
+										커피와 간단한 음료 구성이 한데...
 									</div>
 									<div className="rounded-lg mr-auto bg-primary p-4 text-sm font-bold text-white">Standard / Beverage Mix 선택</div>
 									<div className="rounded-lg mr-auto bg-blue-500/20 border border-slate-400 p-4 text-sm font-bold text-primary">
-										선택한 옵션과 인원 기준으로 상담 신청 완료!
+										패키지와 예상 인원만으로 상담 신청 완료!
 									</div>
 								</div>
 							</div>
@@ -93,8 +90,7 @@ export function CateringPackageGuide() {
 							<div className="mt-5 rounded-lg border border-[#E96106]/25 bg-orange-50 p-5">
 								<p className="text-base font-bold text-[#E96106]">문의 안내</p>
 								<p className="mt-3 text-base text-slate-700">
-									요청 내용을 기준으로 행사 일정, 장소, 수량, 제공 방식을 확인한 뒤 연락드립니다. 표시 금액은 상담을 위한 예상 견적이며, 최종 견적은
-									상담 후 확정됩니다.
+									온라인 견적 문의는 패키지 선택 및 예상 인원을 토대로 가능한 범위 및 최종 견적을 위한 상담 정보로 활용됩니다.
 								</p>
 							</div>
 						</article>
@@ -132,17 +128,17 @@ export function CateringPackageGuide() {
 						<article className="rounded-lg border border-slate-200 bg-white p-6">
 							<h3 className="text-xl font-bold text-slate-950">견적 요청 전에 기억할 점</h3>
 							<ul className="mt-5 grid gap-3">
-								<li className="flex gap-3 text-base text-slate-700">
+								<li className="flex gap-3 text-base text-slate-700 items-center">
 									<CheckCircle2 aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-primary" />
-									<span>선택한 패키지는 상담을 시작하기 위한 기준안입니다.</span>
+									<span>선택한 패키지는 예상 견적을 위한 기준안입니다.</span>
 								</li>
-								<li className="flex gap-3 text-base text-slate-700">
+								<li className="flex gap-3 text-base text-slate-700 items-center">
 									<CheckCircle2 aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-primary" />
-									<span>최종 견적은 일정, 장소, 메뉴 가능 여부 확인 후 확정됩니다.</span>
+									<span>최종 구성 및 견적은 상담을 통해 확정됩니다.</span>
 								</li>
-								<li className="flex gap-3 text-base text-slate-700">
+								<li className="flex gap-3 text-base text-slate-700 items-center">
 									<CheckCircle2 aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-primary" />
-									<span>문의 후 담당자가 요청안을 확인하고 연락드립니다.</span>
+									<span>행사 준비를 위해 최소 4일 이상의 준비 기간이 필요합니다.</span>
 								</li>
 							</ul>
 						</article>

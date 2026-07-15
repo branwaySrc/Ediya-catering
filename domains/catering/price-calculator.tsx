@@ -95,6 +95,73 @@ function isCateringPackageId(packageId: string | null): packageId is CateringPac
 	return packageId !== null && packageIds.includes(packageId as CateringPackageId);
 }
 
+type PackageChoiceCardProps = {
+	item: CateringPackage;
+	isSelected: boolean;
+	onSelect: () => void;
+	className?: string;
+};
+
+function PackageChoiceCard({ item, isSelected, onSelect, className = "" }: PackageChoiceCardProps) {
+	const tone = packageToneById[item.id];
+
+	return (
+		<button
+			type="button"
+			onClick={onSelect}
+			aria-pressed={isSelected}
+			className={`relative min-w-0 rounded-sm border px-4 py-5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${className} ${
+				isSelected ? tone.selectedCard : tone.card
+			}`}
+		>
+			<span className="block min-w-0">
+				<span className={`block whitespace-normal pr-3 text-xs font-bold uppercase ${isSelected ? tone.selectedEyebrow : tone.eyebrow}`}>
+					{item.name}
+				</span>
+				<span className="mt-1.5 block break-keep text-base font-bold leading-5">{item.koreanName}</span>
+				<span className={`mt-5 block break-keep text-xs ${isSelected ? tone.selectedBody : tone.body}`}>{item.landingDescription}</span>
+			</span>
+			{isSelected ? (
+				<div className="absolute right-3 top-3 flex items-center gap-1">
+					<span className="hidden text-xs sm:block">적용됨</span>
+					<Check aria-hidden="true" className="size-3.5" />
+				</div>
+			) : null}
+		</button>
+	);
+}
+
+type OptionChoiceCardProps = {
+	item: CateringPackageOption;
+	isSelected: boolean;
+	onSelect: () => void;
+	className?: string;
+};
+
+function OptionChoiceCard({ item, isSelected, onSelect, className = "" }: OptionChoiceCardProps) {
+	const tone = optionToneById[item.id];
+
+	return (
+		<button
+			type="button"
+			onClick={onSelect}
+			aria-pressed={isSelected}
+			className={`relative min-w-0 rounded-sm border px-4 py-5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${className} ${
+				isSelected ? tone.selectedCard : tone.card
+			}`}
+		>
+			<div>
+				<p className={`whitespace-normal pr-3 text-xs font-bold uppercase ${isSelected ? tone.selectedEyebrow : tone.eyebrow}`}>{item.name}</p>
+				<h3 className="mt-1.5 break-keep text-base font-bold leading-5">{item.koreanName}</h3>
+			</div>
+			<p className={`mt-2 break-keep text-xs font-bold leading-4 sm:text-sm ${isSelected ? tone.selectedBody : tone.body}`}>
+				1인 {priceFormatter.format(item.pricePerPerson)}원부터
+			</p>
+			{isSelected ? <Check aria-hidden="true" className="absolute right-2 top-2 size-3.5" /> : null}
+		</button>
+	);
+}
+
 type FloatingEstimatePanelProps = {
 	selectedPackage: CateringPackage;
 	selectedOption: CateringPackageOption;
@@ -206,81 +273,85 @@ export function CateringPriceCalculator() {
 					<div>
 						<p className="hidden text-sm font-bold uppercase tracking-[0.16em] text-primary/55">Catering Package</p>
 						<h2 id="catering-calculator-heading" className="text-xl font-bold text-primary">
-							패키지와 옵션을 선택하고 예상 금액을 확인하세요.
+							패키지와 옵션을 선택하고 <br className="block sm:hidden" />
+							예상 금액을 확인하세요.
 						</h2>
 					</div>
 
-					<div className="rounded-md border border-primary/10 bg-[#F8F9FC] p-5 shadow-xl shadow-primary/5 sm:p-6">
+					<div className="rounded-md sm:border border-primary/10 sm:bg-[#F8F9FC] shadow-xl shadow-primary/5 sm:p-6">
 						<div>
 							<p className="text-base font-bold text-slate-800">패키지 선택</p>
-							<div className="mt-3 grid grid-cols-3 gap-2" role="group" aria-label="케이터링 패키지 선택">
+							<div className="mt-3 hidden grid-cols-3 gap-2 sm:grid" role="group" aria-label="케이터링 패키지 선택">
 								{cateringPackages.map(item => {
 									const isSelected = item.id === selectedPackageId;
-									const tone = packageToneById[item.id];
 
 									return (
-										<button
+										<PackageChoiceCard
 											key={item.id}
-											type="button"
-											onClick={() => selectPackage(item.id)}
-											aria-pressed={isSelected}
-											className={`relative min-w-0 rounded-sm border h-50 px-4 py-5 text-left flex transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
-												isSelected ? tone.selectedCard : tone.card
-											}`}
-										>
-											<span className="block min-w-0">
-												<span
-													className={`block whitespace-normal pr-3 text-xs font-bold uppercase ${isSelected ? tone.selectedEyebrow : tone.eyebrow}`}
-												>
-													{item.name}
-												</span>
-												<span className="mt-1.5 block break-keep text-base font-bold leading-5">{item.koreanName}</span>
-												<span className={`mt-5 block break-keep text-xs ${isSelected ? tone.selectedBody : tone.body}`}>
-													{item.landingDescription}
-												</span>
-											</span>
-											{isSelected ? (
-												<div className="absolute flex right-3 top-3">
-													<span className="text-xs hidden sm:block">적용됨</span>
-													<Check aria-hidden="true" className="size-3.5" />
-												</div>
-											) : null}
-										</button>
+											item={item}
+											isSelected={isSelected}
+											onSelect={() => selectPackage(item.id)}
+											className="flex h-50"
+										/>
 									);
 								})}
+							</div>
+							<div className="-mx-5 mt-3 overflow-x-auto px-5 pb-2 sm:hidden" role="group" aria-label="케이터링 패키지 선택">
+								<div className="flex snap-x snap-mandatory gap-3 after:block after:w-3 after:shrink-0 after:content-['']">
+									{cateringPackages.map(item => {
+										const isSelected = item.id === selectedPackageId;
+
+										return (
+											<PackageChoiceCard
+												key={item.id}
+												item={item}
+												isSelected={isSelected}
+												onSelect={() => selectPackage(item.id)}
+												className="min-h-44 basis-[50%] shrink-0 snap-center"
+											/>
+										);
+									})}
+								</div>
 							</div>
 						</div>
 
 						<div className="mt-6">
 							<p className="text-base font-bold text-slate-800">세부 옵션 선택</p>
-							<div className="mt-3 grid grid-cols-3 gap-2" role="group" aria-label={`${selectedPackage.koreanName} 세부 옵션 선택`}>
+							<div className="mt-3 hidden grid-cols-3 gap-2 sm:grid" role="group" aria-label={`${selectedPackage.koreanName} 세부 옵션 선택`}>
 								{selectedPackage.options.map(item => {
 									const isSelected = item.id === selectedOptionId;
-									const tone = optionToneById[item.id];
 
 									return (
-										<button
+										<OptionChoiceCard
 											key={item.id}
-											type="button"
-											onClick={() => selectPackageOption(item.id)}
-											aria-pressed={isSelected}
-											className={`relative min-w-0 rounded-sm flex flex-col items-start justify-between h-40 border px-4 py-5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:px-3.5 ${
-												isSelected ? tone.selectedCard : tone.card
-											}`}
-										>
-											<div>
-												<p className={`whitespace-normal pr-3 text-xs font-bold uppercase ${isSelected ? tone.selectedEyebrow : tone.eyebrow}`}>
-													{item.name}
-												</p>
-												<h3 className="mt-1.5 break-keep text-base font-bold leading-5">{item.koreanName}</h3>
-											</div>
-											<p className={`mt-2 break-keep text-xs leading-4 sm:text-sm font-bold ${isSelected ? tone.selectedBody : tone.body}`}>
-												1인 {priceFormatter.format(item.pricePerPerson)}원부터
-											</p>
-											{isSelected ? <Check aria-hidden="true" className="absolute right-2 top-2 size-3.5" /> : null}
-										</button>
+											item={item}
+											isSelected={isSelected}
+											onSelect={() => selectPackageOption(item.id)}
+											className="flex h-40 flex-col items-start justify-between sm:px-3.5"
+										/>
 									);
 								})}
+							</div>
+							<div
+								className="-mx-5 mt-3 overflow-x-auto px-5 pb-2 sm:hidden"
+								role="group"
+								aria-label={`${selectedPackage.koreanName} 세부 옵션 선택`}
+							>
+								<div className="flex snap-x snap-mandatory gap-3 after:block after:w-3 after:shrink-0 after:content-['']">
+									{selectedPackage.options.map(item => {
+										const isSelected = item.id === selectedOptionId;
+
+										return (
+											<OptionChoiceCard
+												key={item.id}
+												item={item}
+												isSelected={isSelected}
+												onSelect={() => selectPackageOption(item.id)}
+												className="flex min-h-40 basis-[50%] shrink-0 snap-center flex-col items-start justify-between"
+											/>
+										);
+									})}
+								</div>
 							</div>
 						</div>
 

@@ -6,22 +6,22 @@ import { ScreenSection } from "@/share/screen-section";
 const customOrderSteps: Array<{ title: string; description: string; icon: LucideIcon }> = [
 	{
 		title: "카테고리 선택",
-		description: "음료, 베이커리, 스낵 카테고리를 오가며 필요한 메뉴 후보를 확인합니다.",
+		description: "원하는 메뉴를 선택합니다.",
 		icon: ClipboardList,
 	},
 	{
 		title: "메뉴 담기",
-		description: "원하는 메뉴를 장바구니에 담아 상담 요청용 주문안을 만듭니다.",
+		description: "장바구니에 담습니다.",
 		icon: ShoppingCart,
 	},
 	{
-		title: "수량 조정",
-		description: "메뉴별 수량을 조정하고 예상 금액을 확인합니다.",
+		title: "수량 확인",
+		description: "수량과 금액을 확인합니다.",
 		icon: PackageCheck,
 	},
 	{
-		title: "장바구니로 문의",
-		description: "담은 구성으로 문의하면 담당자가 상세 상담을 위해 연락드립니다.",
+		title: "상담 문의",
+		description: "장바구니로 문의를 접수합니다.",
 		icon: MessageCircle,
 	},
 ];
@@ -65,25 +65,19 @@ const customOrderFaqJsonLd = {
 
 export function CateringCustomOrderGuide() {
 	return (
-		<section className="border-t border-primary/10 bg-[#F8F9FC] py-16 pb-72 sm:py-24 sm:pb-72 lg:pb-24" aria-labelledby="custom-order-guide-heading">
+		<section className="border-t border-primary/10 bg-[#F8F9FC] py-16 pb-24 sm:py-24 sm:pb-72 lg:pb-24" aria-labelledby="custom-order-guide-heading">
 			<ScreenSection>
 				<div className="grid gap-10">
 					<header className="max-w-3xl">
 						<div className="flex gap-2 items-center">
-							<Info />
 							<h2 id="custom-order-guide-heading" className="text-xl font-bold tracking-[-0.03em] text-slate-950 sm:text-2xl">
-								장바구니가 상담 요청서가 됩니다.
+								장바구니를 담으면 <br className="sm:hidden" /> 상담 요청서가 됩니다.
 							</h2>
 						</div>
-						<p className="mt-5 text-base text-slate-600">
-							커스텀 주문은 상품을 바로 결제하는 과정이 아니라,
-							<br />
-							필요한 메뉴와 수량을 담아 담당자에게 전달하는 상담형 주문 방식입니다.
-						</p>
 					</header>
 
 					<div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-						<article className="rounded-lg border border-[#E96106]/20 bg-white p-6">
+						<article className="rounded-lg border border-[#E96106]/20 bg-white p-4">
 							<div className="grid gap-4">
 								<div className="mr-auto rounded-lg border border-slate-200 bg-slate-50 p-4 text-base text-slate-700">
 									아이스 아메리카노 20개와 베이커리 10개 담기 완료.
@@ -105,13 +99,14 @@ export function CateringCustomOrderGuide() {
 							<ol className="mt-5 grid gap-3">
 								{customOrderSteps.map(({ title, description, icon: Icon }, index) => (
 									<li key={title} className="grid grid-cols-[auto_1fr] gap-3 rounded-lg border border-slate-200 bg-white p-4">
-										<span className="inline-flex size-11 items-center justify-center rounded-lg bg-orange-50 text-[#E96106]">
-											<Icon aria-hidden="true" className="size-5" />
-										</span>
-										<div>
-											<p className="text-sm font-bold text-[#E96106]">STEP {String(index + 1).padStart(2, "0")}</p>
-											<h4 className="mt-1 text-lg font-bold text-slate-950">{title}</h4>
-											<p className="mt-2 text-base text-slate-600">{description}</p>
+										<div className="flex items-center gap-4">
+											<span className="inline-flex size-11 items-center justify-center rounded-lg bg-orange-50 text-[#E96106]">
+												<Icon aria-hidden="true" className="size-5" />
+											</span>
+											<div>
+												<h4 className="mt-1 text-lg font-bold text-slate-950">{title}</h4>
+												<p className="text-base text-slate-600">{description}</p>
+											</div>
 										</div>
 									</li>
 								))}
