@@ -14,11 +14,7 @@ export function Faq() {
 							<TitleBadge.Title>공통 FAQ</TitleBadge.Title>
 							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">FAQ</TitleBadge.Badge>
 						</TitleBadge>
-						<h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] text-slate-900 sm:text-4xl">
-							도입 전에
-							<br />
-							많이 묻는 질문
-						</h2>
+						<h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] text-slate-900 sm:text-4xl">도입 전에 많이 묻는 질문</h2>
 						<p className="mt-5 text-base text-slate-600">정확한 조건은 공간과 구성에 따라 달라질 수 있으며 상담 후 견적서로 안내합니다.</p>
 					</header>
 					<div className="divide-y divide-slate-200 border-y border-slate-200">

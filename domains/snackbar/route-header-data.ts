@@ -12,51 +12,33 @@ const segmentLabels: Record<string, string> = {
 
 const snackbarRouteHeaders: Record<string, RouteHeaderProps> = {
 	[routes.snackbar.root]: {
-		breadcrumbs: [
-			{ label: "스낵바", href: routes.snackbar.root },
-			{ label: "솔루션 소개" },
-		],
+		breadcrumbs: [{ label: "스낵바", href: routes.snackbar.root }, { label: "솔루션 소개" }],
 		title: "오피스 스낵바",
 		description: "사무실 환경과 예산에 맞춰 음료, 간식, 캡슐커피 구성을 제안합니다.",
 	},
 	[routes.snackbar.intro]: {
-		breadcrumbs: [
-			{ label: "스낵바", href: routes.snackbar.root },
-			{ label: "솔루션 소개" },
-		],
+		breadcrumbs: [{ label: "스낵바", href: routes.snackbar.root }, { label: "솔루션 소개" }],
 		title: "오피스 스낵바",
 		description: "사무실 환경과 예산에 맞춰 음료, 간식, 캡슐커피 구성을 제안합니다.",
 	},
 	[routes.snackbar.stations]: {
-		breadcrumbs: [
-			{ label: "스낵바", href: routes.snackbar.root },
-			{ label: "스테이션 구성" },
-		],
+		breadcrumbs: [{ label: "스낵바", href: routes.snackbar.root }, { label: "스테이션 구성" }],
 		title: "스테이션 구성",
 		description: "공간과 이용 인원에 맞는 오피스 스낵바 장비 구성을 확인합니다.",
 	},
 	[routes.snackbar.products]: {
-		breadcrumbs: [
-			{ label: "스낵바", href: routes.snackbar.root },
-			{ label: "상품 라인업" },
-		],
+		breadcrumbs: [{ label: "스낵바", href: routes.snackbar.root }, { label: "상품 라인업" }],
 		title: "상품 라인업",
 		description: "사무실에 채울 음료, 디저트, 캡슐커피 구성을 살펴봅니다.",
 	},
 	[routes.snackbar.care]: {
-		breadcrumbs: [
-			{ label: "스낵바", href: routes.snackbar.root },
-			{ label: "배송/관리" },
-		],
+		breadcrumbs: [{ label: "스낵바", href: routes.snackbar.root }, { label: "배송/관리" }],
 		title: "배송과 관리",
 		description: "예산과 운영 방식에 맞는 배송, 관리, 진행 프로세스를 확인합니다.",
 	},
 	[routes.snackbar.consult]: {
-		breadcrumbs: [
-			{ label: "스낵바", href: routes.snackbar.root },
-			{ label: "상담 시작" },
-		],
-		title: "스낵바 상담",
+		breadcrumbs: [{ label: "스낵바", href: routes.snackbar.root }, { label: "FAQ" }],
+		title: "자주 묻는 질문",
 		description: "도입 전 자주 묻는 질문과 상담 방법을 확인합니다.",
 	},
 };

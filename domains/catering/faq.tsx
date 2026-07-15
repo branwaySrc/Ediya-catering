@@ -15,7 +15,7 @@ export function CateringFAQ() {
 							<TitleBadge.Badge className="border-[#1C5DBE] text-[#1C5DBE]">FAQ</TitleBadge.Badge>
 						</TitleBadge>
 						<h2 id="catering-faq-heading" className="mt-4 text-3xl font-bold tracking-[-0.03em] text-slate-900 sm:text-4xl">
-							자주 묻는 질문을 모아보았습니다.
+							도입 전에 많이 묻는 질문
 						</h2>
 						<p className="mt-5 text-base text-slate-600">혹시, 찾는 답변이 없으신가요? 전화 상담을 통해 문의바랍니다.</p>
 					</header>
