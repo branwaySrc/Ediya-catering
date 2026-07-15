@@ -5,23 +5,23 @@ import { ScreenSection } from "@/share/screen-section";
 
 const customOrderSteps: Array<{ title: string; description: string; icon: LucideIcon }> = [
 	{
-		title: "카테고리 선택",
-		description: "원하는 메뉴를 선택합니다.",
+		title: "메뉴 선택",
+		description: "원하는 메뉴를 담습니다.",
 		icon: ClipboardList,
 	},
 	{
-		title: "메뉴 담기",
-		description: "장바구니에 담습니다.",
+		title: "예상 견적",
+		description: "장바구니 예상 견적을 확인합니다.",
 		icon: ShoppingCart,
 	},
 	{
-		title: "수량 확인",
-		description: "수량과 금액을 확인합니다.",
+		title: "구성 문의",
+		description: "장바구니로 상담 및 최종 결정을 합니다.",
 		icon: PackageCheck,
 	},
 	{
-		title: "상담 문의",
-		description: "장바구니로 문의를 접수합니다.",
+		title: "예약 완료",
+		description: "결제 후 예약이 확정됩니다.",
 		icon: MessageCircle,
 	},
 ];
@@ -30,9 +30,9 @@ const customOrderUseCases = ["직접 메뉴 조합", "예산별 구성", "행사
 
 const customOrderTools = [
 	{ label: "1. 담기", description: "메뉴를 장바구니에 추가합니다." },
-	{ label: "2. 장바구니 보기", description: "담은 메뉴와 수량을 확인합니다." },
-	{ label: "3. 상담 신청", description: "장바구니 구성을 토대로 상담 진행" },
-	{ label: "4. 확정 안내", description: "조율을 통해 구성과 일정을 확정합니다." },
+	{ label: "2. 상담 진행", description: "장바구니 구성을 토대로 상담 진행" },
+	{ label: "3. 일정 조율", description: "영업일 기준 4일 준비 기간 필요" },
+	{ label: "4. 결제 안내", description: "결제로 구성과 일정을 확정합니다." },
 ];
 
 const customOrderFaqs = [
@@ -79,16 +79,16 @@ export function CateringCustomOrderGuide() {
 					<div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
 						<article className="rounded-lg border border-[#E96106]/20 bg-white p-4">
 							<div className="grid gap-4">
-								<div className="mr-auto rounded-lg border border-slate-200 bg-slate-50 p-4 text-base text-slate-700">
+								<div className="mr-auto rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm sm:text-base  text-slate-700">
 									아이스 아메리카노 20개와 베이커리 10개 담기 완료.
 								</div>
-								<div className="mr-auto max-w-[88%] rounded-lg bg-[#E96106] p-4 text-base font-bold text-white">
+								<div className="mr-auto max-w-[88%] rounded-lg bg-[#E96106] p-4 text-sm sm:text-base font-bold text-white">
 									장바구니 기준 예상 금액 확인 완료
 								</div>
-								<div className="mr-auto rounded-lg border border-slate-200 bg-slate-50 p-4 text-base text-slate-700">
+								<div className="mr-auto rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm sm:text-base text-slate-700">
 									이 구성 기준으로 세부적인 상담을 위한 준비 완료!
 								</div>
-								<div className="mr-auto rounded-lg bg-blue-300/30 p-4 text-base font-bold text-primary border border-slate-300">
+								<div className="mr-auto rounded-lg bg-blue-300/30 p-4 text-sm sm:text-base font-bold text-primary border border-slate-300">
 									선택 메뉴 및 조건을 확인한 뒤 담당자가 연락드립니다.
 								</div>
 							</div>
