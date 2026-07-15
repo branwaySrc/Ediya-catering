@@ -34,7 +34,7 @@ const snackbarRouteHeaders: Record<string, RouteHeaderProps> = {
 	[routes.snackbar.care]: {
 		breadcrumbs: [{ label: "스낵바", href: routes.snackbar.root }, { label: "배송/관리" }],
 		title: "배송과 관리",
-		description: "예산과 운영 방식에 맞는 배송, 관리, 진행 프로세스를 확인합니다.",
+		description: "월 예산에 따라 달라지는 무료 배송, 직접 정리, 재고 케어 기준을 확인합니다.",
 	},
 	[routes.snackbar.consult]: {
 		breadcrumbs: [{ label: "스낵바", href: routes.snackbar.root }, { label: "FAQ" }],

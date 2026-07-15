@@ -234,6 +234,57 @@ export const pricePlans = [
 	},
 ];
 
+export type CareBudgetTier = {
+	id: "starter" | "consult" | "standard" | "plus";
+	budget: string;
+	title: string;
+	summary: string;
+	detail: string;
+	badge: string;
+};
+
+export const careBudgetTiers: CareBudgetTier[] = [
+	{
+		id: "starter",
+		budget: "월 10만원 이하",
+		title: "별도 배송",
+		summary: "소규모 구성은 제품과 배송 일정을 개별 안내합니다.",
+		detail: "무료 직접 배송 전 단계로, 필요한 품목과 수량을 먼저 정리한 뒤 가장 알맞은 배송 방식을 안내합니다.",
+		badge: "개별 안내",
+	},
+	{
+		id: "consult",
+		budget: "월 10만원 초과~30만원 미만",
+		title: "배송 방식 상담",
+		summary: "지역, 구성, 설비 조건을 확인한 뒤 배송 방식을 정합니다.",
+		detail: "이 구간은 사무실 위치와 제품 구성에 따라 운영 방식이 달라질 수 있어 상담 후 조건을 확정합니다.",
+		badge: "조건 확인",
+	},
+	{
+		id: "standard",
+		budget: "월 30만원 이상",
+		title: "무료 직접 배송·정기 관리",
+		summary: "직접 방문해 제품을 전달하고 진열 상태와 재고를 함께 정리합니다.",
+		detail: "정기 방문 시 남은 수량을 확인하고, 월 예산 안에서 부족한 품목을 채워 운영 부담을 줄입니다.",
+		badge: "무료 직접 배송",
+	},
+	{
+		id: "plus",
+		budget: "월 50만원 이상",
+		title: "재고 소진 기반 지속 케어",
+		summary: "소진 속도를 기준으로 품목과 방문 주기를 계속 조정합니다.",
+		detail: "이용량이 많은 공간은 빠르게 줄어드는 품목을 중심으로 다음 구성을 조정하고 필요 시 방문 일정을 보강합니다.",
+		badge: "지속 케어",
+	},
+];
+
+export const careManagementSteps = [
+	{ id: "visit", title: "주 1~2회 방문", description: "기본 방문 주기를 정하고 소진 속도에 따라 일정을 조정합니다." },
+	{ id: "stock", title: "재고 수량 확인", description: "남은 품목과 수량을 확인해 필요한 제품을 파악합니다." },
+	{ id: "velocity", title: "소진 속도 반영", description: "빠르게 소진되는 품목을 중심으로 다음 구성을 조정합니다." },
+	{ id: "refill", title: "예산 내 보충", description: "정해진 월 예산의 남은 범위에서 부족한 품목을 추가합니다." },
+];
+
 export const stations: Station[] = [
 	{
 		id: "drink",
